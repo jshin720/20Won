@@ -20,13 +20,13 @@ class User < ApplicationRecord
 
   #aspire
 
-  has_many :review
+  has_many :review,
     foreign_key: :user_id,
     primary_key: :id,
-    class_name: : Review
+    class_name: :Review
 
   has_one :order,
-    foreign key: :user_id,
+    foreign_key: :user_id,
     class_name: :Order
   
   
