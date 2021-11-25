@@ -8,14 +8,14 @@ import { withRouter } from 'react-router';
 // import { updateProduct, deleteProduct } from '../../actions/product_actions';
 
 const mSTP = (state, ownProps) => {
-  console.log(state)
+  // console.log(state)
   return(
   {currentUser: state.entities.users[ownProps.match.params.userId]}
   // cart: state.entities.cart
   )
 }
 
-const mDTP = (dispatch, ownProps) => ({
+const mDTP = (dispatch) => ({
   logout: userId => dispatch(logout(userId)),
   fetchUser: userId => dispatch(fetchUser(userId)),
   // fetchOrder: OrderId => dispatch(fetchOrder(OrderId)),

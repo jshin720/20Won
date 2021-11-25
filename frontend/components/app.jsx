@@ -22,7 +22,7 @@ class App extends React.Component {
         {/* <Header />
         <Cart /> */}
         <Switch>
-          <Route path='/account/:userId' component={AccountShowContainer}/>
+          <Route path='/account' component={AccountShowContainer}/>
           <AuthRoute path="/login" component={LogInFormContainer}/>
           <AuthRoute path="/signup" component={SignUpFormContainer}/>
           <ProtectedRoute path="/homepage" component={Home}/> 

@@ -4,7 +4,7 @@ import {
 } from "../actions/session_actions";
 
 const _nullUser = {
-  id: null
+  id: null,
 }
 
 const sessionsReducer = (state = _nullUser, action) => {
