@@ -2,21 +2,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 import accountPage from './account_show';
 import { logout } from '../../actions/session_actions';
-import { fetchCart, updateCart, deleteCart } from '../../actions/cart_actions';
-import { updateProduct, deleteProduct } from '../../actions/product_actions';
+import { fetchUser } from '../../util/user_api_util';
+import { withRouter } from 'react-router';
+// import { fetchOrder, updateOrder, deleteOrder } from '../../actions/order_actions';
+// import { updateProduct, deleteProduct } from '../../actions/product_actions';
 
-const mSTP = (state) => ({
-  currentUser: state.entities.users[state.session.id],
-  cart: state.entities.cart
-})
+const mSTP = (state, ownProps) => {
+  console.log(state)
+  return(
+  {currentUser: state.entities.users[ownProps.match.params.userId]}
+  // cart: state.entities.cart
+  )
+}
 
-const mDTP = (dispatch) => ({
+const mDTP = (dispatch, ownProps) => ({
   logout: userId => dispatch(logout(userId)),
-  fetchCart: cartId => dispatch(fetchCart(cartId)),
-  updateCart: cart => dispatch(updateCart(cart)),
-  deleteCart: cartId => dispatch(deleteCart(cartId)),
-  updateProduct: prod => dispatch(updateProduct(prod)),
-  deletePoduct: prodId => dispatch(deleteProduct(prodId))
+  fetchUser: userId => dispatch(fetchUser(userId)),
+  // fetchOrder: OrderId => dispatch(fetchOrder(OrderId)),
+  // updateOrder: Order => dispatch(updateOrder(Order)),
+  // deleteOrder: OrderId => dispatch(deleteOrder(OrderId)),
+  // updateFurniture: furniture => dispatch(updateFurniture(furniture)),
+  // deleteFurniture: furnitureId => dispatch(deleteFurniture(furnitureId))
 })
 
-export default connect(mSTP, mDTP)(accountPage)
+export default withRouter(connect(mSTP, mDTP)(accountPage))

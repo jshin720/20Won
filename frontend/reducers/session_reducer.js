@@ -3,11 +3,11 @@ import {
   REMOVE_CURRENT_USER 
 } from "../actions/session_actions";
 
-const nullUser = {
+const _nullUser = {
   id: null
 }
 
-const sessionsReducer = (state = nullUser, action) => {
+const sessionsReducer = (state = _nullUser, action) => {
   Object.freeze(state)
   let newState = Object.assign({}, state)
   switch (action.type) {
@@ -15,7 +15,7 @@ const sessionsReducer = (state = nullUser, action) => {
       newState.id = action.currentUser.id
       return newState
     case REMOVE_CURRENT_USER:
-      return nullUser
+      return _nullUser
     default:
       return state;
   }

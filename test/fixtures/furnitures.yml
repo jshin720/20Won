@@ -2,13 +2,14 @@
 #
 # Table name: furnitures
 #
-#  id              :integer          not null, primary key
-#  furniture_name  :string           not null
-#  furniture_type  :string           not null
-#  furniture_color :string           not null
-#  description     :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id          :bigint           not null, primary key
+#  name        :string           not null
+#  type        :string           not null
+#  color       :string           not null
+#  description :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  price       :integer          not null
 #
 
 # This model initially had no columns defined. If you add columns to the

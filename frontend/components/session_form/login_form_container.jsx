@@ -6,10 +6,11 @@ import SessionForm from './session_form';
 
 const mSTP = (state) => ({
   user: {
-    username: '',
+    email: '',
     password: ''
   },
-  formType: 'Sign In'
+  formHeader: "Login",
+  formEvent: 'Sign In'
 })
 
 const mDTP = (dispatch) => ({

@@ -5,6 +5,8 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import LogInFormContainer from './session_form/login_form_container';
 import Home from "./homepage/home"
 import Splash from "./splash"
+import AccountShowContainer from "./account/account_show_container";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -20,10 +22,13 @@ class App extends React.Component {
         {/* <Header />
         <Cart /> */}
         <Switch>
+          <Route path='/account/:userId' component={AccountShowContainer}/>
           <AuthRoute path="/login" component={LogInFormContainer}/>
           <AuthRoute path="/signup" component={SignUpFormContainer}/>
           <ProtectedRoute path="/homepage" component={Home}/> 
-          <Route path='/' component={Splash}/>
+          <Route exact path='/' component={Splash}/>
+         
+          
         </Switch>
       </div>
     )
