@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
         email: '',
         password: ''
     },
+    errors: state.errors.session,
     formHeader: "Create An Account",
     formEvent: 'Sign Up'
   };

@@ -12,7 +12,7 @@
 #  price       :integer          not null
 #
 class Furniture < ApplicationRecord
-  validates :furniture_name, :size, :colorway, :type, presence: true
+  validates :name, :size, :color, :type, :description, :price, presence: true
 
   has_many :reviews,
       foreign_key: :product_id,

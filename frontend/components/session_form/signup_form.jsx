@@ -14,7 +14,9 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggle = false;
     this.toggleTerms = this.toggleTerms.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   }
+  
 
   handleSubmit(e) {
     e.preventDefault()
@@ -37,6 +39,25 @@ class SignupForm extends React.Component {
     // this.toggle = (this.toggle === false ? true : false) 
   }
   
+  renderErrors() {
+    const errors = this.props.errors;
+    return (
+      <div className="errors-container">
+        <ul className="errors">
+          {
+            errors.map((error) => {
+              return (
+                <li className="error" >
+                  {error}
+                </li>
+              )
+            })
+          }
+        </ul>
+      </div>
+    )
+  }
+
   render() {
     // console.log('thank you ')
     return (
@@ -55,6 +76,13 @@ class SignupForm extends React.Component {
           <br/>
           <label >Password</label>
           <input type="password" onChange={this.update('password')} value={this.state.password} />
+          <div>
+            {
+              this.props.errors.length > 0 ? (
+                this.renderErrors()
+              ) : ("")
+            }
+          </div>
           <label htmlFor="terms">By signing up for an account you accept our Terms and Privacy Policy.</label>
           <input onClick={this.toggleTerms} type="checkbox" id="terms" value=""/> 
           {/* toggle is false but the button appears on page -- have to figure out why it is rendering eventhough itis false */}

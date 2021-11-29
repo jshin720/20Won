@@ -1,4 +1,6 @@
 class Api::SessionsController < ApplicationController
+  before_action :require_login, only: [:destroy]
+
   def create
     @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
     if @user.nil?
@@ -13,7 +15,7 @@ class Api::SessionsController < ApplicationController
     @user = current_user
     if @user
       logout
-      render json: {}
+      render json: ["Successfully logged out"]
     else
       render json: ['No user signed in.'], status: 404
     end

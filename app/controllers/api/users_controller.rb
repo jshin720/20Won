@@ -6,7 +6,8 @@ class Api::UsersController < ApplicationController
       login(@user)
       render :show
     else
-      render json: ["input Username and/or Password"], status: 401
+      render json: @user.errors.full_messages, status: 422
+      # render json: ["input Username and/or Password"], status: 401
     end
   end
 

@@ -15,6 +15,7 @@ class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemo = this.handleDemo.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
   } 
 
   update(field) {
@@ -33,6 +34,27 @@ class SessionForm extends React.Component {
     this.props.action(this.demoUser)
   }
   
+  renderErrors() {
+    const errors = this.props.errors;
+    return (
+      <div className="errors-container">
+        <ul className="errors">
+          {
+            errors.map((error) => {
+              return (
+                <li className="error" >
+                 {error}
+                </li>
+              )
+            })
+          }
+        </ul>
+      </div>
+    )
+  }
+
+
+
   render() {
     return (
       <div className="login-form-container">
@@ -49,6 +71,15 @@ class SessionForm extends React.Component {
               <input type="password" value={this.state.password} onChange={this.update('password')}/>
             </label>
             <br/>
+
+          <div>
+            {
+              this.props.errors.length > 0 ? (
+                this.renderErrors()
+              ) : ("")
+            }
+          </div>
+          
           <input type="submit" value={this.props.formType} className="demo"/>
         </form>
         <input type="submit" onClick={this.handleDemo} className="demo" value="DEMO USER" />
