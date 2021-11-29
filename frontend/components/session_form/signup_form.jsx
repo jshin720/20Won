@@ -8,20 +8,31 @@ class SignupForm extends React.Component {
       first_name: '',
       last_name: '',
       email: '',
-      password: ''
+      password: '',
+      toggle: false
     },
     
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.toggle = false;
     this.toggleTerms = this.toggleTerms.bind(this);
     this.renderErrors = this.renderErrors.bind(this);
+    // this.toggleButton = this.toggleButton.bind(this);
+    this.toggle = false;
   }
   
 
   handleSubmit(e) {
     e.preventDefault()
+    if (this.state.toggle === false) {
+      return null;
+    }
+    let user = {
+      first_name: this.state.first_name,
+      last_name: this.state.last_name,
+      email: this.state.email,
+      password: this.state.password
+    }
     this.props.action(this.state);
-
+    // this.state
   }
 
   update(field) {
@@ -30,14 +41,26 @@ class SignupForm extends React.Component {
   }
 
   toggleTerms(e){
-    console.log('first', this.toggle)
+    console.log('first', this.state.toggle)
     if (e.target.checked) {
-      this.toggle = true;
+      this.setState({toggle: true})
     } else {
-      this.toggle = false;
-    } console.log('second', this.toggle)
-    // this.toggle = (this.toggle === false ? true : false) 
+      this.setState({ toggle: false })
+    } 
+    
   }
+
+  // toggleButton() {
+  //   if (this. === false ) {
+  //     return (
+        
+  //     ) 
+  //   } else {
+  //     return (
+  //     <button type="submit">{this.props.formEvent}</button>
+  //     )
+  //   }
+  // }
   
   renderErrors() {
     const errors = this.props.errors;
@@ -84,10 +107,14 @@ class SignupForm extends React.Component {
             }
           </div>
           <label htmlFor="terms">By signing up for an account you accept our Terms and Privacy Policy.</label>
-          <input onClick={this.toggleTerms} type="checkbox" id="terms" value=""/> 
+          <input onChange={this.toggleTerms} type="checkbox" id="terms" value=""/> 
           {/* toggle is false but the button appears on page -- have to figure out why it is rendering eventhough itis false */}
-          <button type={this.toggle ? "submit" : "hidden"}>{this.props.formEvent}</button>
-          
+          {/* <button type={this.toggle ? "submit" : "hidden"}>{this.props.formEvent}</button>
+           */}
+
+          < button type="submit"> {this.props.formEvent} </button>
+        
+
         </form>
         <div>
           <h3>Existing Customer</h3>

@@ -6,7 +6,7 @@ import LogInFormContainer from './session_form/login_form_container';
 import Home from "./homepage/home"
 import Splash from "./splash"
 import AccountShowContainer from "./account/account_show_container";
-
+import FurnitureShowContainer from "./products/furniture_show_container"
 
 class App extends React.Component {
   constructor(props) {
@@ -23,6 +23,7 @@ class App extends React.Component {
         <Cart /> */}
         <Switch>
           <ProtectedRoute path='/account' component={AccountShowContainer}/>
+          <Route path="/furnitures/:furnitureId" component={FurnitureShowContainer}/>
           <AuthRoute path="/login" component={LogInFormContainer}/>
           <AuthRoute path="/signup" component={SignUpFormContainer}/>
           <ProtectedRoute path="/homepage" component={Home}/> 
