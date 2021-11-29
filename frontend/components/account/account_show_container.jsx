@@ -2,22 +2,26 @@ import React from 'react';
 import { connect } from 'react-redux';
 import accountPage from './account_show';
 import { logout } from '../../actions/session_actions';
-import { fetchUser } from '../../util/user_api_util';
+import { fetchUser } from '../../actions/user_actions';
 import { withRouter } from 'react-router';
 // import { fetchOrder, updateOrder, deleteOrder } from '../../actions/order_actions';
 // import { updateProduct, deleteProduct } from '../../actions/product_actions';
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state) => {
   // console.log(state)
   return(
-  {currentUser: state.entities.users[ownProps.match.params.userId]}
+  {
+    currentUser: state.entities.users[state.session.id],
+    sessionId: state.session.id
+  }
+
   // cart: state.entities.cart
   )
 }
 
 const mDTP = (dispatch) => ({
   logout: userId => dispatch(logout(userId)),
-  fetchUser: userId => dispatch(fetchUser(userId)),
+  fetchUser: (userId) => dispatch(fetchUser(userId)),
   // fetchOrder: OrderId => dispatch(fetchOrder(OrderId)),
   // updateOrder: Order => dispatch(updateOrder(Order)),
   // deleteOrder: OrderId => dispatch(deleteOrder(OrderId)),

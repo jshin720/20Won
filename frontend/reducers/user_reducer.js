@@ -7,7 +7,7 @@ const userReducer = (state = {}, action) => {
   let newState = Object.assign({}, state)
   switch (action.type) {
     case RECEIVE_USER:
-      newState[action.currentUser.id] = action.currentUser
+      newState[action.user.id] = action.user
       return newState
     default:
       return state
