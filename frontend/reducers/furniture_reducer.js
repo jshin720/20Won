@@ -6,13 +6,15 @@ import {
 
 const FurnitureReducer = (state = {}, action) => {
   Object.freeze(state);
+  const nextState = Object.assign({}, state);
 
   switch (action.type) {
-    case RECEIVE_FURNITURE:
-      const nextState = Object.assign({}, oldState);
-      return action.furnitures
     case RECEIVE_FURNITURES:
-      return Object.assign({}, state, { [action.furniture.id]: action.furniture })
+    
+      return action.furnitures
+    case RECEIVE_FURNITURE:
+      nextState[action.furniture.id] = action.furniture
+      return nextState;
     default:
       return state;
   }

@@ -1,6 +1,5 @@
 import * as FurnitureAPIUtil from "../util/furniture_api_util";
 
-
 export const RECEIVE_FURNITURE = "RECEIVE_FURNITURE";
 export const RECEIVE_FURNITURES = "RECEIVE_FURNITURES";
 
@@ -16,10 +15,12 @@ export const receiveFurniture = (furniture) => ({
 
 export const fetchFurnitures = () => (dispatch) => (
   FurnitureAPIUtil.fetchFurnitures()
-    .then(res => dispatch(receiveFurnitures(res)))
+    .then(res => {
+      dispatch(receiveFurnitures(res))
+    })
 )
 
-export const fetchfurniture = furnitureId => (dispatch) => (
+export const fetchFurniture = furnitureId => (dispatch) => (
   FurnitureAPIUtil.fetchFurniture(furnitureId)
     .then(res => dispatch(receiveFurniture(res)))
 )

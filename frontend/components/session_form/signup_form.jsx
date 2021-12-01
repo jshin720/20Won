@@ -19,6 +19,9 @@ class SignupForm extends React.Component {
     this.toggle = false;
   }
   
+  componentWillUnmount() {
+    this.props.removeSessionErrors();
+  }
 
   handleSubmit(e) {
     e.preventDefault()
@@ -41,7 +44,7 @@ class SignupForm extends React.Component {
   }
 
   toggleTerms(e){
-    console.log('first', this.state.toggle)
+    
     if (e.target.checked) {
       this.setState({toggle: true})
     } else {
@@ -85,7 +88,7 @@ class SignupForm extends React.Component {
     // console.log('thank you ')
     return (
       <div className='signup-form-container'>
-        <h2>Welcome. Please create an account.</h2>
+        <h2>Welcome, Please create an account.</h2>
        
         <form className="account-form" onSubmit={this.handleSubmit}>
           <label >First Name</label>

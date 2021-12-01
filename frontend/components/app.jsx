@@ -6,7 +6,10 @@ import LogInFormContainer from './session_form/login_form_container';
 import Home from "./homepage/home"
 import Splash from "./splash"
 import AccountShowContainer from "./account/account_show_container";
-import FurnitureShowContainer from "./products/furniture_show_container"
+import FurnitureShowContainer from "./furnitures/furniture_show_container";
+import FurnitureIndexContainer from "./furnitures/furniture_index_container";
+import NavBar from './navbar';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,12 +21,17 @@ class App extends React.Component {
 
   render() {
     return (
+      
       <div>
+        {/* <Router>
+        </Router> */}
+        <NavBar> </NavBar>
         {/* <Header />
         <Cart /> */}
         <Switch>
-          <ProtectedRoute path='/account' component={AccountShowContainer}/>
           <Route path="/furnitures/:furnitureId" component={FurnitureShowContainer}/>
+          <Route path="/furnitures" component={FurnitureIndexContainer} />
+          <ProtectedRoute path='/account' component={AccountShowContainer}/>
           <AuthRoute path="/login" component={LogInFormContainer}/>
           <AuthRoute path="/signup" component={SignUpFormContainer}/>
           <ProtectedRoute path="/homepage" component={Home}/> 

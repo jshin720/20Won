@@ -15,7 +15,7 @@ export const updateOrder = (order) => {
   return $.ajax({
     method: "patch",
     url: `/api/orders/${order.id}`,
-    data: {order: order }
+    data: {order }
   })
 }
 

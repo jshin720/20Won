@@ -1,6 +1,6 @@
 class Api::FurnituresController < ApplicationController
   def index
-      @products = Furniture.all
+      @furnitures = Furniture.all
       render :index
   end
 
@@ -15,7 +15,7 @@ class Api::FurnituresController < ApplicationController
 
   private
   def furniture_params
-      params.require(:furniture).permit(:id, :name, :color, :category, :price)
-  end
+    params.require(:furniture).permit(:id, :name, :color, :category, :type, :price)
+end
 
 end

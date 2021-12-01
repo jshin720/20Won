@@ -18,6 +18,10 @@ class SessionForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   } 
 
+  componentWillUnmount() {
+    this.props.removeSessionErrors();
+  }
+  
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -53,13 +57,11 @@ class SessionForm extends React.Component {
     )
   }
 
-
-
   render() {
     return (
       <div className="login-form-container">
         <form className="account-form" onSubmit={this.handleSubmit}>
-          <h2>'Hi, Please sign in to your account.'</h2>
+          <h2>Hi, Please sign in to your account.</h2>
           <br/>
            {this.props.formType}
             <br/>
