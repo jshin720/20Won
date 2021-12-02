@@ -87,7 +87,7 @@ class SessionForm extends React.Component {
             <input type="submit" onClick={this.handleDemo} className="demo" value="Guest" />
           </div>
           <div className="login-footer-box">
-            <h2 class="footer-title">New Customer</h2>
+            <h2 className="footer-title">New Customer</h2>
             <Link to="/signup">Create New Customer</Link>
           </div>
         </form>

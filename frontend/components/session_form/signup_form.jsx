@@ -88,20 +88,20 @@ class SignupForm extends React.Component {
     // console.log('thank you ')
     return (
       <div className='signup-form-container'>
-        <h2>Welcome, Please create an account.</h2>
+        <h1 className="signup-title">Welcome, Please create an account.</h1>
        
-        <form className="account-form" onSubmit={this.handleSubmit}>
-          <label >First Name</label>
-          <input type="text" onChange={this.update('first_name')} value={this.state.first_name} />
+        <form className="signup-form" onSubmit={this.handleSubmit}>
+          {/* <label >First Name</label> */}
+          <input type="text" placeholder="First Name" className="signup-input" onChange={this.update('first_name')} value={this.state.first_name} />
           <br/>
-          <label >Last Name</label>
-          <input type="text" onChange={this.update('last_name')} value={this.state.last_name} />
+          {/* <label >Last Name</label> */}
+          <input type="text" placeholder="Last Name" className="signup-input" onChange={this.update('last_name')} value={this.state.last_name} />
           <br/>
-          <label >Email</label>
-          <input type="email" onChange={this.update('email')} value={this.state.email} />
+          {/* <label >Email</label> */}
+          <input type="email" placeholder="Email" className="signup-input" onChange={this.update('email')} value={this.state.email} />
           <br/>
-          <label >Password</label>
-          <input type="password" onChange={this.update('password')} value={this.state.password} />
+          {/* <label >Password</label> */}
+          <input type="password" placeholder="Password" className="signup-input" onChange={this.update('password')} value={this.state.password} />
           <div>
             {
               this.props.errors.length > 0 ? (
@@ -109,20 +109,21 @@ class SignupForm extends React.Component {
               ) : ("")
             }
           </div>
-          <label htmlFor="terms">By signing up for an account you accept our Terms and Privacy Policy.</label>
-          <input onChange={this.toggleTerms} type="checkbox" id="terms" value=""/> 
-          {/* toggle is false but the button appears on page -- have to figure out why it is rendering eventhough itis false */}
-          {/* <button type={this.toggle ? "submit" : "hidden"}>{this.props.formEvent}</button>
-           */}
-
-          < button type="submit"> {this.props.formEvent} </button>
-        
+          <div className="signup-button-box">
+            <input className="terms-conditions" onChange={this.toggleTerms} type="checkbox" id="terms" value=""/> 
+            <label htmlFor="terms">By signing up for an account you accept our Terms and Privacy Policy.</label>
+            {/* toggle is false but the button appears on page -- have to figure out why it is rendering eventhough itis false */}
+            {/* <button type={this.toggle ? "submit" : "hidden"}>{this.props.formEvent}</button>
+             */}
+            {/* < button type="submit"> {this.props.formEvent} </button> */}
+            <input type="submit" value={this.props.formEvent} className="signup-button" />
+          </div>
+          <div className="signup-footer-box">
+            <h2 className="signup-footer-title">Existing Customer</h2>
+            <Link to="/login">Sign In</Link>
+          </div>
 
         </form>
-        <div>
-          <h3>Existing Customer</h3>
-          <Link to="/login">Sign In</Link>
-        </div>
       </div>
     )
   }

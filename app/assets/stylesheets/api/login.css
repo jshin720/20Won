@@ -12,32 +12,32 @@
 }
 
 .account-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: right;
-    background-color: #f9f9f2;
-    max-width: 400px;
-    width: 100%;
-    align-items: right;
-    
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  background-color: #f9f9f2;
+  max-width: 400px;
+  width: 100%;
+  align-items: right;
   
-  .account-form >*{
-    /* align-items: right; */
-    justify-content: right;
-    display: flex;
-    margin-right: 30px;
-    margin-left: 30px;
+}
+  
+.account-form >*{
+  /* align-items: right; */
+  justify-content: right;
+  display: flex;
+  margin-right: 30px;
+  margin-left: 30px;
 }
 
 .account-form .form-input {
-    width: 90%;
-    border: 1px solid rgba(0,0,0,.1);
-    border-radius: 2px;
-    padding: 19px 20px;
-    margin-bottom: 19px;
-    margin-top: 8px;
-    font-weight: 400;
+  width: 90%;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 2px;
+  padding: 19px 20px;
+  margin-bottom: 19px;
+  margin-top: 8px;
+  font-weight: 400;
     
 }
 
