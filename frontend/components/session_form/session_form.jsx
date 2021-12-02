@@ -59,9 +59,10 @@ class SessionForm extends React.Component {
 
   render() {
     return (
+      <div>
       <div className="login-form-container">
+        <h2 className="login-title">Hi, Please sign in to your account.</h2>
         <form className="account-form" onSubmit={this.handleSubmit}>
-          <h2>Hi, Please sign in to your account.</h2>
           <br/>
            {this.props.formType}
             <br/>
@@ -82,10 +83,11 @@ class SessionForm extends React.Component {
             }
           </div>
           
-          <input type="submit" value={this.props.formType} className="demo"/>
+        <input type="submit" value={this.props.formType} className="signin"/>
         </form>
+      </div>
+        <div className="bottom">
         <input type="submit" onClick={this.handleDemo} className="demo" value="DEMO USER" />
-        <div>
           <h3>New Customer</h3>
           <Link to="/signup">Create New Customer</Link>
         </div>
