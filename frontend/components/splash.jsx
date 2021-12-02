@@ -7,10 +7,8 @@ import { BrowserRouter as Router} from 'react-router-dom';
 class Splash extends React.Component {
   render() {
     return (
-      <div> <h1>TwentyWon</h1> 
-        <Link to="/signup">Sign Up</Link>
-        <br />
-        <Link to="/login">Log In</Link>
+      <div className="top-container"> 
+        <p className="mid-title">The loveliest season of all.</p>
       </div>
     )
   }
