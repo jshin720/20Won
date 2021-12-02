@@ -1,5 +1,5 @@
 .login-form-container {
-    background-color: beige;
+    background-color: #f9f9f2;
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -15,21 +15,23 @@
     display: flex;
     flex-direction: column;
     justify-content: right;
-    background-color: #f1ebe7;
-    max-width: 500px;
+    background-color: #f9f9f2;
+    max-width: 400px;
+    width: 100%;
     align-items: right;
+    
   }
   
   .account-form >*{
-    align-items: right;
+    /* align-items: right; */
     justify-content: right;
     display: flex;
     margin-right: 30px;
+    margin-left: 30px;
 }
 
-.account-form input {
-    width: 50;
-    max-width: 50;
+.account-form .form-input {
+    width: 90%;
     border: 1px solid rgba(0,0,0,.1);
     border-radius: 2px;
     padding: 19px 20px;
@@ -54,7 +56,35 @@
     transition: .3s ease-in-out;
 }
 
+.login-button-box{
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-button-box >* {
+  width: 150px;
+  padding: 15px;
+  background-color: #f9f9f2;
+  border-radius: 20px;
+  border: 1px solid grey;
+  color: rgb(56, 56, 56);
+  font-family: inherit;
+}
+
 input {
-    align-self: center;
-    /* width:; */
+  align-self: center; 
+}
+
+.login-footer-box{
+  align-items: left;
+  height: 100px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-footer-box >* {
+  margin-top: 20px;
+  text-decoration: none;
+  color: black;
 }

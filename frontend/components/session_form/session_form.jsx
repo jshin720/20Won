@@ -59,19 +59,19 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div>
+    <div>
       <div className="login-form-container">
         <h2 className="login-title">Hi, Please sign in to your account.</h2>
         <form className="account-form" onSubmit={this.handleSubmit}>
           <br/>
            {this.props.formType}
             <br/>
-            <label id="email">Email: 
-              <input type="text" value={this.state.email} onChange={this.update('email')}/>
+            <label id="email"> 
+              <input className="form-input" type="text" placeholder="Email" value={this.state.email} onChange={this.update('email')}/>
             </label>
             <br/>
-            <label id="password">Password:
-              <input type="password" value={this.state.password} onChange={this.update('password')}/>
+            <label id="password">
+              <input type="password" className="form-input" placeholder="Password" value={this.state.password} onChange={this.update('password')}/>
             </label>
             <br/>
 
@@ -82,16 +82,17 @@ class SessionForm extends React.Component {
               ) : ("")
             }
           </div>
-          
-        <input type="submit" value={this.props.formType} className="signin"/>
+          <div className="login-button-box">
+            <input type="submit" value={this.props.formType} className="signin"/>
+            <input type="submit" onClick={this.handleDemo} className="demo" value="Guest" />
+          </div>
+          <div className="login-footer-box">
+            <h2 class="footer-title">New Customer</h2>
+            <Link to="/signup">Create New Customer</Link>
+          </div>
         </form>
-      </div>
-        <div className="bottom">
-        <input type="submit" onClick={this.handleDemo} className="demo" value="DEMO USER" />
-          <h3>New Customer</h3>
-          <Link to="/signup">Create New Customer</Link>
-        </div>
-      </div>
+      </div>  
+    </div>
     );
   }
 }
