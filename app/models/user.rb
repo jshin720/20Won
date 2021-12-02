@@ -27,7 +27,7 @@ class User < ApplicationRecord
     primary_key: :id,
     class_name: :Review
 
-  has_one :order,
+  has_many :order,
     foreign_key: :user_id,
     class_name: :Order
   

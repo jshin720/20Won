@@ -4,7 +4,7 @@
 #
 #  id          :bigint           not null, primary key
 #  name        :string           not null
-#  type        :string           not null
+#  category    :string           not null
 #  color       :string           not null
 #  description :string           not null
 #  created_at  :datetime         not null

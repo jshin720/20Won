@@ -9,7 +9,7 @@ import AccountShowContainer from "./account/account_show_container";
 import FurnitureShowContainer from "./furnitures/furniture_show_container";
 import FurnitureIndexContainer from "./furnitures/furniture_index_container";
 import NavBar from './navbar';
-import { BrowserRouter as Router } from 'react-router-dom';
+import OrderShowContainer from './order/order_show_container';
 
 class App extends React.Component {
   constructor(props) {
@@ -34,6 +34,7 @@ class App extends React.Component {
           <ProtectedRoute path='/account' component={AccountShowContainer}/>
           <AuthRoute path="/login" component={LogInFormContainer}/>
           <AuthRoute path="/signup" component={SignUpFormContainer}/>
+          <AuthRoute path="/cart" component={OrderShowContainer}/>
           <ProtectedRoute path="/homepage" component={Home}/> 
           <Route exact path='/' component={Splash}/>
          

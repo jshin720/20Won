@@ -7,3 +7,30 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 demoUser = User.create(email: 'six@six.com', first_name: 'sixy', last_name: 'penny', password: "sixpenny")
+
+Furniture.create!(
+  name: 'neva sectional sofa',
+  category: '4 piece',
+  color: 'blue',
+  price: 4099,
+  description: 'nice love sectional'
+
+)
+
+Furniture.create!(
+  name: 'devyn sectional sofa',
+  category: '5 piece',
+  color: 'grey',
+  price: 5299,
+  description: 'nice love sectional'
+
+)
+
+Furniture.create!(
+  name: 'aria sectional sofa',
+  category: '3 piece',
+  color: 'cream',
+  price: 4749,
+  description: 'nice weird sectional'
+
+)

@@ -10,7 +10,7 @@ const FurnitureIndexItem = (props) => {
         <Link to={`/furnitures/${furniture.id}`} className="furniture-images">
           {furniture.name}
           {furniture.price}
-          {furniture.type}
+          {furniture.category}
           {furniture.color}
         </Link>
       </li>

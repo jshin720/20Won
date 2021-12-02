@@ -8,19 +8,19 @@ const mSTP = (state) => {
   const furnitures = Object.values(state.entities.furnitures)
 
   let sofa = furnitures.filter((furniture) => (
-    furniture.type === "Sofa"
+    furniture.category === "Sofa"
   ))
 
   let sectional = furnitures.filter((furniture) => (
-    furniture.type === "Sectional"
+    furniture.category === "Sectional"
   ))
 
   let chair = furnitures.filter((furniture) => (
-    furniture.type === "Chair"
+    furniture.category === "Chair"
   ))
 
   let table = furnitures.filter((furniture) => (
-    furniture.type === "Table"
+    furniture.category === "Table"
   ))
 
   return ({

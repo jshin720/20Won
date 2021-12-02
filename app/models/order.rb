@@ -15,8 +15,7 @@ class Order < ApplicationRecord
     class_name: :User,
     foreign_key: :user_id
 
-  has_many :furnitures,
+  belongs_to :furniture,
     foreign_key: :furniture_id,
-    class_name: :Furniture,
-    dependent: :destroy
+    class_name: :Furniture
 end

@@ -79,14 +79,6 @@ class accountPage extends React.Component {
         </div>
 
         <button onClick={() => this.props.logout(this.props.currentUser)}><Link to="/">Logout</Link></button>
-        {/* <div className='account-details'>
-          <ul>
-            <li>You haven't placed any orders yet.</li>
-          </ul>
-          <ul className='user-details'>
-            <li>{this.props.currentUser.email}</li>
-          </ul> */}
-        {/* </div> */}
       </div>
     )
   }

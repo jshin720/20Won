@@ -1,12 +1,12 @@
 class Api::OrdersController < ApplicationController
-  before_action :require_login, only: [:show]
+  # before_action :require_login, only: [:show]
 
   def create
     @order = Order.new(order_params)
     if @order.save
       render :show
     else
-      render json: @order.errors.full_messages, status: 401
+      render json: @order.errors.full_messages
     end
   end
 
@@ -36,7 +36,7 @@ class Api::OrdersController < ApplicationController
 
   private
   def order_params 
-    params.require(:order).permit(:user_id, :product_id, :quantity)
+    params.require(:order).permit(:user_id, :furniture_id, :quantity)
   end
 
 end

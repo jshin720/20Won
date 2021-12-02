@@ -1,2 +1,2 @@
-json.extract! furnitures, :id, :name, :description, :type, :color, :price
+json.extract! furniture, :id, :name, :description, :category, :color, :price
 

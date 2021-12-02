@@ -1,13 +1,9 @@
 
-export const createOrder = (userId) => {
+export const createOrder = (order) => {
   return $.ajax({
     method: "post",
     url: '/api/orders',
-    data: {
-      order: {
-        user_id: userId
-      }
-    }
+    data:{ order }
   })
 }
 
@@ -15,7 +11,7 @@ export const updateOrder = (order) => {
   return $.ajax({
     method: "patch",
     url: `/api/orders/${order.id}`,
-    data: {order }
+    data: {order}
   })
 }
 
@@ -30,5 +26,12 @@ export const deleteOrder = (orderId) => {
   return $.ajax({
     method: "delete",
     url: `/api/orders/${orderId}`
+  })
+}
+
+export const fetchOrders = () => {
+  return $.ajax({
+    method: "get",
+    url: "/api/orders/"
   })
 }

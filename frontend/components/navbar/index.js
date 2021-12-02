@@ -22,15 +22,15 @@ const NavBar = () => {
           <NavLink to="/furnitures" >
             Furnitures
           </NavLink>
-          <NavLink to="/" >
+          {/* <NavLink to="/" >
             Table
-          </NavLink>
-          <NavLink to="/login" >
-            Log in
+          </NavLink> */}
+          <NavLink to="/cart" >
+            Shopping Cart
           </NavLink>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to="/login">Accounts</NavBtnLink>
+          <NavBtnLink to="/login">Accounts</NavBtnLink>  {/*this is be an image instead of accounts*/}
         </NavBtn>
 
       </Nav>

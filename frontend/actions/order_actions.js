@@ -1,7 +1,14 @@
 import * as OrderApiUtil from '../util/order_api_util'
 
+export const RECEIVE_ALL_ORDERS = "RECEIVE_ALL_ORDERS"
 export const RECEIVE_ORDER = "RECEIVE_ORDER"
 export const REMOVE_ORDER = "REMOVE_ORDER"
+
+
+
+export const receiveAllOrders = () => ({
+  type: RECEIVE_ALL_ORDERS
+})
 
 export const receiveOrder= (order) => ({
   type: RECEIVE_ORDER,
@@ -13,9 +20,14 @@ export const removeOrder = (orderId) => ({
   orderId
 })
 
+export const fetchOrders = () => (dispatch) => (
+  OrderApiUtil.fetchOrders()
+    .then(res => dispatch(receiveAllOrders(res)))
+)
+
 export const createOrder = (order) => (dispatch) => (
   OrderApiUtil.createOrder(order)
-    .then(res => dispatch(receiveCart(res)))
+    .then(res => dispatch(receiveOrder(res)))
 )
 
 export const fetchOrder = (orderId) => (dispatch) => (
@@ -30,5 +42,5 @@ export const updateOrder = (order) => (dispatch) => (
 
 export const deleteOrder = (orderId) => (dispatch) => (
   OrderApiUtil.deleteOrder(orderId)
-    .then(() => dispatch(deleteOrder(orderId)))
+    .then(() => dispatch(removeOrder(orderId)))
 )

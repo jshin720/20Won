@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
-import userReducer from "./user_reducer";
-import furnitureReducer from "./furniture_reducer";
+import UserReducer from "./user_reducer";
+import FurnitureReducer from "./furniture_reducer";
+import OrderReducer from "./orders_reducer";
 
 
 export default combineReducers({
-  users: userReducer,
-  furnitures: furnitureReducer
+  users: UserReducer,
+  furnitures: FurnitureReducer,
+  orders: OrderReducer
 });
