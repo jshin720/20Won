@@ -46,39 +46,40 @@ class accountPage extends React.Component {
    }
     return (
       <div className='main-user-page'>
-        <h2 id="username">Hi {this.props.currentUser.first_name}</h2>
+        <h1 className="account-username">Hi {this.props.currentUser.first_name}</h1>
 
-        <button onClick={() => this.toggleProfile()}>MY PROFILE</button>
-        <div style={this.state.profile ? {display:"block"} : {display:"none"}}>
-          <h2 id="profile">My Profile</h2>
-          <ul>
-            <li>
-              <h3>NAME</h3>
-              {this.props.currentUser.first_name} {this.props.currentUser.last_name}
-            </li>
-            <li>
-              <h3>EMAIL ADDRESS</h3>
-              {this.props.currentUser.email}
-            </li>
-          </ul>
+        <div className="links-container">
+          <button onClick={() => this.toggleProfile()}>MY PROFILE</button>
+          <div style={this.state.profile ? {display:"block"} : {display:"none"}}>
+            <h2 id="profile">My Profile</h2>
+            <ul>
+              <li>
+                <h3>NAME</h3>
+                {this.props.currentUser.first_name} {this.props.currentUser.last_name}
+              </li>
+              <li>
+                <h3>EMAIL ADDRESS</h3>
+                {this.props.currentUser.email}
+              </li>
+            </ul>
+          </div>
+
+          <button onClick={() => this.toggleHistory()}>ORDER HISTORY</button>
+          <div style={this.state.history ? { display: "block" } : { display: "none" }}>
+            <h2 id="history">Order History</h2>
+              <li>
+                <h3>PRODUCTS</h3>
+                <ul>Currently, you have no orders made.</ul>
+              </li>
+          </div>
+
+          <button onClick={() => this.toggleAddress()}>ADDRESS BOOK</button>
+          <div style={this.state.address ? { display: "block" } : { display: "none" }}>
+            <h2 id="Address">Address Book</h2>
+            <h3>ADD A NEW ADDRESS</h3>
+          </div>
         </div>
-
-        <button onClick={() => this.toggleHistory()}>ORDER HISTORY</button>
-        <div style={this.state.history ? { display: "block" } : { display: "none" }}>
-          <h2 id="history">Order History</h2>
-            <li>
-              <h3>PRODUCTS</h3>
-              <ul>Currently, you have no orders made.</ul>
-            </li>
-        </div>
-
-        <button onClick={() => this.toggleAddress()}>ADDRESS BOOK</button>
-        <div style={this.state.address ? { display: "block" } : { display: "none" }}>
-          <h2 id="Address">Address Book</h2>
-          <h3>ADD A NEW ADDRESS</h3>
-        </div>
-
-        <button onClick={() => this.props.logout(this.props.currentUser)}><Link to="/">Logout</Link></button>
+          <button onClick={() => this.props.logout(this.props.currentUser)}><Link to="/">Logout</Link></button>
       </div>
     )
   }

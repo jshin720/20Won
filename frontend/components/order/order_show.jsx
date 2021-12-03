@@ -6,28 +6,47 @@ class OrderShow extends React.Component {
     super(props)
   }
 
-  render() {
-    
-    return (
+  orderItems() {
+  let furniture = this.props.furnitures.furniture_id
 
-      <div className="shopping-cart">
-        <h1>Cart</h1>
-        <div className="item-1">
-          <p className="order-name">Name:  {furniture.name} </p>
-          <br />
-          <p className="furniture-color">Color:  {furniture.color} </p>
-          <p className="furniture-category">{furniture.category} </p>
-          <div id="price-container">
-            <p className="furniture-price"> ${furniture.price}.00 </p>
-          </div>
-          <p className="furniture-description"> {furniture.description} </p>
-        </div>
-        <button type="submit" onClick={this.addToOrders}>Add To Cart</button>
+  return (
+    <div className="single-order-container">
+      
+      <div className="item-1">
+        <p className="furniture-name">Name:  {furniture.name} </p>
+        <br />
 
+        <p className="furniture-color">Color:  {furniture.color} </p>
+        <br />
+
+        <p className="furniture-category">{furniture.category} </p>
+        <br />
+
+        <p className="furniture-price"> ${furniture.price}.00 </p>
+        <br />
       </div>
+    </div>
     )
   }
 
+
+
+  render() {
+    
+
+    if (Object.values(this.props.orders).length < 1 ) {
+      return (
+       <h1>"Orders are Empty"</h1> 
+      )
+    } else {
+      return (
+        <div>
+          <h1>Orders</h1>
+
+        </div>
+      )
+    }
+  }
 }
 
 

@@ -19,7 +19,7 @@ class FurnitureShow extends React.Component {
     e.preventDefault();
     
     if (this.props.currentUser) {
-      // if (this.props.currentUser.order[furniture.id] === undefined) {
+      // if (this.props.currentUser.order[furnitureid] === undefined) {
       let order = {furniture_id: this.props.furniture.id,  quantity: 1, user_id: this.props.currentUser.id}
       this.props.createOrder(order)
       // } else {
@@ -34,10 +34,11 @@ class FurnitureShow extends React.Component {
     if (!furniture) {
       return null;
     }
-    console.log("prop", this.props)
+    // console.log("prop", this.props)
     return (
 
       <div className="furniture-show-container">
+        
         <div className="furniture-show-info">
           <p className="furniture-name">Name:  {furniture.name} </p>
           <br />

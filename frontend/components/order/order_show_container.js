@@ -5,7 +5,8 @@ import OrderShow from './order_show'
 
 const mSTP = (state) => ({
   currentUser: state.entities.users[state.session.id],
-  orders: state.entities.order,
+  orders: state.entities.orders,
+  furnitures: state.entities.orders.furnitures
   
 })
 

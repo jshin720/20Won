@@ -2,7 +2,22 @@ class Api::OrdersController < ApplicationController
   # before_action :require_login, only: [:show]
 
   def create
-    @order = Order.new(order_params)
+    @user = User.find(current_user.id)
+    orders = @user.orders
+    if !orders.empty? 
+      furniture_id = order_params[:furniture_id].to_i
+      order = orders.select{ |order| order.furniture_id == furniture_id}
+      if !order.empty? 
+        @order = order[0]
+        # debugger
+        @order.quantity += order_params[:quantity].to_i
+      else
+        @order = Order.new(order_params)
+      end
+    else 
+      @order = Order.new(order_params)
+    end
+    
     if @order.save
       render :show
     else
@@ -22,7 +37,9 @@ class Api::OrdersController < ApplicationController
   def update
     @order= Order.find_by(id: params[:id])
     if @order 
-      @order.update(order_params)
+      @order.quantity += params[:quantity]
+      @order.save
+      # @order.update(order_params)
       render :show
     else
       render json: @order.errors.full_messages, status: 404

@@ -10,9 +10,15 @@ const OrderReducer = (state = {}, action) => {
     case REMOVE_CURRENT_USER:
       return {}
     case RECEIVE_ORDER:
-      return nextState[action.orderId] = action.order
+      
+      // if (nextState[action.order.furniture_id]) {
+      //   nextState[action.order.furniture_id]['quantity'] += 1
+      // } else {
+        return nextState[action.order.furniture_id] = action.order
+      // }
+      // return nextState[action.order.id];
     case REMOVE_ORDER:
-      delete nextState[action.orderId]
+      delete nextState[action.order.furniture_id]
       return {};
     default:
       return state

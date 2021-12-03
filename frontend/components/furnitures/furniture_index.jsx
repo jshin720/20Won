@@ -18,10 +18,10 @@ class FurnitureIndex extends React.Component {
     return (
 
       <div className="index-main-container">
-        <div className="prod-index-container" >
+        <div className="furniture-index-container" >
           <h2 className="index-container-logo">Feels like Home</h2>
           <p className="type-description">Luxurious, feather-filled sofas in all-natural, life-friendly fabrics</p>
-          <ul className="products-index-container-ul">
+          <ul className="furniture-ul-container-ul">
             {
               this.props.furnitures.map(furniture => (
 
@@ -33,13 +33,9 @@ class FurnitureIndex extends React.Component {
               )}
           </ul>
         </div>
-       
-
       </div>
     )
   }
 }
-
-
 
 export default withRouter(FurnitureIndex);
