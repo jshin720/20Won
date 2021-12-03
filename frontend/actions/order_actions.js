@@ -6,8 +6,9 @@ export const REMOVE_ORDER = "REMOVE_ORDER"
 
 
 
-export const receiveAllOrders = () => ({
-  type: RECEIVE_ALL_ORDERS
+export const receiveAllOrders = (orders) => ({
+  type: RECEIVE_ALL_ORDERS,
+  orders
 })
 
 export const receiveOrder= (order) => ({
@@ -20,8 +21,8 @@ export const removeOrder = (orderId) => ({
   orderId
 })
 
-export const fetchOrders = () => (dispatch) => (
-  OrderApiUtil.fetchOrders()
+export const fetchOrders = (userId) => (dispatch) => (
+  OrderApiUtil.fetchOrders(userId)
     .then(res => dispatch(receiveAllOrders(res)))
 )
 

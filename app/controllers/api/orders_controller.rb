@@ -1,5 +1,10 @@
 class Api::OrdersController < ApplicationController
   # before_action :require_login, only: [:show]
+  def index
+    @orders = User.find(current_user.id).orders 
+    render :index
+
+  end
 
   def create
     @user = User.find(current_user.id)

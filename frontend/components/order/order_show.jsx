@@ -13,8 +13,11 @@ class OrderShow extends React.Component {
 
   orderItems() {
     // let furniture = this.props.furnitures.furniture_id
-  
+    if (!this.props.orders) {
+      return null;
+    }
     let pennies = Object.values(this.props.orders)
+    console.log(pennies)
     return (pennies.map((singleFurniture, i) => (
       <div key={i} className="tile" >
         <div className="order-item" >
@@ -30,7 +33,7 @@ class OrderShow extends React.Component {
           </div>
         </div>
         <div className="order-furniture-buttons" >
-          <button onClick={() => this.props.deleteOrder(singleFurniture.furniture_id)}>Remove</button>
+          <button onClick={() => this.props.deleteOrder(singleFurniture.id)}>Remove</button>
         </div>
       </div>
       ))

@@ -20094,3 +20094,1005 @@ Completed 404 Not Found in 11ms (ActiveRecord: 9.1ms)
 ActiveRecord::RecordNotFound - Couldn't find Order with 'id'=3:
   app/controllers/api/orders_controller.rb:50:in `destroy'
 
+Started GET "/" for ::1 at 2021-12-03 01:38:09 -0500
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/jeffshin/.rbenv/versions/2.7.2/lib/ruby/gems/2.7.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (43.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (35.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (189.1ms)
+Completed 200 OK in 2888ms (Views: 2776.7ms | ActiveRecord: 110.2ms)
+
+
+Started GET "/api/users/1" for ::1 at 2021-12-03 01:38:32 -0500
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:15
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  [1m[36mOrder Load (9.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/show.json.jbuilder:2
+  Rendered api/users/show.json.jbuilder (16.5ms)
+Completed 200 OK in 52ms (Views: 12.6ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 01:38:44 -0500
+
+AbstractController::ActionNotFound - The action 'index' could not be found for Api::OrdersController:
+
+Started GET "/api/furnitures" for ::1 at 2021-12-03 01:38:46 -0500
+Processing by Api::FurnituresController#index as JSON
+  Rendering api/furnitures/index.json.jbuilder
+  [1m[36mFurniture Load (3.7ms)[0m  [1m[34mSELECT "furnitures".* FROM "furnitures"[0m
+  ↳ app/views/api/furnitures/index.json.jbuilder:1
+  Rendered api/furnitures/_furniture.json.jbuilder (0.7ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/index.json.jbuilder (49.5ms)
+Completed 200 OK in 66ms (Views: 22.3ms | ActiveRecord: 32.9ms)
+
+
+Started GET "/api/furnitures/3" for ::1 at 2021-12-03 01:38:47 -0500
+Processing by Api::FurnituresController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mFurniture Load (0.4ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/furnitures_controller.rb:8
+  Rendering api/furnitures/show.json.jbuilder
+  Rendered api/furnitures/_furniture.json.jbuilder (0.4ms)
+  Rendered api/furnitures/show.json.jbuilder (2.0ms)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/orders" for ::1 at 2021-12-03 01:38:48 -0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"furniture_id"=>"3", "quantity"=>"1", "user_id"=>"1"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (8.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:5
+  [1m[36mOrder Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:7
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:9
+  [1m[35m (3.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:21
+  [1m[36mFurniture Load (4.0ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:21
+  [1m[36mOrder Update (66.6ms)[0m  [1m[33mUPDATE "orders" SET "quantity" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["quantity", 23], ["updated_at", "2021-12-03 06:38:48.247594"], ["id", 32]]
+  ↳ app/controllers/api/orders_controller.rb:21
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:21
+  Rendering api/orders/show.json.jbuilder
+  Rendered api/orders/show.json.jbuilder (0.8ms)
+Completed 200 OK in 114ms (Views: 4.4ms | ActiveRecord: 87.6ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 01:39:26 -0500
+
+AbstractController::ActionNotFound - The action 'index' could not be found for Api::OrdersController:
+
+Started DELETE "/api/orders/3" for ::1 at 2021-12-03 01:39:34 -0500
+Processing by Api::OrdersController#destroy as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:50
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Order with 'id'=3:
+  app/controllers/api/orders_controller.rb:50:in `destroy'
+
+Started DELETE "/api/orders/3" for ::1 at 2021-12-03 01:39:34 -0500
+Processing by Api::OrdersController#destroy as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mOrder Load (14.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:50
+Completed 404 Not Found in 15ms (ActiveRecord: 14.2ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Order with 'id'=3:
+  app/controllers/api/orders_controller.rb:50:in `destroy'
+
+Started DELETE "/api/orders/3" for ::1 at 2021-12-03 01:39:34 -0500
+Processing by Api::OrdersController#destroy as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:50
+Completed 404 Not Found in 3ms (ActiveRecord: 1.5ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Order with 'id'=3:
+  app/controllers/api/orders_controller.rb:50:in `destroy'
+
+Started GET "/" for ::1 at 2021-12-03 01:43:50 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mOrder Load (2.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (5.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 1053ms (Views: 1049.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 01:43:51 -0500
+
+AbstractController::ActionNotFound - The action 'index' could not be found for Api::OrdersController:
+
+Started GET "/api/furnitures" for ::1 at 2021-12-03 01:43:54 -0500
+Processing by Api::FurnituresController#index as JSON
+  Rendering api/furnitures/index.json.jbuilder
+  [1m[36mFurniture Load (18.1ms)[0m  [1m[34mSELECT "furnitures".* FROM "furnitures"[0m
+  ↳ app/views/api/furnitures/index.json.jbuilder:1
+  Rendered api/furnitures/_furniture.json.jbuilder (0.7ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/index.json.jbuilder (27.0ms)
+Completed 200 OK in 31ms (Views: 13.2ms | ActiveRecord: 18.1ms)
+
+
+Started GET "/api/furnitures/2" for ::1 at 2021-12-03 01:43:55 -0500
+Processing by Api::FurnituresController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mFurniture Load (42.1ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/furnitures_controller.rb:8
+  Rendering api/furnitures/show.json.jbuilder
+  Rendered api/furnitures/_furniture.json.jbuilder (1.5ms)
+  Rendered api/furnitures/show.json.jbuilder (5.0ms)
+Completed 200 OK in 59ms (Views: 16.4ms | ActiveRecord: 42.1ms)
+
+
+Started POST "/api/orders" for ::1 at 2021-12-03 01:44:02 -0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"furniture_id"=>"2", "quantity"=>"1", "user_id"=>"1"}}
+  [1m[36mUser Load (16.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:5
+  [1m[36mOrder Exists (12.8ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:7
+  [1m[36mOrder Load (2.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:9
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:21
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:21
+  [1m[36mFurniture Load (8.4ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:21
+  [1m[36mOrder Create (10.6ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "user_id", "furniture_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["quantity", 1], ["user_id", 1], ["furniture_id", 2], ["created_at", "2021-12-03 06:44:02.768139"], ["updated_at", "2021-12-03 06:44:02.768139"]]
+  ↳ app/controllers/api/orders_controller.rb:21
+  [1m[35m (14.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:21
+  Rendering api/orders/show.json.jbuilder
+  Rendered api/orders/show.json.jbuilder (0.7ms)
+Completed 200 OK in 88ms (Views: 6.0ms | ActiveRecord: 67.1ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 01:44:20 -0500
+
+AbstractController::ActionNotFound - The action 'index' could not be found for Api::OrdersController:
+
+Started DELETE "/api/orders/2" for ::1 at 2021-12-03 01:44:23 -0500
+Processing by Api::OrdersController#destroy as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (12.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:50
+Completed 404 Not Found in 14ms (ActiveRecord: 12.8ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Order with 'id'=2:
+  app/controllers/api/orders_controller.rb:50:in `destroy'
+
+Started GET "/" for ::1 at 2021-12-03 01:53:17 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (38.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (161.4ms)
+Completed 200 OK in 270ms (Views: 217.3ms | ActiveRecord: 52.6ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 01:53:19 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (68.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (8.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (18.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/_order.json.jbuilder (0.5ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/index.json.jbuilder (32.3ms)
+Completed 200 OK in 136ms (Views: 22.3ms | ActiveRecord: 95.9ms)
+
+
+Started GET "/api/furnitures" for ::1 at 2021-12-03 01:53:22 -0500
+Processing by Api::FurnituresController#index as JSON
+  Rendering api/furnitures/index.json.jbuilder
+  [1m[36mFurniture Load (40.5ms)[0m  [1m[34mSELECT "furnitures".* FROM "furnitures"[0m
+  ↳ app/views/api/furnitures/index.json.jbuilder:1
+  Rendered api/furnitures/_furniture.json.jbuilder (0.4ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/index.json.jbuilder (129.7ms)
+Completed 200 OK in 145ms (Views: 27.2ms | ActiveRecord: 107.9ms)
+
+
+Started GET "/api/furnitures/2" for ::1 at 2021-12-03 01:53:23 -0500
+Processing by Api::FurnituresController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mFurniture Load (8.0ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/furnitures_controller.rb:8
+  Rendering api/furnitures/show.json.jbuilder
+  Rendered api/furnitures/_furniture.json.jbuilder (0.6ms)
+  Rendered api/furnitures/show.json.jbuilder (2.4ms)
+Completed 200 OK in 40ms (Views: 8.5ms | ActiveRecord: 29.5ms)
+
+
+Started POST "/api/orders" for ::1 at 2021-12-03 01:53:29 -0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"furniture_id"=>"2", "quantity"=>"1", "user_id"=>"1"}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:10
+  [1m[36mOrder Exists (2.9ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:12
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14
+  [1m[35m (2.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mFurniture Load (0.4ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mOrder Update (1.3ms)[0m  [1m[33mUPDATE "orders" SET "quantity" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["quantity", 2], ["updated_at", "2021-12-03 06:53:29.718595"], ["id", 36]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  Rendering api/orders/show.json.jbuilder
+  Rendered api/orders/_order.json.jbuilder (0.3ms)
+  Rendered api/orders/show.json.jbuilder (1.5ms)
+Completed 200 OK in 50ms (Views: 4.9ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 01:53:41 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (8.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/_order.json.jbuilder (0.5ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/index.json.jbuilder (18.4ms)
+Completed 200 OK in 31ms (Views: 16.7ms | ActiveRecord: 11.2ms)
+
+
+Started DELETE "/api/orders/2" for ::1 at 2021-12-03 01:53:43 -0500
+Processing by Api::OrdersController#destroy as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:55
+Completed 404 Not Found in 5ms (ActiveRecord: 0.4ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Order with 'id'=2:
+  app/controllers/api/orders_controller.rb:55:in `destroy'
+
+Started GET "/" for ::1 at 2021-12-03 01:56:46 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (48.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (58.6ms)
+Completed 200 OK in 1101ms (Views: 1051.9ms | ActiveRecord: 48.7ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 01:56:48 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (53.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (17.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (3.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/_order.json.jbuilder (0.4ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/index.json.jbuilder (10.3ms)
+Completed 200 OK in 89ms (Views: 11.3ms | ActiveRecord: 74.2ms)
+
+
+Started GET "/api/furnitures" for ::1 at 2021-12-03 01:56:52 -0500
+Processing by Api::FurnituresController#index as JSON
+  Rendering api/furnitures/index.json.jbuilder
+  [1m[36mFurniture Load (46.8ms)[0m  [1m[34mSELECT "furnitures".* FROM "furnitures"[0m
+  ↳ app/views/api/furnitures/index.json.jbuilder:1
+  Rendered api/furnitures/_furniture.json.jbuilder (1.4ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/index.json.jbuilder (83.6ms)
+Completed 200 OK in 93ms (Views: 45.9ms | ActiveRecord: 46.8ms)
+
+
+Started GET "/api/furnitures/3" for ::1 at 2021-12-03 01:56:53 -0500
+Processing by Api::FurnituresController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mFurniture Load (1.4ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/furnitures_controller.rb:8
+  Rendering api/furnitures/show.json.jbuilder
+  Rendered api/furnitures/_furniture.json.jbuilder (0.4ms)
+  Rendered api/furnitures/show.json.jbuilder (2.4ms)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/orders" for ::1 at 2021-12-03 01:56:54 -0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"furniture_id"=>"3", "quantity"=>"1", "user_id"=>"1"}}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:10
+  [1m[36mOrder Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:12
+  [1m[36mOrder Load (3.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mFurniture Load (0.3ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mOrder Update (0.4ms)[0m  [1m[33mUPDATE "orders" SET "quantity" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["quantity", 24], ["updated_at", "2021-12-03 06:56:54.359953"], ["id", 32]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  Rendering api/orders/show.json.jbuilder
+  Rendered api/orders/_order.json.jbuilder (0.3ms)
+  Rendered api/orders/show.json.jbuilder (1.6ms)
+Completed 200 OK in 36ms (Views: 7.5ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 01:56:56 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (56.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (24.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/_order.json.jbuilder (0.5ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/index.json.jbuilder (37.3ms)
+Completed 200 OK in 107ms (Views: 19.7ms | ActiveRecord: 84.1ms)
+
+
+Started DELETE "/api/orders/3" for ::1 at 2021-12-03 01:57:40 -0500
+Processing by Api::OrdersController#destroy as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:55
+Completed 404 Not Found in 2ms (ActiveRecord: 1.1ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Order with 'id'=3:
+  app/controllers/api/orders_controller.rb:55:in `destroy'
+
+Started GET "/api/furnitures/3" for ::1 at 2021-12-03 01:57:48 -0500
+Processing by Api::FurnituresController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mFurniture Load (2.5ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/furnitures_controller.rb:8
+  Rendering api/furnitures/show.json.jbuilder
+  Rendered api/furnitures/_furniture.json.jbuilder (0.7ms)
+  Rendered api/furnitures/show.json.jbuilder (3.5ms)
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2021-12-03 01:59:59 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (27.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mOrder Load (9.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (13.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (45.6ms)
+Completed 200 OK in 990ms (Views: 952.2ms | ActiveRecord: 37.2ms)
+
+
+Started GET "/api/furnitures/3" for ::1 at 2021-12-03 02:00:02 -0500
+Processing by Api::FurnituresController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mFurniture Load (23.5ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/furnitures_controller.rb:8
+  Rendering api/furnitures/show.json.jbuilder
+  Rendered api/furnitures/_furniture.json.jbuilder (0.9ms)
+  Rendered api/furnitures/show.json.jbuilder (6.2ms)
+Completed 200 OK in 42ms (Views: 16.0ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/api/furnitures" for ::1 at 2021-12-03 02:00:04 -0500
+Processing by Api::FurnituresController#index as JSON
+  Rendering api/furnitures/index.json.jbuilder
+  [1m[36mFurniture Load (0.3ms)[0m  [1m[34mSELECT "furnitures".* FROM "furnitures"[0m
+  ↳ app/views/api/furnitures/index.json.jbuilder:1
+  Rendered api/furnitures/_furniture.json.jbuilder (0.3ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.2ms)
+  Rendered api/furnitures/index.json.jbuilder (8.5ms)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/furnitures/2" for ::1 at 2021-12-03 02:00:05 -0500
+Processing by Api::FurnituresController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mFurniture Load (2.6ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/furnitures_controller.rb:8
+  Rendering api/furnitures/show.json.jbuilder
+  Rendered api/furnitures/_furniture.json.jbuilder (0.4ms)
+  Rendered api/furnitures/show.json.jbuilder (2.1ms)
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/orders" for ::1 at 2021-12-03 02:00:05 -0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"furniture_id"=>"2", "quantity"=>"1", "user_id"=>"1"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (7.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:10
+  [1m[36mOrder Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:12
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14
+  [1m[35m (8.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mFurniture Load (1.5ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mOrder Update (1.0ms)[0m  [1m[33mUPDATE "orders" SET "quantity" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["quantity", 3], ["updated_at", "2021-12-03 07:00:06.006225"], ["id", 36]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  Rendering api/orders/show.json.jbuilder
+  Rendered api/orders/_order.json.jbuilder (0.5ms)
+  Rendered api/orders/show.json.jbuilder (5.1ms)
+Completed 200 OK in 52ms (Views: 9.9ms | ActiveRecord: 27.4ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 02:00:11 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (35.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (14.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/_order.json.jbuilder (0.6ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/index.json.jbuilder (24.8ms)
+Completed 200 OK in 68ms (Views: 15.5ms | ActiveRecord: 50.3ms)
+
+
+Started DELETE "/api/orders/36" for ::1 at 2021-12-03 02:00:12 -0500
+Processing by Api::OrdersController#destroy as JSON
+  Parameters: {"id"=>"36"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:55
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:56
+  [1m[36mOrder Destroy (6.3ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 36]]
+  ↳ app/controllers/api/orders_controller.rb:56
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:56
+No template found for Api::OrdersController#destroy, rendering head :no_content
+Completed 204 No Content in 66ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/" for ::1 at 2021-12-03 02:02:55 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mOrder Load (8.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (15.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 920ms (Views: 907.4ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 02:02:57 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (1.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/_order.json.jbuilder (0.4ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/_order.json.jbuilder (0.0ms)
+  Rendered api/orders/index.json.jbuilder (6.6ms)
+Completed 200 OK in 23ms (Views: 10.3ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/" for ::1 at 2021-12-03 02:04:40 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mOrder Load (1.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (4.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 1070ms (Views: 1062.6ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 02:04:41 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (13.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/_order.json.jbuilder (1.4ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/index.json.jbuilder (20.4ms)
+Completed 200 OK in 28ms (Views: 10.5ms | ActiveRecord: 15.5ms)
+
+
+Started DELETE "/api/orders/35" for ::1 at 2021-12-03 02:04:51 -0500
+Processing by Api::OrdersController#destroy as JSON
+  Parameters: {"id"=>"35"}
+  [1m[36mOrder Load (6.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:55
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:56
+  [1m[36mOrder Destroy (2.0ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 35]]
+  ↳ app/controllers/api/orders_controller.rb:56
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:56
+No template found for Api::OrdersController#destroy, rendering head :no_content
+Completed 204 No Content in 81ms (ActiveRecord: 14.8ms)
+
+
+Started GET "/" for ::1 at 2021-12-03 02:05:40 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (2.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (23.2ms)
+Completed 200 OK in 1160ms (Views: 1158.1ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 02:05:42 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (10.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (23.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/_order.json.jbuilder (0.6ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/index.json.jbuilder (28.0ms)
+Completed 200 OK in 45ms (Views: 8.8ms | ActiveRecord: 33.5ms)
+
+
+Started DELETE "/api/orders/34" for ::1 at 2021-12-03 02:05:45 -0500
+Processing by Api::OrdersController#destroy as JSON
+  Parameters: {"id"=>"34"}
+  [1m[36mOrder Load (1.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:55
+  [1m[35m (4.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:56
+  [1m[36mOrder Destroy (0.9ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 34]]
+  ↳ app/controllers/api/orders_controller.rb:56
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:56
+No template found for Api::OrdersController#destroy, rendering head :no_content
+Completed 204 No Content in 60ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/api/furnitures" for ::1 at 2021-12-03 02:05:59 -0500
+Processing by Api::FurnituresController#index as JSON
+  Rendering api/furnitures/index.json.jbuilder
+  [1m[36mFurniture Load (22.1ms)[0m  [1m[34mSELECT "furnitures".* FROM "furnitures"[0m
+  ↳ app/views/api/furnitures/index.json.jbuilder:1
+  Rendered api/furnitures/_furniture.json.jbuilder (0.7ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/index.json.jbuilder (34.9ms)
+Completed 200 OK in 48ms (Views: 26.0ms | ActiveRecord: 22.1ms)
+
+
+Started GET "/api/furnitures/3" for ::1 at 2021-12-03 02:06:00 -0500
+Processing by Api::FurnituresController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mFurniture Load (0.4ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/furnitures_controller.rb:8
+  Rendering api/furnitures/show.json.jbuilder
+  Rendered api/furnitures/_furniture.json.jbuilder (0.5ms)
+  Rendered api/furnitures/show.json.jbuilder (3.3ms)
+Completed 200 OK in 12ms (Views: 9.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/orders" for ::1 at 2021-12-03 02:06:01 -0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"furniture_id"=>"3", "quantity"=>"1", "user_id"=>"1"}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:10
+  [1m[36mOrder Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:12
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mFurniture Load (1.1ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mOrder Update (1.6ms)[0m  [1m[33mUPDATE "orders" SET "quantity" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["quantity", 25], ["updated_at", "2021-12-03 07:06:01.099882"], ["id", 32]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  Rendering api/orders/show.json.jbuilder
+  Rendered api/orders/_order.json.jbuilder (0.3ms)
+  Rendered api/orders/show.json.jbuilder (1.4ms)
+Completed 200 OK in 31ms (Views: 4.1ms | ActiveRecord: 18.2ms)
+
+
+Started POST "/api/orders" for ::1 at 2021-12-03 02:06:02 -0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"furniture_id"=>"3", "quantity"=>"1", "user_id"=>"1"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:10
+  [1m[36mOrder Exists (3.6ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:12
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14
+  [1m[35m (13.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mFurniture Load (0.6ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mOrder Update (1.3ms)[0m  [1m[33mUPDATE "orders" SET "quantity" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["quantity", 26], ["updated_at", "2021-12-03 07:06:02.294843"], ["id", 32]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[35m (12.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  Rendering api/orders/show.json.jbuilder
+  Rendered api/orders/_order.json.jbuilder (0.3ms)
+  Rendered api/orders/show.json.jbuilder (1.3ms)
+Completed 200 OK in 49ms (Views: 4.4ms | ActiveRecord: 33.5ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 02:06:05 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (10.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (9.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/_order.json.jbuilder (0.4ms)
+  Rendered api/orders/index.json.jbuilder (14.0ms)
+Completed 200 OK in 33ms (Views: 10.1ms | ActiveRecord: 20.8ms)
+
+
+Started DELETE "/api/orders/32" for ::1 at 2021-12-03 02:08:00 -0500
+Processing by Api::OrdersController#destroy as JSON
+  Parameters: {"id"=>"32"}
+  [1m[36mOrder Load (11.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:55
+  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:56
+  [1m[36mOrder Destroy (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 32]]
+  ↳ app/controllers/api/orders_controller.rb:56
+  [1m[35m (40.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:56
+No template found for Api::OrdersController#destroy, rendering head :no_content
+Completed 204 No Content in 106ms (ActiveRecord: 58.5ms)
+
+
+Started GET "/api/furnitures" for ::1 at 2021-12-03 02:08:01 -0500
+Processing by Api::FurnituresController#index as JSON
+  Rendering api/furnitures/index.json.jbuilder
+  [1m[36mFurniture Load (32.4ms)[0m  [1m[34mSELECT "furnitures".* FROM "furnitures"[0m
+  ↳ app/views/api/furnitures/index.json.jbuilder:1
+  Rendered api/furnitures/_furniture.json.jbuilder (0.3ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/index.json.jbuilder (43.0ms)
+Completed 200 OK in 49ms (Views: 16.0ms | ActiveRecord: 32.4ms)
+
+
+Started GET "/api/furnitures/3" for ::1 at 2021-12-03 02:08:02 -0500
+Processing by Api::FurnituresController#show as JSON
+  Parameters: {"id"=>"3"}
+  [1m[36mFurniture Load (3.8ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/furnitures_controller.rb:8
+  Rendering api/furnitures/show.json.jbuilder
+  Rendered api/furnitures/_furniture.json.jbuilder (1.1ms)
+  Rendered api/furnitures/show.json.jbuilder (2.7ms)
+Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/api/orders" for ::1 at 2021-12-03 02:08:03 -0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"furniture_id"=>"3", "quantity"=>"1", "user_id"=>"1"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:10
+  [1m[36mOrder Exists (4.6ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:12
+  [1m[35m (8.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mFurniture Load (4.8ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mOrder Create (3.8ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "user_id", "furniture_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["quantity", 1], ["user_id", 1], ["furniture_id", 3], ["created_at", "2021-12-03 07:08:03.097840"], ["updated_at", "2021-12-03 07:08:03.097840"]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  Rendering api/orders/show.json.jbuilder
+  Rendered api/orders/_order.json.jbuilder (0.3ms)
+  Rendered api/orders/show.json.jbuilder (1.6ms)
+Completed 200 OK in 43ms (Views: 4.4ms | ActiveRecord: 30.2ms)
+
+
+Started POST "/api/orders" for ::1 at 2021-12-03 02:08:04 -0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"furniture_id"=>"3", "quantity"=>"1", "user_id"=>"1"}}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:10
+  [1m[36mOrder Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:12
+  [1m[36mOrder Load (9.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14
+  [1m[35m (9.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mFurniture Load (6.1ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mOrder Update (4.6ms)[0m  [1m[33mUPDATE "orders" SET "quantity" = $1, "updated_at" = $2 WHERE "orders"."id" = $3[0m  [["quantity", 2], ["updated_at", "2021-12-03 07:08:04.227394"], ["id", 37]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[35m (11.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  Rendering api/orders/show.json.jbuilder
+  Rendered api/orders/_order.json.jbuilder (1.2ms)
+  Rendered api/orders/show.json.jbuilder (2.9ms)
+Completed 200 OK in 70ms (Views: 5.8ms | ActiveRecord: 53.5ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 02:08:04 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (8.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/_order.json.jbuilder (0.4ms)
+  Rendered api/orders/index.json.jbuilder (12.1ms)
+Completed 200 OK in 21ms (Views: 7.9ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/api/furnitures" for ::1 at 2021-12-03 02:08:59 -0500
+Processing by Api::FurnituresController#index as JSON
+  Rendering api/furnitures/index.json.jbuilder
+  [1m[36mFurniture Load (36.6ms)[0m  [1m[34mSELECT "furnitures".* FROM "furnitures"[0m
+  ↳ app/views/api/furnitures/index.json.jbuilder:1
+  Rendered api/furnitures/_furniture.json.jbuilder (0.5ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/index.json.jbuilder (52.5ms)
+Completed 200 OK in 58ms (Views: 21.2ms | ActiveRecord: 36.6ms)
+
+
+Started GET "/api/furnitures/2" for ::1 at 2021-12-03 02:09:00 -0500
+Processing by Api::FurnituresController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mFurniture Load (15.0ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/furnitures_controller.rb:8
+  Rendering api/furnitures/show.json.jbuilder
+  Rendered api/furnitures/_furniture.json.jbuilder (0.4ms)
+  Rendered api/furnitures/show.json.jbuilder (2.4ms)
+Completed 200 OK in 22ms (Views: 6.1ms | ActiveRecord: 15.0ms)
+
+
+Started POST "/api/orders" for ::1 at 2021-12-03 02:09:01 -0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"furniture_id"=>"2", "quantity"=>"1", "user_id"=>"1"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:10
+  [1m[36mOrder Exists (6.1ms)[0m  [1m[34mSELECT  1 AS one FROM "orders" WHERE "orders"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:12
+  [1m[36mOrder Load (2.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mFurniture Load (1.8ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "user_id", "furniture_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["quantity", 1], ["user_id", 1], ["furniture_id", 2], ["created_at", "2021-12-03 07:09:01.249123"], ["updated_at", "2021-12-03 07:09:01.249123"]]
+  ↳ app/controllers/api/orders_controller.rb:26
+  [1m[35m (9.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:26
+  Rendering api/orders/show.json.jbuilder
+  Rendered api/orders/_order.json.jbuilder (0.3ms)
+  Rendered api/orders/show.json.jbuilder (1.8ms)
+Completed 200 OK in 48ms (Views: 5.4ms | ActiveRecord: 25.2ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 02:09:02 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (5.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/_order.json.jbuilder (0.9ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/index.json.jbuilder (12.9ms)
+Completed 200 OK in 32ms (Views: 21.3ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/" for ::1 at 2021-12-03 02:09:11 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (18.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mOrder Load (10.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (14.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (37.2ms)
+Completed 200 OK in 857ms (Views: 828.7ms | ActiveRecord: 28.3ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 02:09:13 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (64.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (2.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/_order.json.jbuilder (0.6ms)
+  Rendered api/orders/_order.json.jbuilder (0.1ms)
+  Rendered api/orders/index.json.jbuilder (7.7ms)
+Completed 200 OK in 81ms (Views: 8.6ms | ActiveRecord: 70.1ms)
+
+
+Started GET "/" for ::1 at 2021-12-03 02:10:59 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (7.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/users/_user.json.jbuilder:2
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 65ms (Views: 57.0ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/api/orders" for ::1 at 2021-12-03 02:11:00 -0500
+Processing by Api::OrdersController#index as JSON
+  [1m[36mUser Load (14.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "FQbU5_JXr3xlpI5KIevYXQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mUser Load (17.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:4
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (21.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mFurniture Load (24.2ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/api/orders/_order.json.jbuilder:2
+  Rendered api/orders/_order.json.jbuilder (26.3ms)
+  [1m[36mFurniture Load (5.9ms)[0m  [1m[34mSELECT  "furnitures".* FROM "furnitures" WHERE "furnitures"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/api/orders/_order.json.jbuilder:2
+  Rendered api/orders/_order.json.jbuilder (7.9ms)
+  Rendered api/orders/index.json.jbuilder (65.7ms)
+Completed 200 OK in 106ms (Views: 20.4ms | ActiveRecord: 83.2ms)
+
+
+Started DELETE "/api/orders/38" for ::1 at 2021-12-03 02:11:13 -0500
+Processing by Api::OrdersController#destroy as JSON
+  Parameters: {"id"=>"38"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:55
+  [1m[35m (4.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:56
+  [1m[36mOrder Destroy (1.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 38]]
+  ↳ app/controllers/api/orders_controller.rb:56
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:56
+No template found for Api::OrdersController#destroy, rendering head :no_content
+Completed 204 No Content in 75ms (ActiveRecord: 12.2ms)
+
+
+Started DELETE "/api/orders/37" for ::1 at 2021-12-03 02:11:14 -0500
+Processing by Api::OrdersController#destroy as JSON
+  Parameters: {"id"=>"37"}
+  [1m[36mOrder Load (1.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:55
+  [1m[35m (3.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:56
+  [1m[36mOrder Destroy (7.5ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 37]]
+  ↳ app/controllers/api/orders_controller.rb:56
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:56
+No template found for Api::OrdersController#destroy, rendering head :no_content
+Completed 204 No Content in 73ms (ActiveRecord: 20.6ms)
+
+

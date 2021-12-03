@@ -1,5 +1,5 @@
 
-import { RECEIVE_ORDER, REMOVE_ORDER } from "../actions/order_actions";
+import { RECEIVE_ALL_ORDERS, RECEIVE_ORDER, REMOVE_ORDER } from "../actions/order_actions";
 import { REMOVE_CURRENT_USER } from "../actions/session_actions";
 
 const OrderReducer = (state = {}, action) => {
@@ -14,12 +14,14 @@ const OrderReducer = (state = {}, action) => {
       // if (nextState[action.order.furniture_id]) {
       //   nextState[action.order.furniture_id]['quantity'] += 1
       // } else {
-        nextState[action.order.furniture_id] = action.order;
+        nextState[action.order.id] = action.order;
       // }
       return nextState;
+    case RECEIVE_ALL_ORDERS:
+      return action.orders;
     case REMOVE_ORDER:
-      delete nextState[action.order.furniture_id]
-      return {};
+      delete nextState[action.orderId]
+      return nextState;
     default:
       return state;
   }
