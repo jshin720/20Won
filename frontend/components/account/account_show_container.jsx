@@ -8,7 +8,7 @@ import { withRouter } from 'react-router';
 // import { updateProduct, deleteProduct } from '../../actions/product_actions';
 
 const mSTP = (state) => {
-  // console.log(state)
+  
   return(
   {
     currentUser: state.entities.users[state.session.id],

@@ -9,7 +9,7 @@ class Api::OrdersController < ApplicationController
       order = orders.select{ |order| order.furniture_id == furniture_id}
       if !order.empty? 
         @order = order[0]
-        # debugger
+        
         @order.quantity += order_params[:quantity].to_i
       else
         @order = Order.new(order_params)

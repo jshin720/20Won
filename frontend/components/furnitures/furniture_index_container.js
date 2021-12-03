@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import FurnitureIndex from "./furniture_Index"
+import FurnitureIndex from "./furniture_index"
 import { fetchFurnitures } from "../../actions/furniture_actions";
 
 

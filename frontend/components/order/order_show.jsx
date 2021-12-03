@@ -13,7 +13,7 @@ class OrderShow extends React.Component {
 
   orderItems() {
     // let furniture = this.props.furnitures.furniture_id
-    debugger
+  
     let pennies = Object.values(this.props.orders)
     return (pennies.map((singleFurniture, i) => (
       <div key={i} className="tile" >

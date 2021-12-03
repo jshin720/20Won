@@ -34,7 +34,7 @@ class FurnitureShow extends React.Component {
     if (!furniture) {
       return null;
     }
-    // console.log("prop", this.props)
+    
     return (
 
       <div className="furniture-show-container">

@@ -85,7 +85,7 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    // console.log('thank you ')
+    
     return (
       <div className='signup-form-container'>
         <h1 className="signup-title">Welcome, Please create an account.</h1>
