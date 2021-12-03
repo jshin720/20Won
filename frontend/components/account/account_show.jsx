@@ -79,7 +79,7 @@ class accountPage extends React.Component {
             <h3>ADD A NEW ADDRESS</h3>
           </div>
         </div>
-          <button onClick={() => this.props.logout(this.props.currentUser)}><Link to="/">Logout</Link></button>
+        <Link to="/"><button onClick={() => this.props.logout(this.props.currentUser)}>Logout</button></Link>
       </div>
     )
   }

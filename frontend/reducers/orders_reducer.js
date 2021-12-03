@@ -14,14 +14,14 @@ const OrderReducer = (state = {}, action) => {
       // if (nextState[action.order.furniture_id]) {
       //   nextState[action.order.furniture_id]['quantity'] += 1
       // } else {
-        return nextState[action.order.furniture_id] = action.order
+        nextState[action.order.furniture_id] = action.order;
       // }
-      // return nextState[action.order.id];
+      return nextState;
     case REMOVE_ORDER:
       delete nextState[action.order.furniture_id]
       return {};
     default:
-      return state
+      return state;
   }
 }
 

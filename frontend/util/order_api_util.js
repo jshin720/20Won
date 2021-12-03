@@ -18,7 +18,7 @@ export const updateOrder = (order) => {
 export const fetchOrder = (orderId) => {
   return $.ajax({
     method: "get",
-    url: `/api/order/${orderId}`
+    url: `/api/orders/${orderId}`
   })
 }
 
@@ -32,6 +32,6 @@ export const deleteOrder = (orderId) => {
 export const fetchOrders = () => {
   return $.ajax({
     method: "get",
-    url: "/api/orders/"
+    url: "/api/orders"
   })
 }

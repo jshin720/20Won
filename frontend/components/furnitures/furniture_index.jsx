@@ -18,6 +18,7 @@ class FurnitureIndex extends React.Component {
     return (
 
       <div className="index-main-container">
+        <h1>Sofa</h1>
         <div className="furniture-index-container" >
           <h2 className="index-container-logo">Feels like Home</h2>
           <p className="type-description">Luxurious, feather-filled sofas in all-natural, life-friendly fabrics</p>

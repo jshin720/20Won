@@ -31,10 +31,10 @@ class App extends React.Component {
         <Switch>
           <Route path="/furnitures/:furnitureId" component={FurnitureShowContainer}/>
           <Route path="/furnitures" component={FurnitureIndexContainer} />
-          <ProtectedRoute path='/account' component={AccountShowContainer}/>
           <AuthRoute path="/login" component={LogInFormContainer}/>
           <AuthRoute path="/signup" component={SignUpFormContainer}/>
-          <AuthRoute path="/cart" component={OrderShowContainer}/>
+          <ProtectedRoute path="/cart" component={OrderShowContainer}/>
+          <ProtectedRoute path='/account' component={AccountShowContainer}/>
           <ProtectedRoute path="/homepage" component={Home}/> 
           <Route exact path='/' component={Splash}/>
          

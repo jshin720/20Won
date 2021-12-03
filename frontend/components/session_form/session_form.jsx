@@ -44,9 +44,9 @@ class SessionForm extends React.Component {
       <div className="errors-container">
         <ul className="errors">
           {
-            errors.map((error) => {
+            errors.map((error, idx) => {
               return (
-                <li className="error" >
+                <li key={idx} className="error" >
                  {error}
                 </li>
               )
