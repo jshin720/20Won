@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##TwentyWon
 
-Things you may want to cover:
+TwentyWon is a clone of a  e-commerce furnitture store called Sixpenny.com. The user is able to browse through the site and find furniture, browse through the different furnitures, leave reviews for the specific furniture, add/remove to and from the cart. 
+The site built using the Rails on the backend and React/Redux on the frontend.
+Users are able to sign in and sign up by going to the respective create user page or the login page. 
+The Nav Bar shows links to the furniture page, cart page, the login page and the middle logo leads back to the main page. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
