@@ -22,5 +22,5 @@ class Furniture < ApplicationRecord
       foreign_key: :orders_id,
       class_name: :Order
 
-    has_one_attached :photo
+  has_one_attached :photo
 end

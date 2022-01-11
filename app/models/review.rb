@@ -13,7 +13,7 @@
 #
 class Review < ApplicationRecord
   validates :title, :body, :stars, :furniture_id, :username, :user_id, presence: true
-  validates :stars, presence: true, numericality: {greater_than: 0}
+  validates :stars, presence: true, numericality: {greater_than: 0, less_than: 6}
 
   belongs_to :user,
       foreign_key: :user_id,
