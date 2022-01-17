@@ -12,11 +12,11 @@
 #  updated_at   :datetime         not null
 #
 class Review < ApplicationRecord
-  validates :title, :body, :stars, :furniture_id, :username, :user_id, presence: true
-  validates :stars, presence: true, numericality: {greater_than: 0, less_than: 6}
-
+  validates :title, :body, :stars, :furniture_id, :reviewer_id, presence: true
+  validates :stars, numericality: {greater_than: 0, less_than: 6}
+# debugger
   belongs_to :user,
-      foreign_key: :user_id,
+      foreign_key: :reviewer_id,
       class_name: :User
       
   belongs_to :furniture,

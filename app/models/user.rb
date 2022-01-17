@@ -23,7 +23,7 @@ class User < ApplicationRecord
   #aspire
 
   has_many :reviews,
-    foreign_key: :user_id,
+    foreign_key: :reviewer_id,
     primary_key: :id,
     class_name: :Review
 

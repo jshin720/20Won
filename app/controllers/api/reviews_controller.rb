@@ -1,8 +1,8 @@
 class Api::ReviewsController < ApplicationController
-  before_action :require_login, only: [:create, :destroy, :update]
+  before_action :require_logged_in, only: [:create, :destroy, :update]
 
   def show
-    @review - Review.find_by(reviewer_id: current_user.id)
+    @review = Review.find_by(id: params[:id])
     render :show
   end
 
@@ -16,14 +16,15 @@ class Api::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all
+    @reviews = Review.where(furniture_id: params[:furniture_id])
     render :index
   end
 
   def destroy
-    @review = Review.find_by(reviewer_id: current_user.id)
+    @review = Review.find_by(id: params[:id])
     if @review
       @review.destroy
+      render :show
     else 
       render json: @review.errors.full_messages, status: 404
     end
@@ -40,6 +41,6 @@ class Api::ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:id, :title, :reviewer_id, :furniture_id, :body, :stars)
+    params.require(:review).permit(:title, :reviewer_id, :furniture_id, :body, :stars)
   end
 end
