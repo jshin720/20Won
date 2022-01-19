@@ -1,5 +1,5 @@
 import {
-  RECEIVE_REVIEWS,
+  RECEIVE_REVIEW,
   RECEIVE_REVIEW_ERRORS,
   CREATE_REVIEW,
   DELETE_REVIEW,
@@ -16,7 +16,7 @@ const ReviewErrorReducer = (state = {}, action) => {
       return action.errors
     case REMOVE_REVIEW_ERRORS:
       return {};
-    case RECEIVE_REVIEWS:
+    case RECEIVE_REVIEW:
       return {};
     case CREATE_REVIEW:
       return {};
