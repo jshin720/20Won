@@ -11,7 +11,7 @@ export const receiveAllOrders = (orders) => ({
   orders
 })
 
-export const receiveOrder= (order) => ({
+export const receiveOrder = (order) => ({
   type: RECEIVE_ORDER,
   order
 })
