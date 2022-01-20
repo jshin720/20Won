@@ -23850,3 +23850,34 @@ Processing by Api::FurnituresController#show as JSON
 Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 1.9ms)
 
 
+Started GET "/api/furnitures" for ::1 at 2022-01-19 16:09:27 -0500
+Processing by Api::FurnituresController#index as JSON
+  Rendering api/furnitures/index.json.jbuilder
+  [1m[36mFurniture Load (44.5ms)[0m  [1m[34mSELECT "furnitures".* FROM "furnitures"[0m
+  ↳ app/views/api/furnitures/index.json.jbuilder:1
+  Rendered api/furnitures/_furniture.json.jbuilder (0.8ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.4ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/index.json.jbuilder (63.6ms)
+Completed 200 OK in 72ms (Views: 24.6ms | ActiveRecord: 44.5ms)
+
+
+Started GET "/" for ::1 at 2022-01-19 19:20:31 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (51.5ms)
+Completed 200 OK in 1061ms (Views: 1060.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/furnitures" for ::1 at 2022-01-19 19:20:44 -0500
+Processing by Api::FurnituresController#index as JSON
+  Rendering api/furnitures/index.json.jbuilder
+  [1m[36mFurniture Load (86.1ms)[0m  [1m[34mSELECT "furnitures".* FROM "furnitures"[0m
+  ↳ app/views/api/furnitures/index.json.jbuilder:1
+  Rendered api/furnitures/_furniture.json.jbuilder (0.7ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/_furniture.json.jbuilder (0.1ms)
+  Rendered api/furnitures/index.json.jbuilder (95.5ms)
+Completed 200 OK in 103ms (Views: 16.4ms | ActiveRecord: 86.1ms)
+
+

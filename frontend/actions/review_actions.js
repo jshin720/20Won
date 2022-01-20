@@ -34,14 +34,19 @@ export const $updateReview = review => ({
   review
 });
 
+export const $clearReviews = () => ({
+  type: CLEAR_REVIEWS
+});
+
 export const $receiveReviewErrors = errors => ({
   type: RECEIVE_REVIEW_ERRORS,
   errors
 });
 
-export const $clearReviews = () => ({
-  type: CLEAR_REVIEWS
-})
+export const $removeReviewErrors = errors => ({
+  type: REMOVE_REVIEW_ERRORS
+});
+
 
 export const fetchReviews = (furnitureId) => dispatch => (
   reviewAPIUtil.fetchReviews(furnitureId)
