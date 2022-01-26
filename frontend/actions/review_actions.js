@@ -11,7 +11,7 @@ export const REMOVE_REVIEW_ERRORS = "REMOVE_REVIEW_ERRORS";
 
 export const $receiveAllReviews = furnitureId => ({
   type: RECEIVE_ALL_REVIEWS,
-  reviews
+  furnitureId
 });
 
 export const $receiveReview = review => ({
@@ -34,7 +34,7 @@ export const $updateReview = review => ({
   review
 });
 
-export const $clearReviews = () => ({
+export const clearReviews = () => ({
   type: CLEAR_REVIEWS
 });
 

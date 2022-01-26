@@ -13,7 +13,8 @@ const ReviewReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_REVIEWS:
-      let reviews = Object.values(action.reviews);
+      // console.log("action-reviews", action)
+      let reviews = Object.values(action.furnitureId);
       let newState = {};
       reviews.forEach((review) => {
         newState[review.id] = review

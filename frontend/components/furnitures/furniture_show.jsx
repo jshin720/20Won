@@ -82,6 +82,7 @@ class FurnitureShow extends React.Component {
 
 
   render() {
+    console.log("show before", this.props)
     let { furniture } = this.props
     if (!furniture) {
       return null;
@@ -104,13 +105,14 @@ class FurnitureShow extends React.Component {
         <button type="submit" onClick={this.addToOrders}>Add To Cart</button>
 
         <div className="review-section">
-
+          
           {!this.state.createReview ?
             <div className="review-container">
               <h1>Reviews</h1>
               <ul>
                 {
                   Object.values(this.props.reviews).map((review, i) => {
+                    { console.log("show in review", review) }
                     return <ReviewItemContainer
                       key={i}
                       review={review}
@@ -120,10 +122,10 @@ class FurnitureShow extends React.Component {
                   })
                 }
               </ul>
-              {!this.state.createReview && !this.madeReview(this.props.currentUserId) ?
+              {!this.state.createReview && !this.madeReview(this.props.currentUser) ?
 
                 <>
-                  <span onClick={this.toggleCreateReview} className="material-icons-outlined add-review">add_circle</span>
+                  <button type="submit" onClick={this.toggleCreateReview} className="material-icons-outlined add-review">add_circle</button>
                 </>
 
                 : null
@@ -135,8 +137,8 @@ class FurnitureShow extends React.Component {
 
             <div className="toggle-review">
               {
-                this.madeReview(this.props.currentUserId) ? null :
-                  <>{createForm}</>
+                this.madeReview(this.props.currentUser) ? null :
+                  <>{CreateReviewForm}</>
               }
             </div>
           }
