@@ -28,20 +28,20 @@ export const receiveErrors = errors => ({
 export const fetchUser = (userId) => (dispatch) => (
   UserApiUtil.fetchUser(userId)
     .then(user => dispatch(receiveUser(user)),
-      err => {dispatch(receiveErrors(err.response.data))}
+      err => {dispatch(receiveErrors(err.response))}
   )
 )
 
 export const updateUser = (userId) => (dispatch) => (
   UserApiUtil.updateUser(userId)
     .then(user => dispatch(editUser(user)),
-      err => { dispatch(receiveErrors(err.response.data)) }
+      err => { dispatch(receiveErrors(err.response)) }
   )
 )
 
 export const deleteUser = (userId) => (dispatch) => (
   UserApiUtil.deleteUser(userId)
     .then(userId => dispatch(removeUser(userId)),
-      err => { dispatch(receiveErrors(err.response.data)) }
+      err => { dispatch(receiveErrors(err.response)) }
   )
 )

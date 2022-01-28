@@ -5,8 +5,8 @@ import { $removeReviewErrors } from '../../actions/review_actions';
 
 
 const mSTP = (state) => ({
-  users: state.user,
-  currentId: state.session.user.id,
+  users: state.entities.users,
+  currentUser: state.entities.users[state.session.id],
   errors: state.errors.reviews
 })
 

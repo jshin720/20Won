@@ -6,15 +6,17 @@ class CreateReviewForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      author: this.props.currentUserId,
-      gameId: this.props.gameId,
+      reviewer_id: this.props.currentUser.id,
+      furniture_id: this.props.furniture.id,
+      title: "",
       body: "",
-      rating: ""
+      stars: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleBody = this.handleBody.bind(this);
     this.handleRating = this.handleRating.bind(this);
+    this.handleTitle = this.handleTitle.bind(this);
   }
 
   componentWillUnmount() {
@@ -29,17 +31,26 @@ class CreateReviewForm extends React.Component {
     )
   };
 
+  handleTitle(e) {
+    this.setState(
+      {
+        title: e.target.value
+      }
+    )
+  };
+
   handleSubmit(e) {
     e.preventDefault()
     this.props.createReview(this.state)
       .then(res => {
         if (res.type !== "RECEIVE_REVIEW_ERRORS") this.props.toggleCreateReview()
       })
-      .catch(errs => console.log(errs))
+      // .catch(errs => console.log(errs))
     this.setState(
       {
+        title: "",
         body: "",
-        rating: ""
+        stars: ""
       }
     )
   };
@@ -47,32 +58,38 @@ class CreateReviewForm extends React.Component {
   handleRating(e) {
     this.setState(
       {
-        rating: e.target.value
+        stars: e.target.value
       }
     )
   };
 
   renderErrors() {
-    let errors = Object.values(this.props.errors)
+    if (!this.props.errors){
+      return null;
+    } 
     return (
       <div className="errors-container">
-        <ul className="errors">
-          {
-            errors.map((error, idx) => {
-              return (
-                <li key={idx} className="error" >
-                  {error}
-                </li>
-              )
-            })
-          }
-        </ul>
+        {this.props.errors && Object.values(this.props.errors).length > 0 ? (
+          <ul className="errors">
+            {
+              errors.map((error, idx) => {
+                return (
+                  <li key={idx} className="error" >
+                    {error}
+                  </li>
+                )
+              })
+            }
+          </ul>
+        ) : ("")
+        }
       </div>
     )
   }
 
   render() {
-    let errorsArr = Object.values(this.props.errors)
+
+
     return (
       <div className="create-review-form">
         <h1>Create Review</h1>
@@ -83,15 +100,11 @@ class CreateReviewForm extends React.Component {
             }}
             rating={this.state.rating}
           />
-
+          <input type="text" onChange={this.handleTitle} placeholder="Write Title here" value={this.state.title} name="title" id="review-title" />
           <textarea onChange={this.handleBody} placeholder="Write your review here" value={this.state.body}></textarea>
 
           <div>
-            {
-              this.props.errors && errorsArr.length > 0 ? (
-                this.renderErrors()
-              ) : ("")
-            }
+            { this.renderErrors() }
           </div>
           <div className="create-review-buttons">
             <button type="submit">Create</button>

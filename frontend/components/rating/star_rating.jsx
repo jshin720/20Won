@@ -1,4 +1,3 @@
-// import { set } from "express/lib/application";
 import React, { useState, useCallback, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
 

@@ -28,7 +28,7 @@ export const Bars = styled(FaClone)`
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  margin-rigth: -24px;
+  margin-right: -24px;
 
   
 `

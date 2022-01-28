@@ -112,7 +112,7 @@ class FurnitureShow extends React.Component {
               <ul>
                 {
                   Object.values(this.props.reviews).map((review, i) => {
-                    { console.log("show in review", review) }
+                    
                     return <ReviewItemContainer
                       key={i}
                       review={review}
@@ -125,7 +125,7 @@ class FurnitureShow extends React.Component {
               {!this.state.createReview && !this.madeReview(this.props.currentUser) ?
 
                 <>
-                  <button type="submit" onClick={this.toggleCreateReview} className="material-icons-outlined add-review">add_circle</button>
+                  <button type="submit" onClick={this.toggleCreateReview} className="material-icons-outlined add-review">WRITE A REVIEW</button>
                 </>
 
                 : null
@@ -138,7 +138,14 @@ class FurnitureShow extends React.Component {
             <div className="toggle-review">
               {
                 this.madeReview(this.props.currentUser) ? null :
-                  <>{CreateReviewForm}</>
+                  <CreateReviewForm
+                    currentUser={this.props.currentUser}
+                    furniture={this.props.furniture}
+                    errors={this.props.errors}
+                    removeReviewErrors={this.props.removeReviewErrors}
+                    createReview={this.props.createReview}
+                    toggleCreateReview={this.toggleCreateReview}
+                  />
               }
             </div>
           }

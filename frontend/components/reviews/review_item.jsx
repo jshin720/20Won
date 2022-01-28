@@ -11,27 +11,28 @@ class ReviewItem extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.review.author)
+    this.props.fetchUser(this.props.review.reviewer_id)
   }
 
+
   populateStars() {
-    let stars = []
+    let rating = []
 
     // populate gold stars
-    for (let i = 0; i < this.props.review.rating; i++) {
-      stars.push(<span key={i} className="review-item-rating">★</span>)
+    for (let i = 0; i < this.props.review.stars; i++) {
+      rating.push(<span key={i} className="review-item-rating">★</span>)
     }
 
     // populate empty stars
-    while (stars.length < 5) {
-      stars.push(<span key={stars.length} className='ex-review-item-rating'>★</span>)
+    while (rating.length < 5) {
+      rating.push(<span key={rating.length} className='ex-review-item-rating'>★</span>)
     }
 
-    return stars;
+    return rating;
   }
 
   handleDelete() {
-    this.props.deleteReview(this.props.review._id)
+    this.props.deleteReview(this.props.review)
   }
 
   toggleEdit() {
@@ -41,10 +42,10 @@ class ReviewItem extends React.Component {
 
   render() {
 
-    if (!this.props.users[this.props.review.author]) return null;
+    // if (this.props.users !== this.props.currentUser.id) return null;
 
-    let profileImg = this.props.users[this.props.review.author].profileImgUrl;
-    let author = this.props.users[this.props.review.author].name;
+    
+    let reviewer = this.props.users[this.props.review.reviewer_id].first_name;
 
     let buttons =
       <>
@@ -55,19 +56,19 @@ class ReviewItem extends React.Component {
     return (
 
       <li>
-        {this.state.editing ? <EditReviewForm toggleEdit={this.toggleEdit} review={this.props.review} updateReview={this.props.updateReview} profileImg={profileImg} author={author} errors={this.props.errors} removeReviewErrors={this.props.removeReviewErrors} /> :
+        {/* {this.state.editing ? <EditReviewForm toggleEdit={this.toggleEdit} review={this.props.review.id} updateReview={this.props.updateReview} profileImg={profileImg} reviewer={reviewer} errors={this.props.errors} removeReviewErrors={this.props.removeReviewErrors} /> : */}
           <div className="review">
-            <img src={profileImg} alt="" />
             <div className="review-details">
-              <h2>{author} {this.props.review.author === this.props.currentId ? buttons : null}</h2>
+              <h2>{reviewer} {this.props.review.reviewer_id === this.props.currentUser.id ? buttons : null}</h2>
               <div className="user-rating">
                 {this.populateStars()}
               </div>
+              <h3 id="review-title">{this.props.review.title}</h3>
               <h3 id="review-description">{this.props.review.body}</h3>
             </div>
-            {/* <img src={profileImg} alt="" /> */}
+        
           </div>
-        }
+        {/* } */}
       </li>
     )
   }

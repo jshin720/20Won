@@ -14,7 +14,7 @@ import {
 } from '../../actions/review_actions';
 
 
-const mSTP = (state, ownProps) => { console.log("container-reviews",state.reviews)
+const mSTP = (state, ownProps) => { console.log("container-reviews",state)
   let furniture
   if (state.entities.furnitures) {
     furniture = state.entities.furnitures[ownProps.match.params.furnitureId]

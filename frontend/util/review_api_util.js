@@ -15,7 +15,7 @@ export const fetchReview = (review) => {
 export const createReview = (review) => {
   return $.ajax({
     method: "post",
-    url: `/api/furnitures/${review.furniture_id}/reviews/${review.id}`,
+    url: `/api/furnitures/${review.furniture_id}/reviews`,
     data: { review }
   })
 }
