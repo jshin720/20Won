@@ -25,8 +25,8 @@ class FurnitureShow extends React.Component {
       this.props.fetchReviews()
     }
 
-    if (prevProps.match.params.gameId != this.props.match.params.gameId) {
-      this.props.fetchGames()
+    if (prevProps.match.params.furniture_id !== this.props.match.params.furniture_id) {
+      this.props.fetchFurniture()
       this.props.fetchReviews()
     }
   }
@@ -38,7 +38,6 @@ class FurnitureShow extends React.Component {
   toggleCreateReview() {
     this.setState({ createReview: !this.state.createReview })
   }
-
 
 
   addToOrders(e) {
@@ -55,24 +54,25 @@ class FurnitureShow extends React.Component {
     }
   }
 
-  avgRating(obj) {
-    let arr = Object.values(obj)
-    if (arr.length === 0) {
-      return "n/a"
-    }
+  // avgRating(obj) {
+  //   let arr = Object.values(obj)
+  //   if (arr.length === 0) {
+  //     return "n/a"
+  //   }
 
-    let sum = 0
-    for (let i = 0; i < arr.length; i++) {
-      sum += arr[i].rating;
-    }
-    let avg = sum / arr.length;
+  //   let sum = 0
+  //   for (let i = 0; i < arr.length; i++) {
+  //     sum += arr[i].rating;
+  //   }
+  //   let avg = sum / arr.length;
 
-    return Math.round(avg * 10) / 10
-  }
+  //   return Math.round(avg * 10) / 10
+  // }
 
   madeReview(userId) {
     for (let review in this.props.reviews) {
-      if (this.props.reviews[review].author === userId) {
+      console.log("review", review)
+      if (this.props.reviews[review].reviewer_id === this.props.currentUser.id) {
         return true;
       }
     }
@@ -151,7 +151,7 @@ class FurnitureShow extends React.Component {
           }
         </div>
 
-      </div >
+      </div>
     )
   }
 

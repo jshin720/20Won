@@ -5,12 +5,23 @@ import StarRating from "../rating/star_rating";
 class EditReviewForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { rating: this.props.review.rating, body: this.props.review.body, author: this.props.review.author, id: this.props.review._id, gameId: this.props.review.gameId }
+    this.state = { 
+      stars: this.props.review.stars, 
+      body: this.props.review.body,
+      title: this.props.review.title,
+      reviewer_id: this.props.review.reviewer_id, 
+      furniture_id: this.props.review.furniture_id,
+      id: this.props.review.id
+     };
+
+
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleBody = this.handleBody.bind(this)
     this.handleRating = this.handleRating.bind(this)
+    this.handleTitle = this.handleTitle.bind(this)
   }
 
+  
   componentWillUnmount() {
     this.props.removeReviewErrors();
   }
@@ -24,7 +35,15 @@ class EditReviewForm extends React.Component {
         }
       })
   }
-  
+
+  handleTitle(e) {
+    this.setState(
+      {
+        title: e.target.value
+      }
+    )
+  };
+
   handleBody(e) {
     this.setState(
       {
@@ -36,58 +55,61 @@ class EditReviewForm extends React.Component {
   handleRating(e) {
     this.setState(
       {
-        rating: e.target.value
+        stars: e.target.value
       }
     )
   };
 
   populateStars() {
-    let stars = []
+    let rating = []
 
     // populate gold stars
-    for (let i = 0; i < this.props.review.rating; i++) {
-      stars.push(<span key={i} className="review-item-rating">★</span>)
+    for (let i = 0; i < this.props.review.stars; i++) {
+      rating.push(<span key={i} className="review-item-rating">★</span>)
     }
 
     // populate empty stars
-    while (stars.length < 5) {
-      stars.push(<span key={stars.length} className='ex-review-item-rating'>★</span>)
+    while (rating.length < 5) {
+      rating.push(<span key={rating.length} className='ex-review-item-rating'>★</span>)
     }
 
-    return stars;
+    return rating;
   }
 
   renderErrors() {
-    let errors = Object.values(this.props.errors)
+    if (!this.props.errors) {
+      return null;
+    }
     return (
       <div className="errors-container">
-        <ul className="errors">
-          {
-            errors.map((error, idx) => {
-              return (
-                <li key={idx} className="error" >
-                  {error}
-                </li>
-              )
-            })
-          }
-        </ul>
+        {this.props.errors && Object.values(this.props.errors).length > 0 ? (
+          <ul className="errors">
+            {
+              this.props.errors.map((error, idx) => {
+                return (
+                  <li key={idx} className="error" >
+                    {error}
+                  </li>
+                )
+              })
+            }
+          </ul>
+        ) : ("")
+        }
       </div>
     )
   }
 
   render() {
-    let errorsArr = Object.values(this.props.errors)
+    console.log("edit", this.props)
     return (
       <div className="review">
         <div className="edit-review-container">
-          <img src={this.props.profileImg} alt="" />
-
           <div className="edit-review-details">
             <form>
-              <h2>{this.props.author}
-                <span className="material-icons-outlined submit-edit" onClick={this.handleSubmit}>check</span>
-                <span className="material-icons-outlined cancel-edit" onClick={this.props.toggleEdit}>close</span>
+              <h2>{this.props.reviewer}
+                <button type="submit" className="material-icons-outlined submit-edit" onClick={this.handleSubmit}>Submit</button>
+                <button type="submit" className="material-icons-outlined cancel-edit" onClick={this.props.toggleEdit}>Close</button>
               </h2>
 
               <div className="edit-stars">
@@ -96,20 +118,21 @@ class EditReviewForm extends React.Component {
                     this.handleRating(e)
                   }}
                   status={"editing"}
-                  rating={this.props.review.rating}
+                  rating={this.props.review.stars}
                 />
               </div>
+              <textarea
+                onChange={this.handleTitle}
+                placeholder="Title"
+                value={this.state.title}
+              ></textarea>
               <textarea
                 onChange={this.handleBody}
                 placeholder="Write your review here"
                 value={this.state.body}
               ></textarea>
               <div>
-                {
-                  this.props.errors && errorsArr.length > 0 ? (
-                    this.renderErrors()
-                  ) : ("")
-                }
+                { this.renderErrors() }
               </div>
             </form>
           </div>

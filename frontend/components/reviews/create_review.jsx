@@ -43,6 +43,7 @@ class CreateReviewForm extends React.Component {
     e.preventDefault()
     this.props.createReview(this.state)
       .then(res => {
+        console.log("handlesubmit", res)
         if (res.type !== "RECEIVE_REVIEW_ERRORS") this.props.toggleCreateReview()
       })
       // .catch(errs => console.log(errs))
@@ -72,7 +73,7 @@ class CreateReviewForm extends React.Component {
         {this.props.errors && Object.values(this.props.errors).length > 0 ? (
           <ul className="errors">
             {
-              errors.map((error, idx) => {
+              this.props.errors.map((error, idx) => {
                 return (
                   <li key={idx} className="error" >
                     {error}

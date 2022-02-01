@@ -8,7 +8,7 @@ import {
 
 const SessionErrorsReducer = (state = {}, action) => {
   Object.freeze(state);
-
+console.log("session", action)
   switch (action.type) {
     case RECEIVE_SESSION_ERRORS:
       return action.errors

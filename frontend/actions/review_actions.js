@@ -5,9 +5,9 @@ export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const CREATE_REVIEW = "CREATE_REVIEW";
 export const UPDATE_REVIEW = "UPDATE_REVIEW";
 export const DELETE_REVIEW = 'DELETE_REVIEW';
-export const CLEAR_REVIEWS = "CLEAR_REVIEWS";
 export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 export const REMOVE_REVIEW_ERRORS = "REMOVE_REVIEW_ERRORS";
+export const CLEAR_REVIEWS = "CLEAR_REVIEWS";
 
 export const $receiveAllReviews = furnitureId => ({
   type: RECEIVE_ALL_REVIEWS,
@@ -34,9 +34,6 @@ export const $updateReview = review => ({
   review
 });
 
-export const clearReviews = () => ({
-  type: CLEAR_REVIEWS
-});
 
 export const $receiveReviewErrors = errors => ({
   type: RECEIVE_REVIEW_ERRORS,
@@ -47,6 +44,9 @@ export const $removeReviewErrors = errors => ({
   type: REMOVE_REVIEW_ERRORS
 });
 
+export const clearReviews = () => ({
+  type: CLEAR_REVIEWS
+});
 
 export const fetchReviews = (furnitureId) => dispatch => (
   reviewAPIUtil.fetchReviews(furnitureId)

@@ -45,18 +45,18 @@ class ReviewItem extends React.Component {
     // if (this.props.users !== this.props.currentUser.id) return null;
 
     
-    let reviewer = this.props.users[this.props.review.reviewer_id].first_name;
+    let reviewer = this.props.users[this.props.review.reviewer_id].first_name; // shows the name of the reviewer
 
     let buttons =
       <>
-        <span className="material-icons-outlined edit-buttons" onClick={this.toggleEdit}>edit</span>
-        <span className="material-icons-outlined edit-buttons" onClick={this.handleDelete}>delete</span>
+        <button type="submit" className="material-icons-outlined edit-buttons" onClick={this.toggleEdit}>edit</button>
+        <button type="submit" className="material-icons-outlined edit-buttons" onClick={this.handleDelete}>delete</button>
       </>
 
     return (
 
       <li>
-        {/* {this.state.editing ? <EditReviewForm toggleEdit={this.toggleEdit} review={this.props.review.id} updateReview={this.props.updateReview} profileImg={profileImg} reviewer={reviewer} errors={this.props.errors} removeReviewErrors={this.props.removeReviewErrors} /> : */}
+        {this.state.editing ? <EditReviewForm toggleEdit={this.toggleEdit} review={this.props.review} updateReview={this.props.updateReview} errors={this.props.errors} removeReviewErrors={this.props.removeReviewErrors} /> :
           <div className="review">
             <div className="review-details">
               <h2>{reviewer} {this.props.review.reviewer_id === this.props.currentUser.id ? buttons : null}</h2>
@@ -68,7 +68,7 @@ class ReviewItem extends React.Component {
             </div>
         
           </div>
-        {/* } */}
+        }
       </li>
     )
   }

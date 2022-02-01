@@ -13,6 +13,7 @@
 #
 class Review < ApplicationRecord
   validates :title, :body, :stars, :furniture_id, :reviewer_id, presence: true
+  validates :title, :body, length: { minimum: 10 }
   validates :stars, numericality: {greater_than: 0, less_than: 6}
 # debugger
   belongs_to :user,

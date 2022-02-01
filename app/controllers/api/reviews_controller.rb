@@ -32,10 +32,12 @@ class Api::ReviewsController < ApplicationController
 
   def update
     @review = Review.find_by(id: params[:id])
-    if @review && @review.update(review_params)
-        render :show
+    if @review.nil?
+      render json: ["No Review"], statu: 400
+    elsif  @review.update(review_params)
+      render :show
     else
-        render json: @review.errors.full_messages, status: 400
+      render json: @review.errors.full_messages, status: 400
     end
   end
 
