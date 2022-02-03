@@ -14,7 +14,7 @@ const OrderReducer = (state = {}, action) => {
       // if (nextState[action.order.furniture_id]) {
       //   nextState[action.order.furniture_id]['quantity'] += 1
       // } else {
-        nextState[action.order.id] = action.order;
+      nextState[action.order.id] = action.order;
       // }
       return nextState;
     case RECEIVE_ALL_ORDERS:

@@ -25,7 +25,9 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    if @user && @user.update(user_params)
+    if @user.nil? 
+      render json: ["No Known User"], status: 400
+    elsif @user.update(user_params)
       render :show
     else
       render json: @user.errors.full_messages, status: 400

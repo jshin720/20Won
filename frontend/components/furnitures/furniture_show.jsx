@@ -54,21 +54,6 @@ class FurnitureShow extends React.Component {
     }
   }
 
-  // avgRating(obj) {
-  //   let arr = Object.values(obj)
-  //   if (arr.length === 0) {
-  //     return "n/a"
-  //   }
-
-  //   let sum = 0
-  //   for (let i = 0; i < arr.length; i++) {
-  //     sum += arr[i].rating;
-  //   }
-  //   let avg = sum / arr.length;
-
-  //   return Math.round(avg * 10) / 10
-  // }
-
   madeReview(userId) {
     for (let review in this.props.reviews) {
       console.log("review", review)

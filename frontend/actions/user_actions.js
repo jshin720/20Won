@@ -10,7 +10,7 @@ export const receiveUser = (user) => ({
   user
 })
 
-export const editUser = (userId) => ({
+export const editUser = (user) => ({
   type: EDIT_USER,
   userId
 })
@@ -32,8 +32,8 @@ export const fetchUser = (userId) => (dispatch) => (
   )
 )
 
-export const updateUser = (userId) => (dispatch) => (
-  UserApiUtil.updateUser(userId)
+export const updateUser = (user) => (dispatch) => (
+  UserApiUtil.updateUser(user)
     .then(user => dispatch(editUser(user)),
       err => { dispatch(receiveErrors(err.response)) }
   )
