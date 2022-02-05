@@ -4,7 +4,7 @@ import {
 } from '../actions/user_actions';
 import { CLOSE_MODAL } from '../actions/modal_actions';
 
-const _nullErrors = [];
+const _nullErrors = {};
 
 const UpdateUserErrorsReducer = (state = _nullErrors, action) => {
   Object.freeze(state);

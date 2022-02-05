@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 // import './navbar.css'
-// import BacklogContainer from '../backlog/backlog_container';
+
 
 class NavBar extends React.Component {
   constructor(props) {

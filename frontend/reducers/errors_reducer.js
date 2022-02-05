@@ -7,7 +7,7 @@ import UpdateUserErrorsReducer from "./user_update_errors_reducer";
 const ErrorsReducer = combineReducers({
   session: SessionErrorsReducer,
   reviews: ReviewErrorReducer,
-  updateUsers: UpdateUserErrorsReducer
+  users: UpdateUserErrorsReducer
 })
 
 export default ErrorsReducer;

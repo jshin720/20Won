@@ -33,7 +33,7 @@ class Api::ReviewsController < ApplicationController
   def update
     @review = Review.find_by(id: params[:id])
     if @review.nil?
-      render json: ["No Review"], status: 400
+      render json: ["Review Does Not Exist"], status: 400
     elsif  @review.update(review_params)
       render :show
     else

@@ -31,7 +31,7 @@ const mDTP = (dispatch) => ({
   updateUser: (userId) => dispatch(updateUser(userId)),
   deleteUser: (userId) => dispatch(deleteUser(userId)),
   fetchOrder: OrderId => dispatch(fetchOrder(OrderId)),
-  openModal: () => dispatch(openModal())
+  openModal: () => dispatch(openModal('editUser'))
   // updateOrder: Order => dispatch(updateOrder(Order)),
   // deleteOrder: OrderId => dispatch(deleteOrder(OrderId)),
   // updateFurniture: furniture => dispatch(updateFurniture(furniture)),

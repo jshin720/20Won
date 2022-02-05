@@ -10,8 +10,8 @@ function Modal({ modal, closeModal }) {
   }
   let component;
   switch (modal) {
-    case 'editProfile':
-      component = <EditProfileModalContainer />;
+    case 'editUser':
+      component = <EditUserContainer/>;
       break;
     default:
       return null;

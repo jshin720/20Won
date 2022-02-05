@@ -1,9 +1,10 @@
 import React from "react";
-import { withRouter } from "react";
+import { withRouter } from 'react-router-dom';
+import { closeModal } from "../../actions/modal_actions";
+import { RECEIVE_USER_ERRORS } from "../../actions/user_actions";
 
 class EditUserForm extends React.Component {
   constructor(props) {
-    console.log("edit-user",props)
     super(props);
     this.state = {
       id: this.props.user.id,
@@ -15,13 +16,13 @@ class EditUserForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ errors: nextProps.errors })
-  }
-
   componentDidMount() {
     this.props.fetchUser(this.props.user.id);
   }
+
+  // componentWillUpdate(nextProps) {
+  //   this.setState({ errors: nextProps.errors })
+  // }
 
 
   update(field) {
@@ -29,22 +30,29 @@ class EditUserForm extends React.Component {
       [field]: e.currentTarget.value
     });
   }
+  // the field in the update function refers to the state on lines 7-12
 
   handleSubmit(e) {
     e.preventDefault();
-    let user = {
-      id: this.state.id,
-      email: this.state.email,
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      password: this.state.password
-    }
-    this.props.updateUser(user)
-      .then(() => {
-        if (Object.keys(this.state.errors).length === 0) {
+    // let user = {
+    //   id: this.state.id,
+    //   email: this.state.email,
+    //   first_name: this.state.first_name,
+    //   last_name: this.state.last_name,
+    //   password: this.state.password
+    // }
+    this.props.updateUser(this.state)
+    .then(res => {
+        if (res.type !== RECEIVE_USER_ERRORS) {
           this.props.closeModal();
         }
+        // if (Object.keys(this.state.errors).length === 0) {
+        //   this.props.closeModal;
+        // }
+        // console.log('return errors', this.props.errors)
       })
+
+      
   }
 
   renderErrors() {
@@ -53,7 +61,7 @@ class EditUserForm extends React.Component {
     }
     return (
       <div className="errors-container">
-        {this.props.errors && Object.values(this.props.errors).length > 0 ? (
+        {this.props.errors && (this.props.errors).length > 0 ? (
           <ul className="errors">
             {
               this.props.errors.map((error, idx) => {
@@ -66,35 +74,34 @@ class EditUserForm extends React.Component {
             }
           </ul>
         ) : ("")
-        }
+      }
       </div>
     )
   }
-
-
+  
+  
   render() {
     return (
       <div className="edit-modal">
-        <p id="edit-header">Update Profile</p>
+        <h2 id="edit-header">Update Profile</h2>
         <form onSubmit={this.handleSubmit}>
           <div className="login-form">
-            {this.renderErrors()}
-            <input type="text"
-              value={this.state.email}
-              onChange={this.update('email')}
-              placeholder={this.state.email}
-            />
-            <br />
             <input type="text"
               value={this.state.first_name}
-              onChange={this.update('First Name')}
-              placeholder={this.state.first_name}
+              onChange={this.update('first_name')}
+              placeholder="First Name"
             />
             <br />
             <input type="text"
               value={this.state.last_name}
-              onChange={this.update('Last Name')}
-              placeholder={this.state.last_name}
+              onChange={this.update('last_name')}
+              placeholder="Last Name"
+            />
+            <br />
+            <input type="text"
+              value={this.state.email}
+              onChange={this.update('email')}
+              placeholder="Email"
             />
             <br />
             {this.props.user.id === this.props.sessionId ?
@@ -105,7 +112,11 @@ class EditUserForm extends React.Component {
               /> :
               null}
             <br />
+            <div>
+            {this.renderErrors()}
+            </div>
             <input type="submit" value="Submit" id="submit-button" />
+            <button onClick={this.props.closeModal}>Cancel</button>
           </div>
         </form>
       </div>
