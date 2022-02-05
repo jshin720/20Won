@@ -10,6 +10,7 @@ import FurnitureShowContainer from "./furnitures/furniture_show_container";
 import FurnitureIndexContainer from "./furnitures/furniture_index_container";
 import NavBar from './navbar';
 import OrderShowContainer from './order/order_show_container';
+import Modal from './account/modal';
 
 class App extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class App extends React.Component {
         {/* <Router>
         </Router> */}
         <NavBar> </NavBar>
+        <Modal/>
         {/* <Header />
         <Cart /> */}
         <Switch>

@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  validates :first_name, :last_name, presence: true
   validates :email, :session_token, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :password, length: {minimum: 6, allow_nil: true}
@@ -23,7 +24,7 @@ class User < ApplicationRecord
   #aspire
 
   has_many :reviews,
-    foreign_key: :user_id,
+    foreign_key: :reviewer_id,
     primary_key: :id,
     class_name: :Review
 

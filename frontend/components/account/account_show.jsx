@@ -1,5 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import EditUserContainer from './edit_user_container';
+import Modal from './modal';
 
 
 class accountPage extends React.Component {
@@ -41,6 +43,9 @@ class accountPage extends React.Component {
 
 
   render() {
+  const editButton = <div id="edit-profile-button" >
+    <button onClick={this.props.openModal}>Edit Info</button>
+        </div >
    if (!this.props.currentUser) {
      return 'loading...'
    }
@@ -62,6 +67,9 @@ class accountPage extends React.Component {
                 {this.props.currentUser.email}
               </li>
             </ul>
+            <div className="user-edit">
+              { editButton }  
+            </div>
           </div>
 
           <button onClick={() => this.toggleHistory()}>ORDER HISTORY</button>
