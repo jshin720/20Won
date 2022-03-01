@@ -16,8 +16,8 @@ const FurnitureIndexItem = (props) => {
       </li>
     </div>
     
-  )
-}
+  )}
 
 
-export default FurnitureIndexItem
+
+export default FurnitureIndexItem;

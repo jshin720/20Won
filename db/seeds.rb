@@ -45,7 +45,7 @@ User.create!(
 
 Furniture.create!(
   name: 'neva sectional sofa',
-  category: '4 piece',
+  category: 'sofa',
   color: 'blue',
   price: 4099,
   description: 'nice love sectional'
@@ -54,7 +54,7 @@ Furniture.create!(
 
 Furniture.create!(
   name: 'devyn sectional sofa',
-  category: '5 piece',
+  category: 'sofa',
   color: 'grey',
   price: 5299,
   description: 'nice love sectional'
@@ -63,9 +63,71 @@ Furniture.create!(
 
 Furniture.create!(
   name: 'aria sectional sofa',
-  category: '3 piece',
+  category: 'sofa',
   color: 'cream',
   price: 4749,
   description: 'nice weird sectional'
+
+)
+
+Furniture.create!(
+  name: 'neva sectional',
+  category: 'sectional',
+  color: 'blue',
+  price: 4099,
+  description: 'nice love sectional'
+
+)
+
+Furniture.create!(
+  name: 'neva sectional',
+  category: 'sectional',
+  color: 'blue',
+  price: 4099,
+  description: 'nice love sectional'
+
+)
+
+Furniture.create!(
+  name: 'neva sectional111',
+  category: 'sectional',
+  color: 'blue',
+  price: 4099,
+  description: 'nice love sectional'
+
+)
+
+Furniture.create!(
+  name: 'neva sectional111',
+  category: 'sectional',
+  color: 'blue',
+  price: 4099,
+  description: 'nice love sectional'
+
+)
+
+Furniture.create!(
+  name: 'chair2112',
+  category: 'chair',
+  color: 'blue',
+  price: 4099,
+  description: 'nice love sectional'
+
+)
+Furniture.create!(
+  name: 'chair7255',
+  category: 'chair',
+  color: 'blue',
+  price: 4099,
+  description: 'nice love sectional'
+
+)
+
+Furniture.create!(
+  name: 'table',
+  category: 'table',
+  color: 'blue',
+  price: 4099,
+  description: 'nice love sectional'
 
 )

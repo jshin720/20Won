@@ -8,7 +8,8 @@ import Splash from "./splash"
 import AccountShowContainer from "./account/account_show_container";
 import FurnitureShowContainer from "./furnitures/furniture_show_container";
 import FurnitureIndexContainer from "./furnitures/furniture_index_container";
-import NavBar from './navbar';
+// import NavBar from './navbar';
+import Navbar from './nav/navbar'
 import OrderShowContainer from './order/order_show_container';
 import Modal from './account/modal';
 
@@ -26,7 +27,7 @@ class App extends React.Component {
       <div className="app">
         {/* <Router>
         </Router> */}
-        <NavBar> </NavBar>
+        <Navbar/>
         <Modal/>
         {/* <Header />
         <Cart /> */}
@@ -38,9 +39,7 @@ class App extends React.Component {
           <AuthRoute path="/signup" component={SignUpFormContainer}/>
           <ProtectedRoute path='/account' component={AccountShowContainer}/>
           <ProtectedRoute path="/homepage" component={Home}/> 
-          <Route exact path='/' component={Splash}/>
-         
-          
+          <Route exact path='/' component={Splash}/>        
         </Switch>
       </div>
     )

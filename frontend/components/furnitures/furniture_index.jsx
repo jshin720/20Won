@@ -13,8 +13,7 @@ class FurnitureIndex extends React.Component {
   }
 
   render() {
-
-    
+    console.log("furnitures", this.props)
     return (
 
       <div className="index-main-container">
@@ -25,7 +24,7 @@ class FurnitureIndex extends React.Component {
           <ul className="furniture-ul-container-ul">
             {
               this.props.furnitures.map(furniture => (
-
+// have to make a conditional statement here that is fileter out of the products 
                 <FurnitureIndexItem
                   furniture={furniture}
                   key={furniture.id}
