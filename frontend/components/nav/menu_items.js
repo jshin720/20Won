@@ -4,22 +4,22 @@ import { link } from 'react-router-dom'
 export const MenuItems = [
   {
     title: "Sofa",
-    path: '/furnitures',
+    path: '/furnitures/sofa',
     cName: 'nav-text' // class name 
   },
   {
     title: "Sectional",
-    path: '/furnitures',
+    path: '/furnitures/sectional',
     cName: 'nav-text' // class name 
   },
   {
     title: "Chair",
-    path: '/furnitures',
+    path: '/furnitures/chair',
     cName: 'nav-text' // class name 
   },
   {
     title: "Table",
-    path: '/furnitures',
+    path: '/furnitures/table',
     cName: 'nav-text' // class name 
   },
   {

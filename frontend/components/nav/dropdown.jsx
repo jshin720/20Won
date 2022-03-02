@@ -19,7 +19,7 @@ function Dropdown(props) {
       case 'furnitures':
         return <ul 
           className={click ? 'dropdown-menu clicked' : 'dropdown-left'}>
-          <Mdicon.MdClose className='close=icon' onClick={props.handleFurnitureDropdown}/>
+          <Mdicon.MdClose className='close-icon' onClick={props.handleFurnitureDropdown}/>
           {MenuItems.map((item, i) => {
             return (
               <li key={i}>
@@ -35,14 +35,14 @@ function Dropdown(props) {
           })}
         </ul>
       case 'search':
-        return <div className={ 'dropdown-left'}> 
-          <Mdicon.MdClose className='close=icon' onClick={props.handleSearchDropdown}/>
+        return <div className={ 'dropdown-middle'}> 
+          <Mdicon.MdClose className='close-icon' onClick={props.handleSearchDropdown}/>
           <SearchBar />
           </div>
           
       case 'cart':
-        return <div onClick={handleClick} className={'dropdown-right'}> 
-          <Mdicon.MdClose className='close=icon' onClick={props.handleCartDropdown} />
+        return <div className={'dropdown-right'}> 
+          <Mdicon.MdClose className='close-icon' onClick={props.handleCartDropdown} />
             <OrderShowContainer/>
             </div>
       // case "wishlist":

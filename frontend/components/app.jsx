@@ -32,6 +32,10 @@ class App extends React.Component {
         {/* <Header />
         <Cart /> */}
         <Switch>
+          <Route path='/furnitures/sofa' component={FurnitureIndexContainer}/>
+          <Route path='/furnitures/sectional' component={FurnitureIndexContainer}/>
+          <Route path='/furnitures/chair' component={FurnitureIndexContainer}/>
+          <Route path='/furnitures/table' component={FurnitureIndexContainer}/>
           <Route path="/furnitures/:furnitureId" component={FurnitureShowContainer}/>
           <Route path="/furnitures" component={FurnitureIndexContainer} />
           <Route path="/cart" component={OrderShowContainer}/>

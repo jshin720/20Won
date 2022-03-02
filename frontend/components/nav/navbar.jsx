@@ -15,21 +15,61 @@ function Navbar() {
   const [cart, setCart] = useState(false);
   const [wishlist, setWishlist] = useState(false);
 
-  const handleFurnitureDropdown = () => setFurniture(!furniture);
-  const handleSearchDropdown = () => setSearch(!search);
-  const handleCartDropdown = () => setCart(!cart);
-  const handleWishlistDropdown = () => setWishlist(!wishlist);
+  const handleFurnitureDropdown = () => {
+    if (search === true) {
+      setSearch(false)
+    };
+    if (cart === true) {
+      setCart(false)
+    };
+    if (wishlist === true) {
+      setWishlist(false)
+    };
+    setFurniture(!furniture)
+  }
+
+  const handleSearchDropdown = () => {
+    if (furniture === true) {
+      setFurniture(false)
+    };
+    if (cart === true) {
+      setCart(false)
+    };
+    if (wishlist === true) {
+      setWishlist(false)
+    };
+    setSearch(!search);
+  };
+
+  const handleCartDropdown = () => {
+    if (furniture === true) {
+      setFurniture(false)
+    };
+    if (search === true) {
+      setSearch(false)
+    };
+    if (wishlist === true) {
+      setWishlist(false)
+    };
+    setCart(!cart);
+  }
+  
+  const handleWishlistDropdown = () => {
+    if (furniture === true) {
+      setFurniture(false)
+    };
+    if (search === true) {
+      setSearch(false)
+    };
+    if (cart === true) {
+      setCart(false)
+    };
+    setWishlist(!wishlist);
+  }
+    
   const closeMobileMenu = () => setClick(false);
 
-  // for the more responsive dropdown
-  // const onMouseEnter = () => {
-  //   if (window.innerWidth < 960) {
-  //     setDropdown(false)
-  //   } else {
-  //     setDropdown(true)
-  //   };
-  // };
-
+  
   // const onMouseLeave = () => {
   //   if (window.innerWidth < 960) {
   //     setDropdown(false)
@@ -56,12 +96,13 @@ function Navbar() {
               {furniture && <Dropdown
                 dropdownType={'furnitures'} 
                 handleFurnitureDropdown={handleFurnitureDropdown}
-              />}
+              />
+              }
 
             <span className='nav-items'
               onClick={handleSearchDropdown}
             >
-              <BsIcons.BsSearch className='Icons'/>
+              <BsIcons.BsSearch/>
             </span>
 
               {search && <Dropdown
@@ -72,7 +113,7 @@ function Navbar() {
 
           <div className='nav-menu-middle'>
             <li className='nav-items'>
-              <Link to='/' className='title' style={{textDecoration: 'none'}}>
+              <Link to='/' className='title' style={{textDecoration: 'none', color: 'black'}}>
                 TWENTYWON
               </Link>
             </li>
@@ -92,7 +133,7 @@ function Navbar() {
             <span className='nav-items'
               onClick={handleCartDropdown}
             >
-              <BsIcons.BsHandbag className='Icons'/>
+              <BsIcons.BsHandbag/>
             </span>
               {cart && <Dropdown
                 dropdownType={'cart'}
@@ -100,8 +141,8 @@ function Navbar() {
               />}
 
             <span className='nav-items'>
-              <Link to='/login' className='accounts-button'>
-                <BiIcons.BiUser className='Icons'/>
+              <Link to='/login' className='accounts-button' style={{ color: 'black' }}> 
+                <BiIcons.BiUser className='close-icon'/>
               </Link>
             </span>
 
