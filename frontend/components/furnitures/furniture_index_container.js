@@ -7,28 +7,28 @@ const mSTP = (state) => {
 
   const furnitures = Object.values(state.entities.furnitures)
 
-  let sofa = furnitures.filter((furniture) => (
-    furniture.category === "Sofa"
+  let sofas = furnitures.filter((furniture) => (
+    furniture.category === "sofa"
   ))
 
-  let sectional = furnitures.filter((furniture) => (
-    furniture.category === "Sectional"
+  let sectionals = furnitures.filter((furniture) => (
+    furniture.category === "sectional"
   ))
 
-  let chair = furnitures.filter((furniture) => (
-    furniture.category === "Chair"
+  let chairs = furnitures.filter((furniture) => (
+    furniture.category === "chair"
   ))
 
-  let table = furnitures.filter((furniture) => (
-    furniture.category === "Table"
+  let tables = furnitures.filter((furniture) => (
+    furniture.category === "table"
   ))
 
   return ({
     furnitures: Object.values(state.entities.furnitures),
-    sofa: sofa,
-    sectional: sectional,
-    chair: chair,
-    table: table
+    sofas: sofas,
+    sectionals: sectionals,
+    chairs: chairs,
+    tables: tables
   })
 }
 

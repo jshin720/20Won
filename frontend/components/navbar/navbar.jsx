@@ -1,14 +1,20 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-// import './navbar.css'
+import furnitureContainer from '../furnitures/furniture_index_container';
+import searchbar from '../search_bar/search_bar_container';
+import cartShow from '../order/order_show_container';
+// import wishListContainter from '../wishlist/wishlist_containter'
+import * as Icons from 'react-icons/fa'
+
 
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showSettings: false,
+      showContainer: false,
       showSidenav: false,
+      clickToggle: false
     }
     this.getLinks = this.getLinks.bind(this);
     this.openDropdown = this.openDropdown.bind(this);
@@ -18,7 +24,7 @@ class NavBar extends React.Component {
 
 
   toggleSideNav() {
-    document.getElementById("sandwich-icon").classList.toggle("change");
+    document.getElementById("chevron-icon").classList.toggle("change");
     if (!this.state.showSidenav) {
       this.setState({ showSidenav: true });
       document.getElementById("side-nav").style.width = "350px";
@@ -30,8 +36,8 @@ class NavBar extends React.Component {
 
   openDropdown(type) {
     switch (type) {
-      case 'showSettings':
-        this.setState({ showSettings: true })
+      case 'showContainer':
+        this.setState({ showContainer: true })
         break;
       default:
         return
@@ -44,16 +50,25 @@ class NavBar extends React.Component {
   }
 
   getLinks() {
+    
     return (
       <div className="NavBar">
-        <div id="sandwich-icon" onClick={this.toggleSideNav}>
-          <Link id="seating" to="/furnitures"></Link>
+        <div id="chevron-icon" onClick={this.toggleSideNav}>
         </div>
-        <div id="side-nav">
-          <BacklogContainer toggleSideNav={this.toggleSideNav} />
+        <div id="furniture-nav">
+          <furnitureContainer toggleSideNav={this.toggleSideNav} />
+        </div>
+        <div id='searchbar-nav' onClick={this.toggleSideNav}>
+          <searchbar toggleSideNav={this.toggleSideNav}/>
         </div>
         <div id="nav-logo" >
           <Link id="nav-logo-link" to='/'><h1 className="title-middle">TWENTYWON</h1></Link>
+        </div>
+        {/* <div id='wishlist-nav' onClick={this.toggleSideNav}>
+          <wishlistContainter toggleSideNav={this.toggleSideNav} />
+        </div> */}
+        <div id='cart-nav' onClick={this.toggleSideNav}>
+          <cartShow toggleSideNav={this.toggleSideNav} />
         </div>
         <div id='user-menu' onMouseEnter={() => this.openDropdown('showSettings')}>Menu
           {
