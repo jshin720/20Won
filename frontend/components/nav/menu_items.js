@@ -24,7 +24,7 @@ export const MenuItems = [
   },
   {
     title: "Shop All",
-    path: '/furnitures',
+    path: '/furnitures/shopall',
     cName: 'nav-text'
   }
 ]

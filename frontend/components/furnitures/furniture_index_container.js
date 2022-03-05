@@ -3,7 +3,7 @@ import FurnitureIndex from "./furniture_index"
 import { fetchFurnitures } from "../../actions/furniture_actions";
 
 
-const mSTP = (state) => {
+const mSTP = (state, ownProps) => {
 
   const furnitures = Object.values(state.entities.furnitures)
 

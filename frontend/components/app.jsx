@@ -12,6 +12,7 @@ import FurnitureIndexContainer from "./furnitures/furniture_index_container";
 import Navbar from './nav/navbar'
 import OrderShowContainer from './order/order_show_container';
 import Modal from './account/modal';
+import SearchBarContainer from './search_bar/search_bar_container';
 
 class App extends React.Component {
   constructor(props) {
@@ -32,10 +33,12 @@ class App extends React.Component {
         {/* <Header />
         <Cart /> */}
         <Switch>
+          <Route path='/search/:keyword'component={FurnitureIndexContainer}/>
           <Route path='/furnitures/sofa' component={FurnitureIndexContainer}/>
           <Route path='/furnitures/sectional' component={FurnitureIndexContainer}/>
           <Route path='/furnitures/chair' component={FurnitureIndexContainer}/>
           <Route path='/furnitures/table' component={FurnitureIndexContainer}/>
+          <Route path='/furnitures/shopall' component={FurnitureIndexContainer}/>
           <Route path="/furnitures/:furnitureId" component={FurnitureShowContainer}/>
           <Route path="/furnitures" component={FurnitureIndexContainer} />
           <Route path="/cart" component={OrderShowContainer}/>

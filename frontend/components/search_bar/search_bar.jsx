@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
-import { Link, withRouter, useHistory } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router'
 
 class SearchBar extends React.Component {
   constructor(props){
     super(props)
-    // this.state = {
-    //   color: "",
-    //   bed: "",
-    //   table: "",
-    //   outdoor: "",
-    //   couch: "",
-    //   filteredByState: []
-    // }
+    this.state = {
+      keyword: ""
+    }
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // componentDidMount(){
@@ -28,83 +26,28 @@ class SearchBar extends React.Component {
   //   })
   // }
 
+  update(e) {
+    this.setState({ 
+      keyword: e.target.value
+    }, () => console.log('state', this.state.keyword))
+  }
+
+  handleSubmit() {
+    console.log('search', this.state.keyword)
+    this.props.handleSearchDropdown();
+    this.props.history.push(`/search/${this.state.keyword}`)
+  }
+
+
   render(){
-
+    
     return(
-      <input type="search" placeholder='tell me your wish' />
+      <form onSubmit={this.handleSubmit}>
+        <input type="text" placeholder='tell me your wish' onChange={this.update}/>
+      </form>
     )
-    // const { products, keyword } = this.props;
-    // if (products === undefined) return null;
-    // let keywords = keyword.split(" ")
-    // let filteredProducts = [];
-    // let productsByColor = [];
-    // let productsByBed = [];
-    // let productsByCouch = [];
-    // let productsBySofa = [];
-    // let productsByOutdoor = [];
-    // let productsByTable = [];
-
-    // products.forEach((product) => {
-    //   keywords.forEach((word) => {
-    //     let byName = product.name.toLowerCase().includes(word.toLowerCase())
-    //     let byColor = product.color.toLowerCase().includes(word.toLowerCase())
-    //     if (byName && byName !== byColor && !filteredProducts.includes(product)) {
-    //       filteredProducts.push(product)
-    //     } else if (byColor && byColor !== byName && !filteredProducts.includes(product)) {
-    //       filteredProducts.push(product)
-    //     } else {
-    //       ""
-    //     }
-    //   })
-    //   return filteredProducts;
-    // })
-
-    // return (
-    //   filteredProducts.length > 0 ?
-    //     <section>
-    //       <div>
-    //         <div className="nav-static">
-    //           {
-    //             filteredProducts.map((product) => {
-    //               return (
-    //                 <ProductNavShowList product={product} />
-    //               )
-    //             })
-    //           }
-    //         </div>
-    //       </div>
-    //     </section>
-    //     : this.props.filteredByState ?
-    //       <section>
-    //         <div>
-    //           <form onSubmit={this.submitHandler}>
-    //             <label htmlFor="">by Gray
-    //               <input type="radio" value={this.state.color} onClick={(e) => this.filterByState("color", e)} /></label>
-    //             <input type="submit" />
-    //           </form>
-    //         </div>
-    //         <div>
-    //           <div className="nav-static">
-    //             {
-    //               this.props.filteredByState.map((product) => {
-    //                 return (
-    //                   <ProductNavShowList product={product} />
-    //                 )
-    //               })
-    //             }
-    //           </div>
-    //         </div>
-    //       </section>
-
-
-    //       :
-    //       <div>
-    //         <Link to="/">There are no products matching your search keywords</Link>
-    //       </div>
-
-    // )
-
+   
   }
 } 
 
-export default SearchBar;
+export default withRouter(SearchBar);

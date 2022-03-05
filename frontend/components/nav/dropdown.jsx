@@ -37,7 +37,9 @@ function Dropdown(props) {
       case 'search':
         return <div className={ 'dropdown-middle'}> 
           <Mdicon.MdClose className='close-icon' onClick={props.handleSearchDropdown}/>
-          <SearchBar />
+          <SearchBar 
+            handleSearchDropdown={props.handleSearchDropdown}
+          />
           </div>
           
       case 'cart':
