@@ -15,13 +15,13 @@
 // }
 
 #wrap {
-  margin: 50px 100px;
+  margin: 65px 100px;
   display: inline-block;
   position: relative;
-  height: 60px;
+  height: 30px;
   width: 80%;
-  padding: 5px;
-  // border: 2px solid black;
+  padding: 0;
+ 
 }
 
 //need to change the font later for the text inside the search bar
@@ -85,10 +85,17 @@ form {
   overflow:hidden;
 }
 
-.popular-searches * {
+.popular-searches {
   bottom: 0;
-  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  text-align: center;
+}
+.popular-searches * {
   display: inline-block;
-  justify-content: space-between;
-  position: relative;
+  padding: 12px;
+}
+.popular-searches ul{
+  text-decoration: underline;
 }

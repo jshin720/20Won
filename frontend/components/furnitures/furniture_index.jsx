@@ -18,7 +18,7 @@ class FurnitureIndex extends React.Component {
 
     for (let i = furniturePath.length - 1; i > 0; i--) {
       if (furniturePath[i] === '/') {
-        return furniturePath.slice(i + 1);
+        return furniturePath.slice(i + 1).toLowerCase();
       }
     }
   }
@@ -30,16 +30,15 @@ class FurnitureIndex extends React.Component {
       furniture.name.includes(keyword)
       ))
       
-      
     let colors = this.props.furnitures.filter((furniture) => (
       furniture.color === keyword
     ))
 
     let keywordFilter = this.props.furnitures.filter((furniture) => (
-      furniture.category === keyword
+      furniture.category === keyword 
     ))
 
-    const keywordArr = ['sofa', 'sectional', 'chair', 'table']
+    const keywordArr = ['sofa', 'sectional', 'chair', 'table', 'chairs', 'sofas', 'sectionals', 'tables']
     
     if (names.length > 0 && !keywordArr.includes(keyword)) {
       console.log('keyword', names)
@@ -102,7 +101,7 @@ class FurnitureIndex extends React.Component {
     let furnitureCategory = this.keywordString(this.props.match.url);
     const notKeyword = this.props.match.params.keyword;
     console.log("furnitures", !notKeyword);
-
+    console.log("furnitures2", this.props)
     if (furnitureCategory === 'sofa' && !notKeyword) {
       return (
         <div className="index-main-container">

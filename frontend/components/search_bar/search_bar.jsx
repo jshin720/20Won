@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router'
+import { Link } from 'react-router-dom';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -9,23 +10,27 @@ class SearchBar extends React.Component {
     }
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  };
 
   componentDidMount() {
     this.props.fetchFurnitures() 
-  }
+  };
 
+  // componentWillUnmount(){
+  //   this.props.popularSearchesFilter();
+  // }
+ 
   update(e) {
     this.setState({
       keyword: e.target.value
     }, () => console.log('state', this.state.keyword))
-  }
+  };
 
   handleSubmit() {
 
     this.props.handleSearchDropdown();
-    this.props.history.push(`/search/${this.state.keyword}`)
-  }
+    this.props.history.push(`/search/${this.state.keyword}`) //comes from the withrouter - it needs 2 parameters (path, state) - leads to another path with the even state
+  };
 
   popularSearchesFilter() {
     let randomNums = [];
@@ -33,20 +38,25 @@ class SearchBar extends React.Component {
       let num = Math.floor(Math.random() * this.props.furnitures.length)
       if (!randomNums.includes(num)) {
         randomNums.push(num);
-      }
-    }
-    console.log(randomNums)
+      };
+    };
+    
     return (
       randomNums.map((randomNum, i) => {
         let randomFurniture = this.props.furnitures[randomNum];
         return(
-        <li key={i}>
+        <li>
+          <Link to={`/furnitures/${randomFurniture.id}`} 
+            onClick={this.props.handleSearchDropdown}
+            style={{color: 'black'}}
+          >
           {randomFurniture.name}
+          </Link>
         </li>
         )
       })
     )
-  }
+  };
 
 
   render() {
@@ -59,7 +69,7 @@ class SearchBar extends React.Component {
         <div id="wrap">
           <form onSubmit={this.handleSubmit}>
             <input id='search' type="text" placeholder='Search our site' onChange={this.update} />
-            <span id="search-submit"> </span>
+            <span id="search-submit" onSubmit={this.handleSubmit}> </span>
           </form>
         </div>
         <div className='popular-searches'>
