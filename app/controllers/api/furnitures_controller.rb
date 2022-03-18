@@ -15,7 +15,7 @@ class Api::FurnituresController < ApplicationController
 
   private
   def furniture_params
-    params.require(:furniture).permit(:name, :color, :category, :price, :description)
+    params.require(:furniture).permit(:name, :color, :category, :price, :description, :dimension, :highlight, images: [])
   end
 end
 

@@ -87,7 +87,7 @@ Furniture.create!(
   description: 'nice love sectional'
 
 )
-
+/;;;
 Furniture.create!(
   name: 'neva sectional111',
   category: 'sectional',
