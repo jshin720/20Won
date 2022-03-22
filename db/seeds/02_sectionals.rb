@@ -20,13 +20,13 @@ Weight: 255 lbs
 Box dimensions: 43\”W x 43\”D x 30\”H (x3), 43\”W x 45\”D x 20\”H',
  category: "Sectional", color: "Jasmine Rice", price: 4799)
 
-se1_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/neva/neva1.jpeg')
-se1_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/neva/neva2.jpeg')
-se1_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/neva/neva3.jpeg')
-se1_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/neva/neva4.jpeg')
-se1_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/neva/neva5.webp')
-se1_5 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/neva/neva6.webp')
-se1_6 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/neva/neva7.webp')
+se1_0 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/neva/neva1.jpeg')
+se1_1 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/neva/neva2.jpeg')
+se1_2 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/neva/neva3.jpeg')
+se1_3 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/neva/neva4.jpeg')
+se1_4 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/neva/neva5.webp')
+se1_5 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/neva/neva6.webp')
+se1_6 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/neva/neva7.webp')
 
 se1.images.attach(io:se1_0, filename: 'sectional/neva/neva1.jpeg')
 se1.images.attach(io:se1_1, filename: 'sectional/neva/neva2.jpeg')
@@ -58,11 +58,11 @@ Weight: 394 lbs
 Box dimensions: 53\”W x 48\”D x 26\”H (x2), 49\"W x 48\"D x 26\"H (x2)',
  category: "Sectional", color: "Corn Silk", price: 6099 })
 
-se2_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/devyn/devyn1.jpeg')
-se2_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/devyn/devyn2.webp')
-se2_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/devyn/devyn3.jpeg')
-se2_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/devyn/devyn4.webp')
-se2_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/devyn/devyn5.jpeg')
+se2_0 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/devyn/devyn1.jpeg')
+se2_1 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/devyn/devyn2.webp')
+se2_2 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/devyn/devyn3.jpeg')
+se2_3 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/devyn/devyn4.webp')
+se2_4 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/devyn/devyn5.jpeg')
 
 se2.images.attach(io:se2_0, filename: 'sectional/devyn/devyn1.jpeg')
 se2.images.attach(io:se2_1, filename: 'sectional/devyn/devyn2.webp')
@@ -92,12 +92,12 @@ Weight: 154 lbs
 Box dimensions: 86/”W x 35/”D x 28/”H',
  category: "Sectional", color: "Ink Cap", price: 4449 })
 
-se3_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/gabe/gabe1.jpeg')
-se3_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/gabe/gabe2.jpeg')
-se3_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/gabe/gabe3.jpeg')
-se3_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/gabe/gabe4.webp')
-se3_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/gabe/gabe5.webp')
-se3_5 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/gabe/gabe6.jpeg')
+se3_0 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/gabe/gabe1.jpeg')
+se3_1 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/gabe/gabe2.jpeg')
+se3_2 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/gabe/gabe3.jpeg')
+se3_3 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/gabe/gabe4.webp')
+se3_4 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/gabe/gabe5.webp')
+se3_5 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/gabe/gabe6.jpeg')
 
 
 se3.images.attach(io:se3_0, filename: 'sectional/gabe/gabe1.jpeg')
@@ -128,15 +128,15 @@ Weight: 275 lbs
 Box dimensions: 44/”W x 44”D x 30”H (x3), 44”W x 44”D x 19”H',
  category: "Sectional", color: "Moon Dust", price: 4749 })
 
-se4_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/aria/aria1.webp')
-se4_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/aria/aria2.png')
-se4_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/aria/aria3.webp')
-se4_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/aria/aria4.webp')
-se4_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/aria/aria5.webp')
-se4_5 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/aria/aria6.webp')
-se4_6 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/aria/aria7.jpeg')
-se4_7 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/aria/aria8.jpeg')
-se4_8 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/aria/aria10.jpeg')
+se4_0 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/aria/aria1.webp')
+se4_1 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/aria/aria2.png')
+se4_2 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/aria/aria3.webp')
+se4_3 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/aria/aria4.webp')
+se4_4 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/aria/aria5.webp')
+se4_5 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/aria/aria6.webp')
+se4_6 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/aria/aria7.jpeg')
+se4_7 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/aria/aria8.jpeg')
+se4_8 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/aria/aria10.jpeg')
 
 se4.images.attach(io:se4_0, filename: 'sectional/aria/aria1.webp')
 se4.images.attach(io:se4_1, filename: 'sectional/aria/aria2.png')
@@ -171,11 +171,11 @@ Weight: 315 lbs
 Box dimensions: 38\”W x 43\”D x 34\”H (x3), 43\”W x 43\”D x 34\”H',
  category: "Sectional", color: "Pacific Pearl", price: 4099 })
 
-se5_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/elias/elias1.jpeg')
-se5_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/elias/elias2.jpeg')
-se5_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/elias/elias3.webp')
-se5_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/elias/elias4.webp')
-se5_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/elias/elias5.jpeg')
+se5_0 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/elias/elias1.jpeg')
+se5_1 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/elias/elias2.jpeg')
+se5_2 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/elias/elias3.webp')
+se5_3 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/elias/elias4.webp')
+se5_4 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/elias/elias5.jpeg')
 
 se5.images.attach(io:se5_0, filename: 'sectional/elias/elias1.jpeg')
 se5.images.attach(io:se5_1, filename: 'sectional/elias/elias2.jpeg')
@@ -209,11 +209,11 @@ Weight: 337 lbs
 Box dimensions: 41\”W x 37\”D x 30\”H (x4), 37\"W x 37\"D x 30\"H',
  category: "Sectional", color: "Jasmine Rice", price: 6099 })
 
-se6_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/amelia/amelia1.webp')
-se6_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/amelia/amelia2.webp')
-se6_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/amelia/amelia3.jpeg')
-se6_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/amelia/amelia4.webp')
-se6_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/sectional/amelia/amelia5.jpeg')
+se6_0 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/amelia/amelia1.webp')
+se6_1 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/amelia/amelia2.webp')
+se6_2 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/amelia/amelia3.jpeg')
+se6_3 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/amelia/amelia4.webp')
+se6_4 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/sectional/amelia/amelia5.jpeg')
 
 
 se6.images.attach(io:se6_0, filename: 'sectional/amelia/amelia1.webp')

@@ -15,10 +15,10 @@ Weight: 288 lbs
 Box dimensions: 91\”L x 41.5\”W x 5.5\”H, 39.5\”L x 33.5\”W x 11.5\”H',
  category: "Table", color: "Reclaimed Austrian Oak", price: 4099)
 
-t1_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaid/kaid1.jpeg')
-t1_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaid/kaid2.jpeg')
-t1_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaid/kaid3.jpeg')
-t1_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaid/kaid4.webp')
+t1_0 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/kaid/kaid1.jpeg')
+t1_1 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/kaid/kaid2.jpeg')
+t1_2 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/kaid/kaid3.jpeg')
+t1_3 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/kaid/kaid4.webp')
 
 t1.images.attach(io:t1_0, filename: 'table/kaid/kaid1.jpeg')
 t1.images.attach(io:t1_1, filename: 'table/kaid/kaid2.jpeg')
@@ -40,12 +40,12 @@ Weight: 138.8 lbs
 Box dimensions: 79\”L x 24\"W x 9\"H, 64\"L x 27\"W x 22\"H',
  category: "Table", color: "American Red Oak", price: 1899 })
 
-t2_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/rylance/rylance1.jpeg')
-t2_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/rylance/rylance2.jpeg')
-t2_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/rylance/rylance3.jpeg')
-t2_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/rylance/rylance4.jpeg')
-t2_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/rylance/rylance5.webp')
-t2_5 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/rylance/rylance6.jpeg')
+t2_0 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/rylance/rylance1.jpeg')
+t2_1 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/rylance/rylance2.jpeg')
+t2_2 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/rylance/rylance3.jpeg')
+t2_3 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/rylance/rylance4.jpeg')
+t2_4 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/rylance/rylance5.webp')
+t2_5 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/rylance/rylance6.jpeg')
 
 t2.images.attach(io:t2_0, filename: 'table/rylance/rylance1.jpeg')
 t2.images.attach(io:t2_1, filename: 'table/rylance/rylance2.jpeg')
@@ -71,12 +71,12 @@ Weight: 189 lbs
 Box dimensions: 67.5\"L x 46\”W x 5.75\”D, 39.5\"L x 19.75\"W x 11.25\"D',
  category: "Table", color: "Solid Oak", price: 1999 })
 
-t3_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaic/kaic1.jpeg')
-t3_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaic/kaic2.jpeg')
-t3_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaic/kaic3.webp')
-t3_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaic/kaic4.jpeg')
-t3_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaic/kaic5.webp')
-t3_5 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaic/kaic6.webp')
+t3_0 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/kaic/kaic1.jpeg')
+t3_1 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/kaic/kaic2.jpeg')
+t3_2 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/kaic/kaic3.webp')
+t3_3 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/kaic/kaic4.jpeg')
+t3_4 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/kaic/kaic5.webp')
+t3_5 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/kaic/kaic6.webp')
 
 t3.images.attach(io:t3_0, filename: 'table/kaic/kaic1.jpeg')
 t3.images.attach(io:t3_1, filename: 'table/kaic/kaic2.jpeg')
@@ -102,10 +102,10 @@ Weight: 70.5 lbs
 Box dimensions: 80.25\”L x 28.25\”W x 16.5\”D',
  category: "Table", color: "Chinese Pine", price: 1899 })
 
-t4_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/theo/theo1.webp')
-t4_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/theo/theo2.jpeg')
-t4_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/theo/theo3.webp')
-t4_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/theo/theo4.png')
+t4_0 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/theo/theo1.webp')
+t4_1 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/theo/theo2.jpeg')
+t4_2 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/theo/theo3.webp')
+t4_3 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/theo/theo4.png')
 
 t4.images.attach(io:t4_0, filename: 'table/theo/theo1.webp')
 t4.images.attach(io:t4_1, filename: 'table/theo/theo2.jpeg')
@@ -128,13 +128,13 @@ Weight: 253.5 lbs
 Box dimensions: 91\”L x 46.25\”W x 14\”H',
  category: "Table", color: "Chinese Pine", price: 2599 })
 
-t5_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso1.webp')
-t5_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso2.jpeg')
-t5_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso3.jpeg')
-t5_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso4.webp')
-t5_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso5.png')
-t5_5 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso6.webp')
-t5_6 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso7.webp')
+t5_0 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/fasso/fasso1.webp')
+t5_1 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/fasso/fasso2.jpeg')
+t5_2 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/fasso/fasso3.jpeg')
+t5_3 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/fasso/fasso4.webp')
+t5_4 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/fasso/fasso5.png')
+t5_5 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/fasso/fasso6.webp')
+t5_6 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/fasso/fasso7.webp')
 
 t5.images.attach(io:t5_0, filename: 'table/fasso/fasso1.webp')
 t5.images.attach(io:t5_1, filename: 'table/fasso/fasso2.jpeg')
@@ -161,11 +161,11 @@ Weight: 76 lbs
 Box dimensions: 35.5\”L x 35.5\”W x 21.25\”H',
  category: "Table", color: "American Red Oak", price: 1699 })
 
-t6_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/chloe/chloe1.jpeg')
-t6_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/chloe/chloe2.webp')
-t6_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/chloe/chloe3.png')
-t6_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/chloe/chloe4.jpeg')
-t6_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/chloe/chloe5.webp')
+t6_0 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/chloe/chloe1.jpeg')
+t6_1 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/chloe/chloe2.webp')
+t6_2 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/chloe/chloe3.png')
+t6_3 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/chloe/chloe4.jpeg')
+t6_4 = open('https://twenty-won-images.s3.us-east-2.amazonaws.com/table/chloe/chloe5.webp')
 
 t6.images.attach(io:t6_0, filename: 'table/chloe/chloe1.jpeg')
 t6.images.attach(io:t6_1, filename: 'table/chloe/chloe2.webp')
