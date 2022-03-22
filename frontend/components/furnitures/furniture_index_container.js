@@ -6,21 +6,21 @@ import { fetchFurnitures } from "../../actions/furniture_actions";
 const mSTP = (state, ownProps) => {
 
   const furnitures = Object.values(state.entities.furnitures)
-
+  
   let sofas = furnitures.filter((furniture) => (
-    furniture.category === "sofa"
+    furniture.category.toLowerCase() === "sofa"
   ))
 
   let sectionals = furnitures.filter((furniture) => (
-    furniture.category === "sectional"
+    furniture.category.toLowerCase() === "sectional"
   ))
 
   let chairs = furnitures.filter((furniture) => (
-    furniture.category === "chair"
+    furniture.category.toLowerCase() === "chair"
   ))
 
   let tables = furnitures.filter((furniture) => (
-    furniture.category === "table"
+    furniture.category.toLowerCase() === "table"
   ))
 
   return ({

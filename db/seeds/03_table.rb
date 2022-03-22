@@ -1,261 +1,174 @@
-# require "open-uri"
+require "open-uri"
 
 
-# s1 = Furniture.create(name: "Neva Sofa", 
-#   description: "The fluffiest, comfiest “wow this is soft” collection we’ve made. Neva’s playfully minimal style will turn any room into an effortless oasis.",
-#   highlights:"
-# Neva's seat cushions contain five layers: your choice of loose fill (Feather Down or Poly Fill) on top and bottom, 
-# two "comfort layers" of high-density foam for a little extra squish, 
-# and a "support layer" of high-density foam at the center for structure and stability. The fill makes up 40% of the overall cushion, 
-# and the foam makes up 60%.
-# Our lofty Feather Down is ethically-sourced, and our vegan Poly Fill is designed specifically to mimic the familiar fluff of feathers. 
-# We mix a small percentage of vegan poly fiber into the Feather Down fill for a bit of spring.",
-#   dimension: 'Overall dimensions: 84"W x 41"D x 33"H
-# Seat height: 18”
-# Seat width: 78”
-# Seat depth w/ back cushion: 26”
-# Seat depth w/o back cushion: 35”
-# Arm height: 26"
-# Arm width: 3"
-# Frame height: 29"
-# Weight: 165 lbs
-# Box dimensions: 86”W x 43”D x 30”H',
-#  category: "Sofa", color: "Pacific Pearl", price: 2599)
-# s1_0 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/belcampo+sofa/main_13405-38-SET.webp')
-# s1_1 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/belcampo+sofa/1340538-10x8-CROP.png')
-# s1_2 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/belcampo+sofa/13405-MOOD-A.webp')
-# s1_3 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/belcampo+sofa/13405-38-SW-P1-KO.webp')
-# s1_4 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/belcampo+sofa/13405-38-35.webp')
-# s1_5 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/belcampo+sofa/13405-38-35-T046-ALT.webp')
+t1 = Furniture.create(name: "Kai Dining Table", 
+  description: "Characteristic solid oak—reclaimed from years-old structures in Austria—is the highlight of this sophisticated collection. Kai's distinctive imperfections and deeply flowing grain pattern offer a tactile reminder of its storied past.",
+  highlight:"
+Material: 100% Reclaimed Austrian Oak
+Build: All wood selected, cut, laminated, assembled, and sanded by hand.
+Finish: Treated with a top coat for seal.
+Detail: Since each table is handmade and hand-finished, variations and imperfections are sort of the whole idea. No two pieces are exactly alike.
+Assembly: Simple assembly required.",
+  dimension: 'Overall dimensions: 80\”L x 42\”W x 30\”H
+Top thickness: 2”
+Weight: 288 lbs
+Box dimensions: 91\”L x 41.5\”W x 5.5\”H, 39.5\”L x 33.5\”W x 11.5\”H',
+ category: "Table", color: "Reclaimed Austrian Oak", price: 4099)
 
-# s1.images.attach(io:p1_0, filename: 'images/belcampo sofa/main_13405-38-SET.webp')
-# s1.images.attach(io:p1_1, filename: 'images/belcampo sofa/1340538-10x8-CROP.png')
-# s1.images.attach(io:p1_2, filename: 'images/belcampo sofa/13405-MOOD-A.webp')
-# s1.images.attach(io:p1_3, filename: 'images/belcampo sofa/13405-38-SW-P1-KO.webp')
-# s1.images.attach(io:p1_4, filename: 'images/belcampo sofa/13405-38-35.webp')
-# s1.images.attach(io:p1_5, filename: 'images/belcampo sofa/13405-38-35-T046-ALT.webp')
+t1_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaid/kaid1.jpeg')
+t1_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaid/kaid2.jpeg')
+t1_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaid/kaid3.jpeg')
+t1_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaid/kaid4.webp')
+
+t1.images.attach(io:t1_0, filename: 'table/kaid/kaid1.jpeg')
+t1.images.attach(io:t1_1, filename: 'table/kaid/kaid2.jpeg')
+t1.images.attach(io:t1_2, filename: 'table/kaid/kaid3.jpeg')
+t1.images.attach(io:t1_3, filename: 'table/kaid/kaid4.webp')
 
 
+t2 = Furniture.create({name: "Rylance Console Table", 
+  description: "The quintessential A-frame table gets a fresh take. Rylance's solid American oak, grand proportions, elegant joinery, and gently hammered detail inject modernity into a beloved, timeless shape.",
+  highlight:"
+Material: 100% American Red Oak
+Build: All wood selected, cut, laminated, assembled, sanded, and hammered by hand.
+Finish: Gently hand-hammered and treated with a top coat for seal.
+Detail: Since each table is handmade and hand-hammered, variations, imperfections, and subtle dimples are sort of the whole idea. No two pieces are exactly alike.
+Assembly: Simple assembly required.",
+  dimension: 'Overall dimensions: 72\"L x 18\"W x 30\"H
+Top thickness: 3\"
+Weight: 138.8 lbs
+Box dimensions: 79\”L x 24\"W x 9\"H, 64\"L x 27\"W x 22\"H',
+ category: "Table", color: "American Red Oak", price: 1899 })
 
-# s2 = Furniture.create({name: "Aria Sofa", 
-#   description: "Airy, modular, and just a little bit doughy. Aria's armless design and fixed slipcover mean the styling options (and the good angles) are neverending.",
-#   highlights:"
-# Aria's seat cushions contain three layers: your choice of loose fill (Feather Down or Poly Fill) at the top and bottom, 
-# and a “support layer” of high-density foam sandwiched between the fill for structure and stability. The fill makes up 40% of the overall cushion, 
-# and the foam makes up 60%.
-# Our lofty Feather Down is ethically-sourced, and our vegan Poly Fill is designed specifically to mimic the familiar fluff of feathers. 
-# We mix a small percentage of vegan poly fiber into the Feather Down fill for a bit of spring.",
-#   dimension: 'Overall dimensions: 72”W x 42”D x 35”H
-# Seat height: 17”
-# Seat width: 72”
-# Seat depth w/ back cushion: 26”
-# Seat depth w/o back cushion: 36”
-# Weight: 136.4 lbs
-# Box dimensions: 74”W x 44”D x 30”H',
-#  category: "Sofa", color: "Ancient Indigo", price: 2499 })
+t2_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/rylance/rylance1.jpeg')
+t2_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/rylance/rylance2.jpeg')
+t2_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/rylance/rylance3.jpeg')
+t2_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/rylance/rylance4.jpeg')
+t2_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/rylance/rylance5.webp')
+t2_5 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/rylance/rylance6.jpeg')
 
-# s2_1 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/abinger_sofa/main_8390438-SET-10X8-CROP.png')
-# s2.images.attach(io:s2_1, filename: 'images/abinger_sofa/main_8390438-SET-10X8-CROP.png')
-
-# s2_2 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/abinger_sofa/8390438-Abinger-DIM.webp')
-# s2.images.attach(io:s2_2, filename: 'images/abinger_sofa/8390438-Abinger-DIM.webp')
-
-# s2_3 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/abinger_sofa/83904-SWATCH-BODY-A-500.jpeg')
-# s2.images.attach(io:s2_3, filename: 'images/abinger_sofa/83904-SWATCH-BODY-A-500.jpeg')
-
-# s2_4 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/abinger_sofa/83904-38-SIDE-SW-P1-KO.webp')
-# s2.images.attach(io:s2_4, filename: 'images/abinger_sofa/83904-38-SIDE-SW-P1-KO.webp')
-
-# s2_5 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/abinger_sofa/83904-38-HEAD-ON-SW-P1-KO.webp')
-# s2.images.attach(io:s2_5, filename: 'images/abinger_sofa/83904-38-HEAD-ON-SW-P1-KO.webp')
-
-# s2_6 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/abinger_sofa/83904-38-BACK-SW-P1-KO.webp')
-# s2.images.attach(io:s2_6, filename: 'images/abinger_sofa/83904-38-BACK-SW-P1-KO.webp')
-
-# s2_7 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/abinger_sofa/83904-38-ANGLE-SW-P1-KO.webp')
-# s2.images.attach(io:s2_7, filename: 'images/abinger_sofa/83904-38-ANGLE-SW-P1-KO.webp')
+t2.images.attach(io:t2_0, filename: 'table/rylance/rylance1.jpeg')
+t2.images.attach(io:t2_1, filename: 'table/rylance/rylance2.jpeg')
+t2.images.attach(io:t2_2, filename: 'table/rylance/rylance3.jpeg')
+t2.images.attach(io:t2_3, filename: 'table/rylance/rylance4.jpeg')
+t2.images.attach(io:t2_4, filename: 'table/rylance/rylance5.webp')
+t2.images.attach(io:t2_5, filename: 'table/rylance/rylance6.jpeg')
 
 
 
-# s3 = Product.create({name: "Gabriel Sofa", 
-#   description: "A sharp, slim shelter arm with concise proportions and an unexpectedly squishy plop. Don't let the contemporary looks fool you—Gabriel too is a softy at heart.",
-#   highlights:"
-# Gabriel's seat cushions contain three layers: your choice of loose fill (Feather Down or Poly Fill) at the top and bottom, 
-# and a “support layer” of high-density foam sandwiched between the fill for structure and stability. 
-# The fill makes up 40% of the overall cushion, and the foam makes up 60%.
-# Our lofty Feather Down is ethically-sourced, and our vegan Poly Fill is designed specifically to mimic the familiar fluff of feathers. 
-# We mix a small percentage of vegan poly fiber into the Feather Down fill for a bit of spring.
-# ",
-#   dimension: 'Overall dimensions: 84"W x 33"D x 30"H
-# Seat height: 16.5”
-# Seat width: 80"
-# Seat depth w/ back cushion: 23”
-# Seat depth w/o back cushion: 31”
-# Arm height: 25.5"
-# Arm width: 2"
-# Weight: 154 lbs
-# Box dimensions: 86”W x 35”D x 28”H',
-#  category: "Sofa", color: "Beach Walk", price: 2399 })
+t3 = Furniture.create({name: "Kai Coffee Table", 
+  description: "Characteristic solid oak—reclaimed from years-old structures in Austria—is the highlight of this sophisticated collection. Kai\'s distinctive imperfections and deeply flowing grain pattern offer a tactile reminder of its storied past.",
+  highlight:"
+Material: 100% Reclaimed Austrian Oak
+Build: All wood selected, cut, laminated, assembled, and sanded by hand.
+Finish: Treated with a top coat for seal.
+Detail: Since each table is handmade and hand-finished, variations and imperfections are sort of the whole idea. No two pieces are exactly alike.
+Assembly: Simple assembly required.
+",
+  dimension: 'Overall dimensions: 60\"L x 40\"W x 16\"H
+Top thickness: 2\"
+Weight: 189 lbs
+Box dimensions: 67.5\"L x 46\”W x 5.75\”D, 39.5\"L x 19.75\"W x 11.25\"D',
+ category: "Table", color: "Solid Oak", price: 1999 })
 
-# s3_1 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/lyman_sofa/main_93303-38-SET-10X8-CROP.png')
-# s3.images.attach(io:s3_1, filename: 'images/lyman_sofa/main_93303-38-SET-10X8-CROP.png')
+t3_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaic/kaic1.jpeg')
+t3_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaic/kaic2.jpeg')
+t3_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaic/kaic3.webp')
+t3_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaic/kaic4.jpeg')
+t3_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaic/kaic5.webp')
+t3_5 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/kaic/kaic6.webp')
 
-# s3_2 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/lyman_sofa/93303-38-SIDE-SW-P1-KO.webp')
-# s3.images.attach(io:s3_2, filename: 'images/lyman_sofa/93303-38-SIDE-SW-P1-KO.webp')
-
-# s3_3 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/lyman_sofa/93303-38-HEAD-ON-SW-P1-KO.webp')
-# s3.images.attach(io:s3_3, filename: 'images/lyman_sofa/93303-38-HEAD-ON-SW-P1-KO.webp')
-
-# s3_4 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/lyman_sofa/93303-38-BACK-SW-P1-KO.webp')
-# s3.images.attach(io:s3_4, filename: 'images/lyman_sofa/93303-38-BACK-SW-P1-KO.webp')
-
-# s3_5 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/lyman_sofa/93303-38-ANGLE-SW-P1-KO.webp')
-# s3.images.attach(io:s3_5, filename: 'images/lyman_sofa/93303-38-ANGLE-SW-P1-KO.webp')
+t3.images.attach(io:t3_0, filename: 'table/kaic/kaic1.jpeg')
+t3.images.attach(io:t3_1, filename: 'table/kaic/kaic2.jpeg')
+t3.images.attach(io:t3_2, filename: 'table/kaic/kaic3.webp')
+t3.images.attach(io:t3_3, filename: 'table/kaic/kaic4.jpeg')
+t3.images.attach(io:t3_4, filename: 'table/kaic/kaic5.webp')
+t3.images.attach(io:t3_5, filename: 'table/kaic/kaic6.webp')
 
 
 
-# s4 = Product.create({name: "Elias Sofa", 
-#   description: "A huggable homage to the quintessential European roll arm—except more marshmallow-y. Elias gives soft a new meaning, with rounded details and a delightfully spongy seat.",
-#   highlights:"
-# Elias' seat cushions contain five layers: your choice of loose fill (Feather Down or Poly Fill) on top and bottom, 
-# two "comfort layers" of high-density foam for a little extra squish, and a "support layer" of high-density foam at the center for structure and stability.
-# The fill makes up 40% of the overall cushion, and the foam makes up 60%.
-# Our lofty Feather Down is ethically-sourced, and our vegan Poly Fill is designed specifically to mimic the familiar fluff of feathers. 
-# We mix a small percentage of vegan poly fiber into the Feather Down fill for a bit of spring.
-# ",
-#   dimension: 'Overall dimensions: 84"W x 41"D x 35"H
-# Seat height: 20”
-# Seat width: 72"
-# Seat depth w/ back cushion: 21”
-# Seat depth w/o back cushion: 34”
-# Arm height: 25"
-# Arm width: 6"
-# Frame height: 32"
-# Weight: 158.4 lbs
-# Box dimensions: 86”W x 43”D x 34”H',
-#  category: "Sofa", color: "Beach Walk", price: 2699 })
 
-# s4_1 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/gaddis_sofa/main_68206-65-UP-10X8-CROP.png')
-# s4.images.attach(io:s4_1, filename: 'images/gaddis_sofa/main_68206-65-UP-10X8-CROP.png')
+t4 = Furniture.create({name: "Theo Coffee Table", 
+  description: "A primitive-inspired shape with modern gusto. Crafted from solid reclaimed Chinese pine, Theo's meticulously preserved characteristics add natural charm to its rounded edges and turned legs.",
+  highlight:"
+Material: 100% Reclaimed Chinese Pine
+Build: All wood selected, cut, laminated, assembled, and sanded by hand
+Finish: Treated with a top coat for seal
+Detail: Since each table is handmade and hand-finished, variations and imperfections are sort of the whole idea. No two pieces are exactly alike.
+",
+  dimension: 'Overall dimensions: 76\"L x 24\"W x 11\"H
+Top thickness: 1.5\"
+Weight: 70.5 lbs
+Box dimensions: 80.25\”L x 28.25\”W x 16.5\”D',
+ category: "Table", color: "Chinese Pine", price: 1899 })
 
-# s4_2 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/gaddis_sofa/68206-SWATCH-BODY-A-500.webp')
-# s4.images.attach(io:s4_2, filename: 'images/gaddis_sofa/68206-SWATCH-BODY-A-500.webp')
+t4_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/theo/theo1.webp')
+t4_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/theo/theo2.jpeg')
+t4_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/theo/theo3.webp')
+t4_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/theo/theo4.png')
 
-# s4_3 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/gaddis_sofa/68206-65-USB-DETAIL.webp')
-# s4.images.attach(io:s4_3, filename: 'images/gaddis_sofa/68206-65-USB-DETAIL.webp')
-
-# s4_4 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/gaddis_sofa/68206-65-UP-ANGLE-SW-P1-KO.webp')
-# s4.images.attach(io:s4_4, filename: 'images/gaddis_sofa/68206-65-UP-ANGLE-SW-P1-KO.webp')
-
-# s4_5 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/gaddis_sofa/68206-65-SUPPORT-LEG-DETAIL.jpeg')
-# s4.images.attach(io:s4_5, filename: 'images/gaddis_sofa/68206-65-SUPPORT-LEG-DETAIL.jpeg')
-
-# s4_6 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/gaddis_sofa/68206-65-SIDE-UP-SW-P1-KO.webp')
-# s4.images.attach(io:s4_6, filename: 'images/gaddis_sofa/68206-65-SIDE-UP-SW-P1-KO.webp')
-
-# s4_7 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/gaddis_sofa/68206-65-SIDE-FLAT-SW-P1-KO.webp')
-# s4.images.attach(io:s4_7, filename: 'images/gaddis_sofa/68206-65-SIDE-FLAT-SW-P1-KO.webp')
-
-# s4_8 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/gaddis_sofa/68206-65-HEAD-ON-UP-SW-P1-KO.webp')
-# s4.images.attach(io:s4_8, filename: 'images/gaddis_sofa/68206-65-HEAD-ON-UP-SW-P1-KO.webp')
-
-# s4_9 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/gaddis_sofa/68206-65-HEAD-ON-FLAT-SW-P1-KO.webp')
-# s4.images.attach(io:s4_9, filename: 'images/gaddis_sofa/68206-65-HEAD-ON-FLAT-SW-P1-KO.webp')
-
-# s4_10 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/gaddis_sofa/68206-65-FLAT-ANGLE-SW-P1-KO.webp')
-# s4.images.attach(io:s4_10, filename: 'images/gaddis_sofa/68206-65-FLAT-ANGLE-SW-P1-KO.webp')
-
-# s4_11 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/gaddis_sofa/68206-65-FLAT-10X8-CROP.webp')
-# s4.images.attach(io:s4_11, filename: 'images/gaddis_sofa/68206-65-FLAT-10X8-CROP.webp')
+t4.images.attach(io:t4_0, filename: 'table/theo/theo1.webp')
+t4.images.attach(io:t4_1, filename: 'table/theo/theo2.jpeg')
+t4.images.attach(io:t4_2, filename: 'table/theo/theo3.webp')
+t4.images.attach(io:t4_3, filename: 'table/theo/theo4.png')
 
 
+t5 = Furniture.create({name: "Fasso Dining Table", 
+  description: "Bringing history to the table. Fasso's stately silhouette and grand proportions are accentuated by the rustic markings of reclaimed pine, years in the making.",
+  highlight:"
+Material: 100% Reclaimed Chinese Pine
+Build: All wood selected, cut, laminated, assembled, and sanded by hand.
+Finish: Treated with a top coat for seal.
+Detail: Since each table is handmade and hand-finished, variations and imperfections are sort of the whole idea. No two pieces are exactly alike.
+Assembly: Simple assembly required.
+",
+  dimension: 'Overall dimensions: 84\”L x 40\”W x 30\”H
+Top thickness: 3\”
+Weight: 253.5 lbs
+Box dimensions: 91\”L x 46.25\”W x 14\”H',
+ category: "Table", color: "Chinese Pine", price: 2599 })
 
-# s5 = Product.create({name: "Olea Sofa", 
-#   description: "Nothing this cute has any right to be so cozy. Olea's seat is exceptionally soft, its plushy back cushions look very nearly edible, and its neatly fixed slipcover shows a peek at the solid oak base for gorgeous material contrast.",
-#   highlights:"
-# Olea's seat cushions contain three layers: your choice of loose fill (Feather Down or Poly Fill) at the top and bottom, 
-# and a “support layer” of high-density foam sandwiched between the fill for structure and stability. The fill makes up 40% of the overall cushion, 
-# and the foam makes up 60%.
-# Our lofty Feather Down is ethically-sourced, and our vegan Poly Fill is designed specifically to mimic the familiar fluff of feathers. 
-# We mix a small percentage of vegan poly fiber into the Feather Down fill for a bit of spring.
-# ",
-#   dimension: 'Overall dimensions: 84”W x 41”D x 35”H
-# Seat height: 18”
-# Seat width: 84”
-# Seat depth w/ back cushion: 24”
-# Seat depth w/o back cushion: 31”
-# Weight: 173 lbs
-# Box dimensions: 86”W x 42”D x 34”H',
-#  category: "Sofa", color: "Cotton Canvas", price: 2699 })
+t5_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso1.webp')
+t5_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso2.jpeg')
+t5_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso3.jpeg')
+t5_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso4.webp')
+t5_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso5.png')
+t5_5 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso6.webp')
+t5_6 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/fasso/fasso7.webp')
 
-# s5_1 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/The+Man-Den+Triple+Power+Reclining+Sofa/main-U8530515-SET-10X8-CROP.png')
-# s5.images.attach(io:s5_1, filename: 'images/The Man-Den Triple Power Reclining Sofa/main-U8530515-SET-10X8-CROP.png')
-
-# s5_2 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/The+Man-Den+Triple+Power+Reclining+Sofa/U85305-15-CLSD-ANGLE-SW-P1-KO.webp')
-# s5.images.attach(io:s5_2, filename: 'images/The Man-Den Triple Power Reclining Sofa/U85305-15-CLSD-ANGLE-SW-P1-KO.webp')
-
-# s5_3 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/The+Man-Den+Triple+Power+Reclining+Sofa/U85305-15-CUP-HLDRS.jpeg')
-# s5.images.attach(io:s5_3, filename: 'images/The Man-Den Triple Power Reclining Sofa/U85305-15-CUP-HLDRS.jpeg')
-
-# s5_4 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/The+Man-Den+Triple+Power+Reclining+Sofa/U85305-15-ARM-STORAGE-SW.jpeg')
-# s5.images.attach(io:s5_4, filename: 'images/The Man-Den Triple Power Reclining Sofa/U85305-15-ARM-STORAGE-SW.jpeg')
-
-# s5_5 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/The+Man-Den+Triple+Power+Reclining+Sofa/U85305-15-DDT-LIGHT-SW.webp')
-# s5.images.attach(io:s5_5, filename: 'images/The Man-Den Triple Power Reclining Sofa/U85305-15-DDT-LIGHT-SW.webp')
-
-# s5_6 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/The+Man-Den+Triple+Power+Reclining+Sofa/U85305-15-DETAIL.webp')
-# s5.images.attach(io:s5_6, filename: 'images/The Man-Den Triple Power Reclining Sofa/U85305-15-DETAIL.webp')
-
-# s5_7 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/The+Man-Den+Triple+Power+Reclining+Sofa/AHS_TheManDen_U8530515_PwrRecSofa-AdjHeadrest_P2.jpeg')
-# s5.images.attach(io:s5_7, filename: 'images/The Man-Den Triple Power Reclining Sofa/AHS_TheManDen_U8530515_PwrRecSofa-AdjHeadrest_P2.jpeg')
-
-# s5_8 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/The+Man-Den+Triple+Power+Reclining+Sofa/U85305-15-OPEN-ANGLE-SW-P1-KO.webp')
-# s5.images.attach(io:s5_8, filename: 'images/The Man-Den Triple Power Reclining Sofa/U85305-15-OPEN-ANGLE-SW-P1-KO.webp')
-
-# s5_9 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/The+Man-Den+Triple+Power+Reclining+Sofa/U85305-15-SIDE-SW-P1-KO.webp')
-# s5.images.attach(io:s5_9, filename: 'images/The Man-Den Triple Power Reclining Sofa/U85305-15-SIDE-SW-P1-KO.webp')
-
-# s5_10 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/The+Man-Den+Triple+Power+Reclining+Sofa/U85305-SWATCH-BODY-A-500.jpeg')
-# s5.images.attach(io:s5_10, filename: 'images/The Man-Den Triple Power Reclining Sofa/U85305-SWATCH-BODY-A-500.jpeg')
+t5.images.attach(io:t5_0, filename: 'table/fasso/fasso1.webp')
+t5.images.attach(io:t5_1, filename: 'table/fasso/fasso2.jpeg')
+t5.images.attach(io:t5_2, filename: 'table/fasso/fasso3.jpeg')
+t5.images.attach(io:t5_3, filename: 'table/fasso/fasso4.webp')
+t5.images.attach(io:t5_4, filename: 'table/fasso/fasso5.png')
+t5.images.attach(io:t5_5, filename: 'table/fasso/fasso6.webp')
+t5.images.attach(io:t5_6, filename: 'table/fasso/fasso7.webp')
 
 
+t6 = Furniture.create({name: "Chloe Coffee Table", 
+  description: "Cute as a solid oak button. Chloe’s smooth finish is juxtaposed with chunky proportions, a teardrop-shaped leg, and a gently hammered top for good measure.
+",
+  highlight:"
+Material: 100% American Red Oak
+Build: All wood selected, cut, laminated, assembled, sanded, and hammered by hand.
+Finish: Gently hand-hammered and treated with a top coat for seal.
+Detail: Since each table is handmade and hand-hammered, variations, imperfections, and subtle dimples are sort of the whole idea. No two pieces are exactly alike.
+Assembly: Simple assembly required.
+",
+  dimension: 'Overall dimensions: 31\”L x 31\”W x 16\”H
+Top thickness: 2.5\”
+Weight: 76 lbs
+Box dimensions: 35.5\”L x 35.5\”W x 21.25\”H',
+ category: "Table", color: "American Red Oak", price: 1699 })
 
-# s6 = Product.create({name: "Ziki Sofa", 
-#   description: "A nod to the forever-chic 20th century French design sensibilities. Ziki’s rounded shoulders and plush bench cushion marry minimalism and coziness, and the sloping, cushion-less back is made deceivingly soft by layers of foam hidden beneath the surface.
-# ",
-#   highlights:"
-# Ziki's seat cushions contain three layers: your choice of loose fill (Feather Down or Poly Fill) at the top and bottom, 
-# and a “support layer” of high-density foam sandwiched between the fill for structure and stability. 
-# The fill makes up 40% of the overall cushion, and the foam makes up 60%.
-# Our lofty Feather Down is ethically-sourced, and our vegan Poly Fill is designed specifically to mimic the familiar fluff of feathers. 
-# We mix a small percentage of vegan poly fiber into the Feather Down fill for a bit of spring.
-# ",
-#   dimension: 'Overall dimensions: 84"W x 37"D x 31"H
-# Seat height: 19”
-# Seat width: 70”
-# Seat depth: 25”
-# Arm height: 24"
-# Arm width: 4"
-# Frame height: 31"
-# Weight: 150 lbs
-# Box dimensions: 86”W x 39”D x 32.5”H',
-#  category: "Sofa", color: "Jasmine Rice", price: 2699 })
+t6_0 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/chloe/chloe1.jpeg')
+t6_1 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/chloe/chloe2.webp')
+t6_2 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/chloe/chloe3.png')
+t6_3 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/chloe/chloe4.jpeg')
+t6_4 = open('https://twentywon-images.s3.us-east-2.amazonaws.com/table/chloe/chloe5.webp')
 
-# s6_1 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/alcona_sofa/main_98310-38-SET.webp')
-# s6.images.attach(io:s6_1, filename: 'images/alcona_sofa/main_98310-38-SET.webp')
-
-# s6_2 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/alcona_sofa/9831038-Alcona-DIM.webp')
-# s6.images.attach(io:s6_2, filename: 'images/alcona_sofa/9831038-Alcona-DIM.webp')
-
-# s6_3 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/alcona_sofa/9831038-10X8-CROP.webp')
-# s6.images.attach(io:s6_3, filename: 'images/alcona_sofa/9831038-10X8-CROP.webp')
-
-# s6_4 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/alcona_sofa/98310-38-HEAD-ON-SW-P1-KO.webp')
-# s6.images.attach(io:s6_4, filename: 'images/alcona_sofa/98310-38-HEAD-ON-SW-P1-KO.webp')
-
-# s6_5 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/alcona_sofa/98310-38-BACK-SW-P1-KO.webp')
-# s6.images.attach(io:s6_5, filename: 'images/alcona_sofa/98310-38-BACK-SW-P1-KO.webp')
-
-# s6_6 = open('https://furnitsy-furniture-images.s3.us-east-2.amazonaws.com/images/alcona_sofa/98310-38-ANGLE-SW-P1-KO.webp')
-# s6.images.attach(io:s6_6, filename: 'images/alcona_sofa/98310-38-ANGLE-SW-P1-KO.webp')
-
+t6.images.attach(io:t6_0, filename: 'table/chloe/chloe1.jpeg')
+t6.images.attach(io:t6_1, filename: 'table/chloe/chloe2.webp')
+t6.images.attach(io:t6_2, filename: 'table/chloe/chloe3.png')
+t6.images.attach(io:t6_3, filename: 'table/chloe/chloe4.jpeg')
+t6.images.attach(io:t6_4, filename: 'table/chloe/chloe5.webp')
