@@ -80,15 +80,19 @@ class FurnitureShow extends React.Component {
         <div className="furniture-show-info">
           <p className="furniture-name">Name: {furniture.name} </p>
           <br />
-          <p className="furniture-color">Color: {furniture.color} </p>
-          <p className="furniture-category">{furniture.category} </p>
           <div id="price-container">
             <p className="furniture-price"> {`${furniture.price}.00`} </p>
           </div>
+          <p className="furniture-color">Color: {furniture.color} </p>
+          <p className="furniture-category">{furniture.category} </p>
           <p className="furniture-description"> {furniture.description} </p>
         </div>
         <button type="submit" onClick={this.addToOrders}>Add To Cart</button>
-
+      <div className='extra-details'>
+      <p className='dimensions'>{furniture.dimensions}</p>
+      <p className='highlights'>{furniture.highlight}</p>
+      
+      </div>
         <div className="review-section">
           
           {!this.state.createReview ?
