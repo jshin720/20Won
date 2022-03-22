@@ -1,110 +1,86 @@
-import React, { useState } from 'react';
-import { Link, withRouter, useHistory } from 'react-router-dom';
+import React from 'react';
+import { withRouter } from 'react-router'
+import { Link } from 'react-router-dom';
 
 class SearchBar extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    // this.state = {
-    //   color: "",
-    //   bed: "",
-    //   table: "",
-    //   outdoor: "",
-    //   couch: "",
-    //   filteredByState: []
-    // }
-  }
+    this.state = {
+      keyword: ""
+    }
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  };
 
-  // componentDidMount(){
-  //   this.props.receiveProducts()
+  componentDidMount() {
+    this.props.fetchFurnitures() 
+  };
+
+  // componentWillUnmount(){
+  //   this.props.popularSearchesFilter();
   // }
+ 
+  update(e) {
+    this.setState({
+      keyword: e.target.value
+    }, () => console.log('state', this.state.keyword))
+  };
 
-  // filterByState(field, e){
-  //   let filteredProducts = [];
-  //   this.setState({ [field]: e.currentTarget.value })
-  //   filteredProducts.forEach((product) => {
-  //     if (product.color === this.state.field && !this.props.filteredByState.includes(product)) {
-  //       this.props.filteredByState.push(product)
-  //     }
-  //   })
-  // }
+  handleSubmit() {
 
-  render(){
+    this.props.handleSearchDropdown();
+    this.props.history.push(`/search/${this.state.keyword}`) //comes from the withrouter - it needs 2 parameters (path, state) - leads to another path with the even state
+  };
 
-    return(
-      <input type="search" placeholder='tell me your wish' />
+  popularSearchesFilter() {
+    let randomNums = [];
+    while(randomNums.length < 4) {
+      let num = Math.floor(Math.random() * this.props.furnitures.length)
+      if (!randomNums.includes(num)) {
+        randomNums.push(num);
+      };
+    };
+    
+    return (
+      randomNums.map((randomNum, i) => {
+        let randomFurniture = this.props.furnitures[randomNum];
+        return(
+        <li>
+          <Link to={`/furnitures/${randomFurniture.id}`} 
+            onClick={this.props.handleSearchDropdown}
+            style={{color: 'black'}}
+          >
+          {randomFurniture.name}
+          </Link>
+        </li>
+        )
+      })
     )
-    // const { products, keyword } = this.props;
-    // if (products === undefined) return null;
-    // let keywords = keyword.split(" ")
-    // let filteredProducts = [];
-    // let productsByColor = [];
-    // let productsByBed = [];
-    // let productsByCouch = [];
-    // let productsBySofa = [];
-    // let productsByOutdoor = [];
-    // let productsByTable = [];
-
-    // products.forEach((product) => {
-    //   keywords.forEach((word) => {
-    //     let byName = product.name.toLowerCase().includes(word.toLowerCase())
-    //     let byColor = product.color.toLowerCase().includes(word.toLowerCase())
-    //     if (byName && byName !== byColor && !filteredProducts.includes(product)) {
-    //       filteredProducts.push(product)
-    //     } else if (byColor && byColor !== byName && !filteredProducts.includes(product)) {
-    //       filteredProducts.push(product)
-    //     } else {
-    //       ""
-    //     }
-    //   })
-    //   return filteredProducts;
-    // })
-
-    // return (
-    //   filteredProducts.length > 0 ?
-    //     <section>
-    //       <div>
-    //         <div className="nav-static">
-    //           {
-    //             filteredProducts.map((product) => {
-    //               return (
-    //                 <ProductNavShowList product={product} />
-    //               )
-    //             })
-    //           }
-    //         </div>
-    //       </div>
-    //     </section>
-    //     : this.props.filteredByState ?
-    //       <section>
-    //         <div>
-    //           <form onSubmit={this.submitHandler}>
-    //             <label htmlFor="">by Gray
-    //               <input type="radio" value={this.state.color} onClick={(e) => this.filterByState("color", e)} /></label>
-    //             <input type="submit" />
-    //           </form>
-    //         </div>
-    //         <div>
-    //           <div className="nav-static">
-    //             {
-    //               this.props.filteredByState.map((product) => {
-    //                 return (
-    //                   <ProductNavShowList product={product} />
-    //                 )
-    //               })
-    //             }
-    //           </div>
-    //         </div>
-    //       </section>
+  };
 
 
-    //       :
-    //       <div>
-    //         <Link to="/">There are no products matching your search keywords</Link>
-    //       </div>
-
-    // )
-
+  render() {
+    console.log('search', this.props)
+    if (this.props.furnitures.length === 0) {
+      return null;
+    } 
+    return (
+      <div className='searchbar-container'>
+        <div id="wrap">
+          <form onSubmit={this.handleSubmit}>
+            <input id='search' type="text" placeholder='Search our site' onChange={this.update} />
+            <span id="search-submit" onSubmit={this.handleSubmit}> </span>
+          </form>
+        </div>
+        <div className='popular-searches'>
+          <h3 className="popular-search-headers">POPULAR SEARCHES</h3>
+          <ul className='popular-searched-items'>
+            {this.popularSearchesFilter()}
+          </ul>
+        </div>
+      </div>
+    )
   }
-} 
+}
 
-export default SearchBar;
+export default withRouter(SearchBar);

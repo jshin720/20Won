@@ -1,14 +1,18 @@
 import { connect } from "react-redux";
-import { receiveFurnitures } from "../../actions/furniture_actions"
+import { fetchFurnitures } from "../../actions/furniture_actions";
 import SearchBar from "./search_bar";
 
-const mSTP = (state, ownProps) => ({
-  furnitures: Object.values(state.entities.furnitures),
-  keyword: ownProps.match.params.keyword
-})
+const mSTP = (state, ownProps) => {
+  console.log('search-container', state)
 
-const mDTP = (dispatch) => ({
-  receiveFurnitures: () => dispatch(ReceiveFurnitures())
+  return({
+
+    furnitures: Object.values(state.entities.furnitures)
+  })
+}
+
+const mDTP = dispatch => ({
+  fetchFurnitures: () => dispatch(fetchFurnitures())
 })
 
 

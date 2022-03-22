@@ -5,6 +5,7 @@ import { MenuItems } from './menu_items';
 import FurnitureIndexContainer from '../furnitures/furniture_index_container';
 import OrderShowContainer from '../order/order_show_container';
 import SearchBar from '../search_bar/search_bar';
+import SearchBarContainer from '../search_bar/search_bar_container'
 // import wishlistContainer from '../wishlist/' // finish this inmport when I finish the wishlist 
 import * as Mdicon from 'react-icons/md'
 
@@ -37,7 +38,9 @@ function Dropdown(props) {
       case 'search':
         return <div className={ 'dropdown-middle'}> 
           <Mdicon.MdClose className='close-icon' onClick={props.handleSearchDropdown}/>
-          <SearchBar />
+          <SearchBarContainer 
+            handleSearchDropdown={props.handleSearchDropdown}
+          />
           </div>
           
       case 'cart':

@@ -13,6 +13,7 @@ const FurnitureIndexItem = (props) => {
           {furniture.category}
           {furniture.color}
         </Link>
+        <img src={ furniture.photoUrl } alt="" />
       </li>
     </div>
     

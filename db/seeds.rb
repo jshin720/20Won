@@ -1,3 +1,5 @@
+require 'open-uri'
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -43,91 +45,97 @@ User.create!(
   password: "password"
 )
 
-Furniture.create!(
-  name: 'neva sectional sofa',
-  category: 'sofa',
-  color: 'blue',
-  price: 4099,
-  description: 'nice love sectional'
+require_relative './seeds/01_sofa.rb'
+require_relative './seeds/02_sectionals.rb'
+require_relative './seeds/03_table.rb'
+require_relative './seeds/04_chairs.rb'
 
-)
 
-Furniture.create!(
-  name: 'devyn sectional sofa',
-  category: 'sofa',
-  color: 'grey',
-  price: 5299,
-  description: 'nice love sectional'
+# Furniture.create!(
+#   name: 'neva sectional sofa',
+#   category: 'sofa',
+#   color: 'blue',
+#   price: 4099,
+#   description: 'nice love sectional'
 
-)
+# )
 
-Furniture.create!(
-  name: 'aria sectional sofa',
-  category: 'sofa',
-  color: 'cream',
-  price: 4749,
-  description: 'nice weird sectional'
+# Furniture.create!(
+#   name: 'devyn sectional sofa',
+#   category: 'sofa',
+#   color: 'grey',
+#   price: 5299,
+#   description: 'nice love sectional'
 
-)
+# )
 
-Furniture.create!(
-  name: 'neva sectional',
-  category: 'sectional',
-  color: 'blue',
-  price: 4099,
-  description: 'nice love sectional'
+# Furniture.create!(
+#   name: 'aria sectional sofa',
+#   category: 'sofa',
+#   color: 'cream',
+#   price: 4749,
+#   description: 'nice weird sectional'
 
-)
+# )
 
-Furniture.create!(
-  name: 'neva sectional',
-  category: 'sectional',
-  color: 'blue',
-  price: 4099,
-  description: 'nice love sectional'
+# Furniture.create!(
+#   name: 'neva sectional',
+#   category: 'sectional',
+#   color: 'blue',
+#   price: 4099,
+#   description: 'nice love sectional'
 
-)
+# )
 
-Furniture.create!(
-  name: 'neva sectional111',
-  category: 'sectional',
-  color: 'blue',
-  price: 4099,
-  description: 'nice love sectional'
+# Furniture.create!(
+#   name: 'neva sectional',
+#   category: 'sectional',
+#   color: 'blue',
+#   price: 4099,
+#   description: 'nice love sectional'
 
-)
+# )
+# /;;;
+# Furniture.create!(
+#   name: 'neva sectional111',
+#   category: 'sectional',
+#   color: 'blue',
+#   price: 4099,
+#   description: 'nice love sectional'
 
-Furniture.create!(
-  name: 'neva sectional111',
-  category: 'sectional',
-  color: 'blue',
-  price: 4099,
-  description: 'nice love sectional'
+# )
 
-)
+# Furniture.create!(
+#   name: 'neva sectional111',
+#   category: 'sectional',
+#   color: 'blue',
+#   price: 4099,
+#   description: 'nice love sectional'
 
-Furniture.create!(
-  name: 'chair2112',
-  category: 'chair',
-  color: 'blue',
-  price: 4099,
-  description: 'nice love sectional'
+# )
 
-)
-Furniture.create!(
-  name: 'chair7255',
-  category: 'chair',
-  color: 'blue',
-  price: 4099,
-  description: 'nice love sectional'
+# Furniture.create!(
+#   name: 'chair2112',
+#   category: 'chair',
+#   color: 'blue',
+#   price: 4099,
+#   description: 'nice love sectional'
 
-)
+# )
+# Furniture.create!(
+#   name: 'chair7255',
+#   category: 'chair',
+#   color: 'blue',
+#   price: 4099,
+#   description: 'nice love sectional'
 
-Furniture.create!(
-  name: 'table',
-  category: 'table',
-  color: 'blue',
-  price: 4099,
-  description: 'nice love sectional'
+# )
 
-)
+# Furniture.create!(
+#   name: 'table',
+#   category: 'table',
+#   color: 'blue',
+#   price: 4099,
+#   description: 'nice love sectional'
+
+# )
