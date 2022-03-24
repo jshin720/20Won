@@ -6,11 +6,17 @@ const FurnitureIndexItem = (props) => {
   const mainPic = furniture.photoUrls[0];
   const [image, setImage] = useState(mainPic)
 
- 
-  
+  const handleOnMouseEnter = () => {
+      setImage(furniture.photoUrls[1])
+  }
+
+  const handleOnMouseLeave = () => {
+    setImage(mainPic)
+  }
+
   return (
     <div>
-        <img src={ mainPic }   alt="" className="furniture-picture" />
+        <img src={ image } onMouseEnter={ handleOnMouseEnter } onMouseLeave={ handleOnMouseLeave }  alt="" className="furniture-picture" />
       <li className="furniture-info">
         <Link to={`/furnitures/${furniture.id}`} className="furniture-images">
           {furniture.name}
