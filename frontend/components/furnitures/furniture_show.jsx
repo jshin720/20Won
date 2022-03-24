@@ -67,7 +67,7 @@ class FurnitureShow extends React.Component {
 
 
   render() {
-    console.log("show before", this.props)
+    console.log("show before", this.props.currentUser)
     let { furniture } = this.props
     if (!furniture) {
       return null;
@@ -88,20 +88,20 @@ class FurnitureShow extends React.Component {
           <p className="furniture-description"> {furniture.description} </p>
         </div>
         <button type="submit" onClick={this.addToOrders}>Add To Cart</button>
-      <div className='extra-details'>
-      <p className='dimensions'>{furniture.dimensions}</p>
-      <p className='highlights'>{furniture.highlight}</p>
-      
-      </div>
+        <div className='extra-details'>
+          <p className='dimensions'>{furniture.dimensions}</p>
+          <p className='highlights'>{furniture.highlight}</p>
+
+        </div>
         <div className="review-section">
-          
+
           {!this.state.createReview ?
             <div className="review-container">
               <h1>Reviews</h1>
               <ul>
                 {
                   Object.values(this.props.reviews).map((review, i) => {
-                    
+
                     return <ReviewItemContainer
                       key={i}
                       review={review}
@@ -111,13 +111,13 @@ class FurnitureShow extends React.Component {
                   })
                 }
               </ul>
-              {!this.state.createReview && !this.madeReview(this.props.currentUser) ?
+              {(!this.state.createReview && this.madeReview(this.props.currentUser)) || (!this.state.createReview && !this.props.currentUser) ?
 
+                null
+                :
                 <>
                   <button type="submit" onClick={this.toggleCreateReview} className="material-icons-outlined add-review">WRITE A REVIEW</button>
                 </>
-
-                : null
               }
 
             </div>
@@ -126,7 +126,7 @@ class FurnitureShow extends React.Component {
 
             <div className="toggle-review">
               {
-                this.madeReview(this.props.currentUser) ? null :
+                this.madeReview(this.props.currentUser) || !this.props.currentUser ? null :
                   <CreateReviewForm
                     currentUser={this.props.currentUser}
                     furniture={this.props.furniture}
