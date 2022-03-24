@@ -2,6 +2,8 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import CreateReviewForm from '../reviews/create_review';
 import ReviewItemContainer from '../reviews/review_item_container';
+import Carousel from '../carousel/carousel'
+
 
 class FurnitureShow extends React.Component {
   constructor(props) {
@@ -67,8 +69,8 @@ class FurnitureShow extends React.Component {
 
 
   render() {
-    console.log("show before", this.props.currentUser)
     let { furniture } = this.props
+    console.log("show before", furniture)
     if (!furniture) {
       return null;
     }
@@ -76,8 +78,11 @@ class FurnitureShow extends React.Component {
     return (
 
       <div className="furniture-show-container">
-
+        < Carousel 
+          furniture={furniture}
+        />
         <div className="furniture-show-info">
+          
           <p className="furniture-name">Name: {furniture.name} </p>
           <br />
           <div id="price-container">
