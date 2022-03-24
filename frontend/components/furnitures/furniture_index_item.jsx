@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const FurnitureIndexItem = (props) => {
   const { furniture } = props;
   const mainPic = furniture.photoUrls[0];
+  const [image, setImage] = useState(mainPic)
+
+ 
+  
   return (
     <div>
-        <img src={ mainPic } alt="" className="furniture-picture" />
+        <img src={ mainPic }   alt="" className="furniture-picture" />
       <li className="furniture-info">
         <Link to={`/furnitures/${furniture.id}`} className="furniture-images">
           {furniture.name}
