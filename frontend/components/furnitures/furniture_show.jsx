@@ -78,11 +78,13 @@ class FurnitureShow extends React.Component {
     return (
 
       <div className="furniture-show-container">
-        < Carousel 
-          furniture={furniture}
-        />
+        <div className="photo-carousel">
+          < Carousel
+            furniture={furniture}
+          />
+        </div>
         <div className="furniture-show-info">
-          
+
           <p className="furniture-name">Name: {furniture.name} </p>
           <br />
           <div id="price-container">
