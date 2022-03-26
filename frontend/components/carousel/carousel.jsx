@@ -8,7 +8,6 @@ function Carousel(props) {
   const [currImg, setCurrImg] = useState(0);
   const photosArr = props.furniture.photoUrls.slice(0, -1)
   const lastPhotoIdx = photosArr.length - 1;
-  console.log("caro", props.furniture)
 
   const nextSlide = () => {
     if (currImg !== lastPhotoIdx) {
@@ -34,27 +33,44 @@ function Carousel(props) {
 
   return (
     <div className="container-slider">
+      <div className="picture-container">
       {photosArr.map((photoUrl, index) => {
-        console.log(photoUrl)
         return (
           <div
             className={currImg === index ? "slide active-anim" : "slide"}
           >
-            <img src={`${photosArr[currImg]}`}/>
+            <img src={`${photosArr[currImg]}`} />
           </div>
         )
       })}
-
-      <ArrowBackIosIcon className='left-arrow' onClick={prevSlide} />
-      <div className="container-dots">
-        {photosArr.map((item, index) => (
-          <div
-          onClick={() => moveDot(index)}
-          className={currImg === index? "dot active" : "dot"}
-          ></div>
-          ))}
       </div>
-          <ArrowForwardIosIcon className='right-arrow' onClick={nextSlide} />
+
+      <div className="picture-nav-container">
+        <ArrowBackIosIcon className='left-arrow' onClick={prevSlide} />
+        <div className="container-dots">
+          {photosArr.map((item, index) => (
+            <div
+              onClick={() => moveDot(index)}
+              className={currImg === index ? "dot active" : "dot"}
+            ></div>
+          ))}
+        </div>
+        <ArrowForwardIosIcon className='right-arrow' onClick={nextSlide} />
+      </div>
+
+      <div className="thumbnail-container">
+        {photosArr.map((photoUrl, index) => {
+          return (
+              <div
+                onClick={() => moveDot(index)}
+                className={currImg === index ? "thumbnail active" : "thumbnail"}>
+
+                <img src={ photoUrl } />
+
+              </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
