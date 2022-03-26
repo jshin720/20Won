@@ -34,15 +34,15 @@ function Carousel(props) {
   return (
     <div className="container-slider">
       <div className="picture-container">
-      {photosArr.map((photoUrl, index) => {
-        return (
-          <div
-            className={currImg === index ? "slide active-anim" : "slide"}
-          >
-            <img src={`${photosArr[currImg]}`} />
-          </div>
-        )
-      })}
+        {photosArr.map((photoUrl, index) => {
+          return (
+            <div
+              className={currImg === index ? "slide active-anim" : "slide"}
+            >
+              <img src={`${photosArr[currImg]}`} />
+            </div>
+          )
+        })}
       </div>
 
       <div className="picture-nav-container">
@@ -61,13 +61,11 @@ function Carousel(props) {
       <div className="thumbnail-container">
         {photosArr.map((photoUrl, index) => {
           return (
-              <div
-                onClick={() => moveDot(index)}
-                className={currImg === index ? "thumbnail active" : "thumbnail"}>
-
-                <img src={ photoUrl } />
-
-              </div>
+            <div
+              onClick={() => moveDot(index)}
+              className={currImg === index ? "thumbnail active" : "thumbnail"}>
+              <img src={photoUrl} />
+            </div>
           )
         })}
       </div>
