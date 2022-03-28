@@ -95,11 +95,13 @@ class FurnitureShow extends React.Component {
           <p className="furniture-description"> {furniture.description} </p>
         </div>
         <button type="submit" onClick={this.addToOrders}>Add To Cart</button>
+
         <div className='extra-details'>
           <p className='dimensions'>{furniture.dimensions}</p>
           <p className='highlights'>{furniture.highlight}</p>
-
         </div>
+
+
         <div className="review-section">
 
           {!this.state.createReview ?

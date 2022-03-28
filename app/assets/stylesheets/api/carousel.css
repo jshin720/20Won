@@ -1,47 +1,56 @@
 .container-slider {
   width: 700px;
-  height: 750px;
+  height: 675px;
   margin: 100px auto 0;
   position: relative;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
 }
 
 .picture-container {
   width: 100%;
   overflow-x: auto;
+  height: 100%;
+  padding: 2px solid black ;
 }
 
 .slide {
-  width: 100%;
-  height: 75%;
+  /* width: 100%; */
+  /* height: 100%; */
   position: absolute;
   opacity: 0;
   transition: opacity ease-in-out 0.4s;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
+
 .slide img {
-  width: 75%;
-  height: 75%;
-  object-fit: cover;
+  width: 100%;
+  object-fit: contain;
 }
+
 .active-anim {
   opacity: 1;
 }
+
 .picture-nav-container {
   position: absolute;
-  bottom: 127px;
+  bottom: 135px;
   display: flex;
   justify-content: center;
-  border: 3px solid black;
-  width: 100%;
+  /* border: 1px solid black; */
+  width: inherit;
   height: 50px;
   align-items: center;
+  padding: 4px;
+  box-sizing: border-box;
   
 }
+
 .right-arrow {
-  position: absolute;
-  right: 25%;
+  /* position: absolute; */
+  /* right: 25%; */
   font-size: 3rem;
   color: #000;
   cursor: pointer;
@@ -49,24 +58,24 @@
 }
 
 .left-arrow {
-  position: absolute;
+  /* position: absolute; */
   font-size: 3rem;
-  left: 25%;
+  /* left: 25%; */
   color: #000;
   cursor: pointer;
   user-select: none;
 }
 
 .container-dots {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  /* position: absolute; */
+  /* bottom: 10px; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   display: flex;
 }
 .dot {
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: 3px solid #f1f1f1;
   margin: 0 5px;
@@ -78,20 +87,18 @@
 
 .thumbnail-container {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   display: flex;
-  justify-content: center;
-  border: 3px solid black;
-  width: 96.2%;
-  height: 50px;
+  justify-content: space-between;
+  width: inherit;
+  height: 125px;
   align-items: center;
-  padding: 10px;
+  padding: px;
 }
 
 .thumbnail img{
-  width: 35px;
-  height: 55px;
-  
+  width: 75px;
+  height: 75px;  
 }
 
 .thumbnail.active {
