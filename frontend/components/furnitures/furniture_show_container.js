@@ -14,6 +14,7 @@ import {
 } from '../../actions/review_actions';
 
 
+
 const mSTP = (state, ownProps) => { 
   console.log("container-reviews",ownProps)
   console.log("state", state)
@@ -26,7 +27,8 @@ const mSTP = (state, ownProps) => {
     furniture,
     currentUser: state.entities.users[state.session.id],
     reviews: state.reviews,
-    errors: state.errors.reviews
+    errors: state.errors.reviews,
+    userErrors: state.errors.users
     // user: state.user[state.session.users.id]
   // furnitures: Object.values(state.entities.furniture)
   })

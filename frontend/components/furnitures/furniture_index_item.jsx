@@ -16,9 +16,9 @@ const FurnitureIndexItem = (props) => {
 
   return (
     <div>
-        <img src={ image } onMouseEnter={ handleOnMouseEnter } onMouseLeave={ handleOnMouseLeave }  alt="" className="furniture-picture" />
       <li className="furniture-info">
         <Link to={`/furnitures/${furniture.id}`} className="furniture-images">
+        <img src={ image } onMouseEnter={ handleOnMouseEnter } onMouseLeave={ handleOnMouseLeave }  alt="" className="furniture-picture" />
           {furniture.name}
           {furniture.price}
           {/* {furniture.category} */}

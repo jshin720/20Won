@@ -1,5 +1,5 @@
 .container-slider {
-  width: 700px;
+  width: 795px;
   height: 675px;
   margin: 100px auto 0;
   position: relative;
@@ -7,18 +7,22 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  border-radius: 2%;
 }
 
 .picture-container {
   width: 100%;
-  overflow-x: auto;
   height: 100%;
-  padding: 2px solid black ;
+  overflow-x: auto;
+  /* height: 50%; */
+  margin: 2px;
+  border-radius: 2%;
+  /* padding: 5px; */
+  align-items: center;
 }
 
 .slide {
-  /* width: 100%; */
-  /* height: 100%; */
+  width: 100%;
   position: absolute;
   opacity: 0;
   transition: opacity ease-in-out 0.4s;
@@ -27,7 +31,9 @@
 
 .slide img {
   width: 100%;
+  height: 500px; 
   object-fit: contain;
+  object-position: center;
 }
 
 .active-anim {
@@ -36,7 +42,7 @@
 
 .picture-nav-container {
   position: absolute;
-  bottom: 135px;
+  bottom: 110px;
   display: flex;
   justify-content: center;
   /* border: 1px solid black; */
@@ -87,20 +93,22 @@
 
 .thumbnail-container {
   position: absolute;
-  bottom: 10px;
+  bottom: 2px;
   display: flex;
   justify-content: space-between;
-  width: inherit;
+  width: 100%;
   height: 125px;
   align-items: center;
-  padding: px;
+  margin: 1px;
 }
 
 .thumbnail img{
   width: 75px;
-  height: 75px;  
+  height: 75px;
+  border-radius: 10%;  
 }
 
 .thumbnail.active {
   border: 3px solid black;
+  border-radius: 15%;
 }

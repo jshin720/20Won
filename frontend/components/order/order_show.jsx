@@ -17,7 +17,7 @@ class OrderShow extends React.Component {
       return null;
     }
     let pennies = Object.values(this.props.orders)
-    console.log(pennies)
+    
     return (pennies.map((singleFurniture, i) => (
       <div key={i} className="tile" >
         <div className="order-item" >

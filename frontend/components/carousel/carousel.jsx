@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import * as RiIcons from 'react-icons/ri';
 
 
 
@@ -46,7 +47,7 @@ function Carousel(props) {
       </div>
 
       <div className="picture-nav-container">
-        <ArrowBackIosIcon className='left-arrow' onClick={prevSlide} />
+        <RiIcons.RiArrowLeftSLine className='left-arrow' onClick={prevSlide} />
         <div className="container-dots">
           {photosArr.map((item, index) => (
             <div
@@ -55,7 +56,7 @@ function Carousel(props) {
             ></div>
           ))}
         </div>
-        <ArrowForwardIosIcon className='right-arrow' onClick={nextSlide} />
+        <RiIcons.RiArrowRightSLine className='right-arrow' onClick={nextSlide} />
       </div>
 
       <div className="thumbnail-container">

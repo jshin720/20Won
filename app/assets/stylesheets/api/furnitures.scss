@@ -1,3 +1,20 @@
 // Place all the styles related to the api::furnitures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.container-slider {
+  float: left;
+  
+  background-color: blue;
+  border: 2px solid black;
+  top: 5;
+  left: 0 
+}
+
+.furniture-show-info {
+  float: right;
+  background-color: yellowgreen;
+  border: 2px solid black;
+  width: 50%;
+  top: 0;
+  right: 0;
+}
