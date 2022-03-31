@@ -1,10 +1,18 @@
 import * as UserApiUtil from '../util/user_api_util';
 
+export const RECEIVE_USERS = "RECIEVE_USERS"
 export const RECEIVE_USER = "RECEIVE_USER";
 export const REMOVE_USER = "REMOVE_USER";
 export const EDIT_USER = "EDIT_USER"
 export const RECEIVE_USER_ERRORS = "RECEIVE_USER_ERRORS"
 export const REMOVE_USER_ERRORS = "REMORE_USER_ERRORS"
+
+
+export const receiveUsers = (users) => ({
+  type: RECEIVE_USERS,
+  users
+})
+
 
 export const receiveUser = (user) => ({
   type: RECEIVE_USER,
@@ -29,6 +37,12 @@ export const removeUserErrors = errors => ({
   type: REMOVE_USER_ERRORS
 })
 
+export const fetchUsers = () => (dispatch) => (
+  UserApiUtil.fetchUsers()
+    .then(res => {
+      dispatch(receiveUsers(res))
+    })
+)
 
 export const fetchUser = (userId) => (dispatch) => (
   UserApiUtil.fetchUser(userId)

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { fetchFurnitures, fetchFurniture} from "../../actions/furniture_actions";
 import FurnitureShow from './furniture_show';
 import { createOrder } from '../../actions/order_actions';
-import { fetchUser } from '../../actions/user_actions';
+import { fetchUser, fetchUsers } from '../../actions/user_actions';
 import { 
   fetchReviews,
   fetchReview,
@@ -28,7 +28,8 @@ const mSTP = (state, ownProps) => {
     currentUser: state.entities.users[state.session.id],
     reviews: state.reviews,
     errors: state.errors.reviews,
-    userErrors: state.errors.users
+    userErrors: state.errors.users,
+    users: state.entities.users
     // user: state.user[state.session.users.id]
   // furnitures: Object.values(state.entities.furniture)
   })
@@ -44,7 +45,8 @@ const mDTP = (dispatch, ownProps) => ({
   createReview: (review) => dispatch(createReview(review)),
   updateReview: (review) => dispatch(updateReview(review)),
   removeReviewErrors: () => dispatch($removeReviewErrors()),
-  clearReviews: () => dispatch(clearReviews())
+  clearReviews: () => dispatch(clearReviews()),
+  fetchUsers: () => dispatch(fetchUsers())
 })
 
 export default connect(mSTP, mDTP)(FurnitureShow)

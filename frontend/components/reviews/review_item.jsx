@@ -8,10 +8,11 @@ class ReviewItem extends React.Component {
     this.state = { editing: false }
     this.handleDelete = this.handleDelete.bind(this)
     this.toggleEdit = this.toggleEdit.bind(this)
+    console.log('reviewItem', props)
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.review.reviewer_id)
+    // this.props.fetchUser(this.props.review.reviewer_id);
   }
 
 

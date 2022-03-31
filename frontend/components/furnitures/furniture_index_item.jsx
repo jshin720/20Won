@@ -15,14 +15,20 @@ const FurnitureIndexItem = (props) => {
   }
 
   return (
-    <div>
-      <li className="furniture-info">
-        <Link to={`/furnitures/${furniture.id}`} className="furniture-images">
+    <div className="item-container">
+      <li className="furniture-info-container">
+        <Link to={`/furnitures/${furniture.id}`} className="furniture-images" style={{ textDecoration: 'none', color: 'black' }}>
         <img src={ image } onMouseEnter={ handleOnMouseEnter } onMouseLeave={ handleOnMouseLeave }  alt="" className="furniture-picture" />
-          {furniture.name}
-          {furniture.price}
+         <body className="furniture-information">
+         <h1>
+          {furniture.name} 
+          </h1> 
+          <h2>
+          From $ {furniture.price}.00
+          </h2>
           {/* {furniture.category} */}
           {/* {furniture.color} */}
+         </body>
         </Link>
       </li>
     </div>

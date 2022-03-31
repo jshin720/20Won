@@ -5,7 +5,6 @@ import ReviewItemContainer from '../reviews/review_item_container';
 import Carousel from '../carousel/carousel';
 import * as MdIcon from 'react-icons/md';
 import { Link } from 'react-router-dom'
-import LoginFormContainer from '../session_form/login_form_container'
 
 
 class FurnitureShow extends React.Component {
@@ -26,6 +25,7 @@ class FurnitureShow extends React.Component {
   componentDidMount() {
     this.props.fetchFurniture(this.props.match.params.furnitureId);
     this.props.fetchReviews();
+    this.props.fetchUsers();
 
   }
 
@@ -66,30 +66,29 @@ class FurnitureShow extends React.Component {
 
 
 madeReview(userId) {
-  for (let review in this.props.reviews) {
-    console.log("review", review)
-    if (this.props.reviews[review].reviewer_id === this.props.currentUser.id) {
-      return true;
+  if (this.props.currentUser) {
+    for (let review in this.props.reviews) {
+      console.log("review", review)
+      if (this.props.reviews[review].reviewer_id === this.props.currentUser.id) {
+        return true;
+      }
     }
+    return false;
   }
-
-  return false;
 }
 
 
 render() {
   let { furniture } = this.props
-  console.log("show before", furniture)
+  console.log("show before", this.props)
   if (!furniture) {
     return null;
-  }
-
-  return (
+  }  return (
 
 
     <div className="furniture-show-container">
       <div className="return-button">
-        <Link to={`/furnitures/${furniture.category}`}> <MdIcon.MdOutlineArrowBackIosNew/>  Return to {furniture.category}
+        <Link to={`/furnitures/${furniture.category}`}> <MdIcon.MdOutlineArrowBackIosNew/>  Return to {furniture.category}s
         </Link>
       </div>
 
@@ -170,6 +169,7 @@ render() {
                   removeReviewErrors={this.props.removeReviewErrors}
                   createReview={this.props.createReview}
                   toggleCreateReview={this.toggleCreateReview}
+                  users={this.props.users}
                 />
             }
           </div>
