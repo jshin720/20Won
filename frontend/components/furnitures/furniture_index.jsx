@@ -28,18 +28,18 @@ class FurnitureIndex extends React.Component {
 
     let names = this.props.furnitures.filter((furniture) => (
       furniture.name.toLowerCase().includes(keyword)
-      ))
-      
+    ))
+
     let colors = this.props.furnitures.filter((furniture) => (
       furniture.color.toLowerCase() === keyword
     ))
 
     let keywordFilter = this.props.furnitures.filter((furniture) => (
-      furniture.category.toLowerCase() === keyword 
+      furniture.category.toLowerCase() === keyword
     ))
 
     const keywordArr = ['sofa', 'sectional', 'chair', 'table', 'chairs', 'sofas', 'sectionals', 'tables']
-    
+
     if (names.length > 0 && !keywordArr.includes(keyword)) {
       console.log('keyword', names)
       return (
@@ -107,11 +107,18 @@ class FurnitureIndex extends React.Component {
     if (furnitureCategory === 'sofa' && !notKeyword) {
       return (
         <div className="index-main-container">
-          <img src="https://cdn.shopify.com/s/files/1/0332/0384/7212/products/neva-sofa-washed-cotton-linen-corn-silk-lifestyle-PDP1-84_2610x.jpg?v=1615479434" className="header-picture"/>
-          <h1>Sofa</h1>
+          <div className="furniture-index-header-container">
+            <img src="https://cdn.shopify.com/s/files/1/0332/0384/7212/products/neva-sofa-washed-cotton-linen-corn-silk-lifestyle-PDP1-84_2610x.jpg?v=1615479434" className="header-picture" />
+            <h1>Sofa</h1>
+            <div className="intro-container">
+              <h2 className="intro">FEELS LIKE HOME</h2>
+              <br/>
+              <body className="type-description">Luxurious, feather-filled sofas in all-natural, life-friendly fabrics</body>
+            </div>
+          </div>
+          <div className="empty-space">
+          </div>
           <div className="furniture-index-container" >
-            <h2 className="index-container-logo">FEELS LIKE HOME</h2>
-            <p className="type-description">Luxurious, feather-filled sofas in all-natural, life-friendly fabrics</p>
             <ul className="furniture-ul-container-ul">
               {
                 this.props.sofas.map(sofa => (
