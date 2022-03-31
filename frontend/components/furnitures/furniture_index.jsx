@@ -101,16 +101,16 @@ class FurnitureIndex extends React.Component {
     let furnitureCategory = this.keywordString(this.props.match.url);
     const notKeyword = this.props.match.params.keyword;
     console.log("furnitures", furnitureCategory);
-    console.log("furnitures2", this.props)
     const { sofas, sectionals, tables, chairs, furnitures } = this.props
+    console.log("furnitures2", sofas)
 
     if (furnitureCategory === 'sofa' && !notKeyword) {
       return (
         <div className="index-main-container">
-          <img src={ sofas[0].photoUrls[0]} className="header-picture"/>
+          <img src="https://cdn.shopify.com/s/files/1/0332/0384/7212/products/neva-sofa-washed-cotton-linen-corn-silk-lifestyle-PDP1-84_2610x.jpg?v=1615479434" className="header-picture"/>
           <h1>Sofa</h1>
           <div className="furniture-index-container" >
-            <h2 className="index-container-logo">Feels like Home</h2>
+            <h2 className="index-container-logo">FEELS LIKE HOME</h2>
             <p className="type-description">Luxurious, feather-filled sofas in all-natural, life-friendly fabrics</p>
             <ul className="furniture-ul-container-ul">
               {
@@ -128,7 +128,7 @@ class FurnitureIndex extends React.Component {
     } else if (furnitureCategory === 'sectional' && !notKeyword) {
       return (
         <div className="index-main-container">
-          <img src={sectionals[0].photoUrls[0]} className="header-picture" />
+          <img src="https://cdn.shopify.com/s/files/1/0332/0384/7212/products/neva-chaise-sectional-medium-weight-linen-jasmine-rice-lifestyle-PDP1-5-pc_2610x.jpg?v=1605807532" className="header-picture" />
           <h1>Sectionals</h1>
           <div className="furniture-index-container" >
             <h2 className="index-container-logo">ALWAYS ROOM FOR ONE MORE</h2>
@@ -149,7 +149,7 @@ class FurnitureIndex extends React.Component {
     } else if (furnitureCategory === 'chair' && !notKeyword) {
       return (
         <div className="index-main-container">
-          <img src={sofas[0].photoUrls[0]} className="header-picture" />
+          <img src="https://roomsforrentblog.com/wp-content/uploads/2019/08/New-SIXPENNY-Chairs-1891-1024x675.jpg" className="header-picture" />
           <h1>Chairs</h1>
           <div className="furniture-index-container" >
             <h2 className="index-container-logo">CURL UP IN COMFORT</h2>
@@ -170,7 +170,7 @@ class FurnitureIndex extends React.Component {
     } else if (furnitureCategory === 'table' && !notKeyword) {
       return (
         <div className="index-main-container">
-          <img src={tables[0].photoUrls[0]} className="header-picture" />
+          <img src="https://cdn.shopify.com/s/files/1/0332/0384/7212/products/leona-dining-table-lifestyle-pdp1_4edcd692-ce4b-4bfa-bd15-3e4d06c1a81b_2610x.jpg?v=1632967559" className="header-picture" />
           <h1>table</h1>
           <div className="furniture-index-container" >
             <h2 className="index-container-logo">HOLD IT ALL TOGETHER</h2>
@@ -191,7 +191,7 @@ class FurnitureIndex extends React.Component {
     } else if (furnitureCategory === 'shopall' && !notKeyword) {
       return (
         <div className="index-main-container">
-          <img src={sofas[0].photoUrls[0]} className="header-picture" />
+          <img src="https://images.squarespace-cdn.com/content/v1/5f738a94c508e4669e6ecbd8/1601407651801-OTFEYA1QNAFA4CL0G3MP/image-asset.jpeg" className="header-picture" />
           <h1>All Furniture</h1>
           <div className="furniture-index-container" >
             <h2 className="index-container-logo">RELAX. REFOCUS.</h2>

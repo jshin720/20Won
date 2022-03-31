@@ -19,7 +19,7 @@ const FurnitureIndexItem = (props) => {
       <li className="furniture-info-container">
         <Link to={`/furnitures/${furniture.id}`} className="furniture-images" style={{ textDecoration: 'none', color: 'black' }}>
         <img src={ image } onMouseEnter={ handleOnMouseEnter } onMouseLeave={ handleOnMouseLeave }  alt="" className="furniture-picture" />
-         <body className="furniture-information">
+         <div className="furniture-information">
          <h1>
           {furniture.name} 
           </h1> 
@@ -28,7 +28,7 @@ const FurnitureIndexItem = (props) => {
           </h2>
           {/* {furniture.category} */}
           {/* {furniture.color} */}
-         </body>
+         </div>
         </Link>
       </li>
     </div>
