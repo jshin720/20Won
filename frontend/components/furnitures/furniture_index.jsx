@@ -102,9 +102,12 @@ class FurnitureIndex extends React.Component {
     const notKeyword = this.props.match.params.keyword;
     console.log("furnitures", furnitureCategory);
     console.log("furnitures2", this.props)
+    const { sofas, sectionals, tables, chairs, furnitures } = this.props
+
     if (furnitureCategory === 'sofa' && !notKeyword) {
       return (
         <div className="index-main-container">
+          <img src={ sofas[0].photoUrls[0]} className="header-picture"/>
           <h1>Sofa</h1>
           <div className="furniture-index-container" >
             <h2 className="index-container-logo">Feels like Home</h2>
@@ -125,10 +128,11 @@ class FurnitureIndex extends React.Component {
     } else if (furnitureCategory === 'sectional' && !notKeyword) {
       return (
         <div className="index-main-container">
+          <img src={sectionals[0].photoUrls[0]} className="header-picture" />
           <h1>Sectionals</h1>
           <div className="furniture-index-container" >
-            <h2 className="index-container-logo">Feels like Home</h2>
-            <p className="type-description">Luxurious, feather-filled sofas in all-natural, life-friendly fabrics</p>
+            <h2 className="index-container-logo">ALWAYS ROOM FOR ONE MORE</h2>
+            <p className="type-description">Shape-shifting sectionals for all of life's changing needs.</p>
             <ul className="furniture-ul-container-ul">
               {
                 this.props.sectionals.map(sectional => (
@@ -145,10 +149,11 @@ class FurnitureIndex extends React.Component {
     } else if (furnitureCategory === 'chair' && !notKeyword) {
       return (
         <div className="index-main-container">
+          <img src={sofas[0].photoUrls[0]} className="header-picture" />
           <h1>Chairs</h1>
           <div className="furniture-index-container" >
-            <h2 className="index-container-logo">Feels like Home</h2>
-            <p className="type-description">Luxurious, feather-filled sofas in all-natural, life-friendly fabrics</p>
+            <h2 className="index-container-logo">CURL UP IN COMFORT</h2>
+            <p className="type-description">Turn any corner into an effortless, lounge-ready oasis.</p>
             <ul className="furniture-ul-container-ul">
               {
                 this.props.chairs.map(chair => (
@@ -165,10 +170,11 @@ class FurnitureIndex extends React.Component {
     } else if (furnitureCategory === 'table' && !notKeyword) {
       return (
         <div className="index-main-container">
+          <img src={tables[0].photoUrls[0]} className="header-picture" />
           <h1>table</h1>
           <div className="furniture-index-container" >
-            <h2 className="index-container-logo">Feels like Home</h2>
-            <p className="type-description">Luxurious, feather-filled sofas in all-natural, life-friendly fabrics</p>
+            <h2 className="index-container-logo">HOLD IT ALL TOGETHER</h2>
+            <p className="type-description">Handmade modern classics, crafted from storied solid woods.</p>
             <ul className="furniture-ul-container-ul">
               {
                 this.props.tables.map(table => (
@@ -185,10 +191,11 @@ class FurnitureIndex extends React.Component {
     } else if (furnitureCategory === 'shopall' && !notKeyword) {
       return (
         <div className="index-main-container">
-          <h1>Shop All</h1>
+          <img src={sofas[0].photoUrls[0]} className="header-picture" />
+          <h1>All Furniture</h1>
           <div className="furniture-index-container" >
-            <h2 className="index-container-logo">Feels like Home</h2>
-            <p className="type-description">Luxurious, feather-filled sofas in all-natural, life-friendly fabrics</p>
+            <h2 className="index-container-logo">RELAX. REFOCUS.</h2>
+            <p className="type-description">The many shapes of extraordinary comfort, slipcovered in all-natural materials, and crafted to last a lifetime.</p>
             <ul className="furniture-ul-container-ul">
               {
                 this.props.furnitures.map(furniture => (
