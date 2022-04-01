@@ -1,8 +1,9 @@
-export const fetchFurnitures = () => {
-  return $.ajax({
+export const fetchFurnitures = async() => {
+  const res = await $.ajax({
     method: "get",
     url: "/api/furnitures"
   })
+  return res;
 }
 
 export const fetchFurniture = furnitureId => {

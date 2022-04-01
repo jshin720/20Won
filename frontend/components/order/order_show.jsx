@@ -1,61 +1,84 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import { deleteOrder } from "../../util/order_api_util";
+import * as HiIcon from 'react-icons/hi';
+import OrderItem from './order_item'
 
 class OrderShow extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
   }
 
   componentDidMount() {
-    this.props.fetchOrders()
+    this.props.fetchFurnitures();
+    this.props.fetchOrders();
   }
+
+  
 
   orderItems() {
     // let furniture = this.props.furnitures.furniture_id
-    if (!this.props.orders) {
-      return null;
-    }
-    let pennies = Object.values(this.props.orders)
+    console.log("orders", this.props)
     
+   
+    let pennies = Object.values(this.props.orders)
+
     return (pennies.map((singleFurniture, i) => (
       <div key={i} className="tile" >
+
         <div className="order-item" >
-          <h1 className="order-title">Orders</h1>
         </div>
         <div className="order-furnitures-details" >
           <div>
-            <p className="furniture-name"> {singleFurniture.name} </p>
+            <img src={this.props.furnitures[singleFurniture.furniture_id].photoUrls[1]}/>
+            <div className="info-order-container">
+              <p className="furniture-name"> {singleFurniture.name} </p>
             <p className="furniture-color"> {singleFurniture.color} </p>
             <p className="furniture-category"> {singleFurniture.category} </p>
-            <p className="furniture-price"> ${singleFurniture.price}.00 </p>
-            <p className="furniture-quantity">{singleFurniture.quantity}</p>
+            </div>
+            
+              <OrderItem
+                price={singleFurniture.price}
+                quantity={singleFurniture.quantity}
+              />           
+            <button onClick={() => this.props.deleteOrder(singleFurniture.id)}>Remove</button>
           </div>
         </div>
-        <div className="order-furniture-buttons" >
-          <button onClick={() => this.props.deleteOrder(singleFurniture.id)}>Remove</button>
-        </div>
+              
       </div>
-      ))
+    ))
     )
   }
 
 
 
   render() {
-    
+    if (!this.props.orders) return null;
+    if (!this.props.furnitures || Object.keys(this.props.furnitures).length < 1) return null;
 
-    if (Object.values(this.props.orders).length < 1 ) {
-      return (
-       <h1 className="empty-order">"Orders are Empty"</h1> 
-      )
-    } else {
-      return (
-        <div>
-          {this.orderItems()}
+
+
+    return (
+      <div className="orders-container">
+        <h1 className="order-title">Cart</h1>
+
+        {Object.values(this.props.orders).length < 1 ?
+          <h1 className="empty-order">
+            "Looks like your shopping cart is empty at the moment."
+          </h1>
+          :
+          <div>
+            {this.orderItems()}
+          </div>
+        }
+        <p className="shipping-info"> Shipping:
+          This product is made to order. Estimated delivery: 14-16 weeks.
+        </p>
+        <div className="order-furniture-buttons" >
+          <button className="continue-shopping-container" onClick={() => this.props.history.push('/')}>Continue Shopping</button>
         </div>
-      )
-    }
+      </div>
+    )
   }
 }
 
