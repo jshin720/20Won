@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { deleteOrder } from "../../util/order_api_util";
 
 class OrderShow extends React.Component {
@@ -60,4 +60,4 @@ class OrderShow extends React.Component {
 }
 
 
-export default OrderShow;
+export default withRouter(OrderShow);

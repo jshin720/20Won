@@ -63,7 +63,7 @@
   box-sizing: border-box;
   position: relative;
   // width: 1650px;
-  height: 100%;
+  height: 1500px;
   left: 0;
  right: 0;
   // padding: 5px;
@@ -104,15 +104,15 @@
 }
 
 .intro-container {
-  position: absolute;
+  position: relative;
   display: block;
   height: 200px;
   width: 600px;
-  bottom: 105px;
+  top: 550px;
   left: 0;
   z-index: 0;
   // border: 2px solid black;
-  background-color: white;
+  background-color: #f9f9f2;
   align-items: center;
   border-radius: 0px 15px 0px 0px;
   padding: 5px;
@@ -139,7 +139,12 @@
   width: 100%;
   height: 50px;
   border-bottom: 1px solid black;
-  margin-bottom: 25px;
+  // margin-bottom: 25px;
+  background-color: #f9f9f2;
+}
+
+.furniture-index-container {
+  background-color: #f9f9f2;
 }
 
 /************furniture show page***********/
