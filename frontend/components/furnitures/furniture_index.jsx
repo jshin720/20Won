@@ -109,10 +109,10 @@ class FurnitureIndex extends React.Component {
         <div className="index-main-container">
           <div className="furniture-index-header-container">
             <img src="https://cdn.shopify.com/s/files/1/0332/0384/7212/products/neva-sofa-washed-cotton-linen-corn-silk-lifestyle-PDP1-84_2610x.jpg?v=1615479434" className="header-picture" />
-            <h1>Sofa</h1>
+            <h1>Sofas</h1>
             <div className="intro-container">
               <h2 className="intro">FEELS LIKE HOME</h2>
-              <br/>
+              <br />
               <body className="type-description">Luxurious, feather-filled sofas in all-natural, life-friendly fabrics</body>
             </div>
           </div>
@@ -135,11 +135,18 @@ class FurnitureIndex extends React.Component {
     } else if (furnitureCategory === 'sectional' && !notKeyword) {
       return (
         <div className="index-main-container">
-          <img src="https://cdn.shopify.com/s/files/1/0332/0384/7212/products/neva-chaise-sectional-medium-weight-linen-jasmine-rice-lifestyle-PDP1-5-pc_2610x.jpg?v=1605807532" className="header-picture" />
-          <h1>Sectionals</h1>
+          <div className="furniture-index-header-container">
+            <img src="https://cdn.shopify.com/s/files/1/0332/0384/7212/products/neva-chaise-sectional-medium-weight-linen-jasmine-rice-lifestyle-PDP1-5-pc_2610x.jpg?v=1605807532" className="header-picture" />
+            <h1>Sectionals</h1>
+            <div className="intro-container">
+              <h2 className="intro">ALWAYS ROOM FOR ONE MORE</h2>
+              <br />
+              <body className="type-description">Shape-shifting sectionals for all of life's changing needs.</body>
+            </div>
+          </div>
+          <div className="empty-space">
+          </div>
           <div className="furniture-index-container" >
-            <h2 className="index-container-logo">ALWAYS ROOM FOR ONE MORE</h2>
-            <p className="type-description">Shape-shifting sectionals for all of life's changing needs.</p>
             <ul className="furniture-ul-container-ul">
               {
                 this.props.sectionals.map(sectional => (
@@ -156,11 +163,17 @@ class FurnitureIndex extends React.Component {
     } else if (furnitureCategory === 'chair' && !notKeyword) {
       return (
         <div className="index-main-container">
-          <img src="https://roomsforrentblog.com/wp-content/uploads/2019/08/New-SIXPENNY-Chairs-1891-1024x675.jpg" className="header-picture" />
-          <h1>Chairs</h1>
+          <div className="furniture-index-header-container">
+            <img src="https://roomsforrentblog.com/wp-content/uploads/2019/08/New-SIXPENNY-Chairs-1891-1024x675.jpg" className="header-picture" />
+            <h1>Chairs</h1>
+            <div className="intro-container">
+              <h2 className="intro">CURL UP IN COMFORT</h2>
+              <body className="type-description">Turn any corner into an effortless, lounge-ready oasis.</body>
+            </div>
+          </div>
+          <div className="empty-space">
+          </div>
           <div className="furniture-index-container" >
-            <h2 className="index-container-logo">CURL UP IN COMFORT</h2>
-            <p className="type-description">Turn any corner into an effortless, lounge-ready oasis.</p>
             <ul className="furniture-ul-container-ul">
               {
                 this.props.chairs.map(chair => (
@@ -177,11 +190,16 @@ class FurnitureIndex extends React.Component {
     } else if (furnitureCategory === 'table' && !notKeyword) {
       return (
         <div className="index-main-container">
-          <img src="https://cdn.shopify.com/s/files/1/0332/0384/7212/products/leona-dining-table-lifestyle-pdp1_4edcd692-ce4b-4bfa-bd15-3e4d06c1a81b_2610x.jpg?v=1632967559" className="header-picture" />
-          <h1>table</h1>
+          <div className="furniture-index-header-container">
+            <img src="https://cdn.shopify.com/s/files/1/0332/0384/7212/products/leona-dining-table-lifestyle-pdp1_4edcd692-ce4b-4bfa-bd15-3e4d06c1a81b_2610x.jpg?v=1632967559" className="header-picture" />
+            <h1>Tables</h1>
+            <div className="intro-container">
+              <h2 className="intro">HOLD IT ALL TOGETHER</h2>
+              <body className="type-description">Handmade modern classics, crafted from storied solid woods.</body>
+            </div>
+          </div>
+          <div className="empty-space"> </div>
           <div className="furniture-index-container" >
-            <h2 className="index-container-logo">HOLD IT ALL TOGETHER</h2>
-            <p className="type-description">Handmade modern classics, crafted from storied solid woods.</p>
             <ul className="furniture-ul-container-ul">
               {
                 this.props.tables.map(table => (
@@ -198,11 +216,17 @@ class FurnitureIndex extends React.Component {
     } else if (furnitureCategory === 'shopall' && !notKeyword) {
       return (
         <div className="index-main-container">
-          <img src="https://images.squarespace-cdn.com/content/v1/5f738a94c508e4669e6ecbd8/1601407651801-OTFEYA1QNAFA4CL0G3MP/image-asset.jpeg" className="header-picture" />
-          <h1>All Furniture</h1>
+          <div className="furniture-index-header-container">
+            <img src="https://images.squarespace-cdn.com/content/v1/5f738a94c508e4669e6ecbd8/1601407651801-OTFEYA1QNAFA4CL0G3MP/image-asset.jpeg" className="header-picture" />
+            <h1>All Furnitures</h1>
+            <div className="intro-container">
+              <h2 className="intro">RELAX. REFOCUS.</h2>
+              <body className="type-description">The many shapes of extraordinary comfort, slipcovered in all-natural materials, and crafted to last a lifetime.</body>
+            </div>
+          </div>
+          <div className="empty-space">
+          </div>
           <div className="furniture-index-container" >
-            <h2 className="index-container-logo">RELAX. REFOCUS.</h2>
-            <p className="type-description">The many shapes of extraordinary comfort, slipcovered in all-natural materials, and crafted to last a lifetime.</p>
             <ul className="furniture-ul-container-ul">
               {
                 this.props.furnitures.map(furniture => (
