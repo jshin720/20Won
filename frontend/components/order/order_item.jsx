@@ -9,8 +9,14 @@ class OrderItem extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      price: this.props.price,
-      quantity: this.props.quantity
+      category: this.props.order.category,
+      color: this.props.order.color,
+      furniture_id: this.props.order.furniture_id,
+      id: this.props.order.id,
+      name: this.props.order.name,
+      price: this.props.order.price,
+      quantity: this.props.order.quantity,
+      user_id: this.props.order.user_id
     }
     console.log("orderItem", this.state)
     this.addQuantity = this.addQuantity.bind(this);
@@ -21,9 +27,9 @@ class OrderItem extends React.Component {
     const plusOne = this.state.quantity + 1;
     
     this.setState({
-      quantity: plusOne
-      
-    })
+      quantity: plusOne,
+    }, () => this.props.updateOrder(this.state))
+    
   }
 
   subtractQuantity(){
@@ -31,8 +37,8 @@ class OrderItem extends React.Component {
    
     this.setState ({
       quantity: minusOne
-     
-    })
+    }, () => this.props.updateOrder(this.state))
+    
   }
 
   render() {

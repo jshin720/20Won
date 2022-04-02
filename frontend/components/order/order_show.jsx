@@ -7,6 +7,10 @@ import OrderItem from './order_item'
 class OrderShow extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state  = {
+      total: 0
+    }
   }
 
   componentDidMount() {
@@ -18,11 +22,11 @@ class OrderShow extends React.Component {
 
   orderItems() {
     // let furniture = this.props.furnitures.furniture_id
-    console.log("orders", this.props)
     
-   
+    
     let pennies = Object.values(this.props.orders)
-
+    
+    console.log("orders", pennies)
     return (pennies.map((singleFurniture, i) => (
       <div key={i} className="tile" >
 
@@ -38,8 +42,8 @@ class OrderShow extends React.Component {
             </div>
             
               <OrderItem
-                price={singleFurniture.price}
-                quantity={singleFurniture.quantity}
+                order={singleFurniture}
+                updateOrder={this.props.updateOrder}
               />           
             <button onClick={() => this.props.deleteOrder(singleFurniture.id)}>Remove</button>
           </div>

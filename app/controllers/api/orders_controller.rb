@@ -40,11 +40,11 @@ class Api::OrdersController < ApplicationController
   end
 
   def update
+    
     @order= Order.find_by(id: params[:id])
-    if @order 
-      @order.quantity += params[:quantity]
-      @order.save
-      # @order.update(order_params)
+    if @order.nil?
+        render json: ["Orders Does Not Exist"], status: 400
+    elsif @order.update(order_params)
       render :show
     else
       render json: @order.errors.full_messages, status: 404
