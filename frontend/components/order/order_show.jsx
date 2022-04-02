@@ -60,9 +60,14 @@ class OrderShow extends React.Component {
     if (!this.props.orders) return null;
     if (!this.props.furnitures || Object.keys(this.props.furnitures).length < 1) return null;
 
-
-
-    return (
+    let total = 0;
+    const allOrders = Object.values(this.props.orders); 
+    
+    allOrders.map((singleOrder) => (
+      total += singleOrder.price * singleOrder.quantity
+    ))
+  //  console.log('order total', total)
+  return (
       <div className="orders-container">
         <h1 className="order-title">Cart</h1>
 
@@ -73,11 +78,15 @@ class OrderShow extends React.Component {
           :
           <div>
             {this.orderItems()}
+          <p className="shipping-info"> Shipping:
+          This product is made to order. Estimated delivery: 14-16 weeks.
+          </p>
+            <div className="total-amount">
+            <p>Subtotal: $ {total}.00 </p>
+            <p>Shipping, taxes and discounts calculated at checkout. </p>
+            </div>
           </div>
         }
-        <p className="shipping-info"> Shipping:
-          This product is made to order. Estimated delivery: 14-16 weeks.
-        </p>
         <div className="order-furniture-buttons" >
           <button className="continue-shopping-container" onClick={() => this.props.history.push('/')}>Continue Shopping</button>
         </div>
