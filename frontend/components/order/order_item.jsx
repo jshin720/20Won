@@ -45,11 +45,11 @@ class OrderItem extends React.Component {
     console.log("order-item-render", this.state)
     return (
       <div className="quantity-container">
-        <p className="furniture-price"> $ {this.state.price * this.state.quantity}.00 </p>
+        <p className="furniture-price"> Price: $ {this.state.price * this.state.quantity}.00 </p>
         <button className="add-quantity" onClick={this.addQuantity}>
           <HiIcon.HiOutlinePlus />
           </button>  
-        <p className="furniture-quantity">{this.state.quantity}</p>
+        <p className="furniture-quantity"> Qty: {this.state.quantity}</p>
         <button className="subtract-quantity" onClick={this.subtractQuantity}>
         <HiIcon.HiOutlineMinus />
         </button>

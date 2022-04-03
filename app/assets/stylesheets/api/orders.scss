@@ -1,3 +1,54 @@
 // Place all the styles related to the api::Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.orders-container{
+  height: fit-content;
+  width: fit-content;
+  display: inline;
+  justify-content: space-between
+}
+
+
+.order-title {
+  height: 50px;
+  width: fit-content;
+  font-size: 25px;
+  font-weight: 700;
+  border: 2px solid black;
+}
+
+// .orders-container .order-item {
+  
+// }
+
+/*************OrderItems**********/
+
+
+.order-item {
+  height: 200px;
+  width: 95%;
+  display: flex;
+  position: relative;
+  margin: 3px;
+  border: 2px solid black;
+}
+
+.order-item img {
+  height: 125px;
+  width: 150px;
+  position: absolute;
+  top: 10px;
+  left: 10px; 
+  border-radius: 5px;
+}
+
+.info-order-container {
+  height: max-content;
+  width: 70%;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  // justify-content: start;
+  border: 2px solid black;
+}

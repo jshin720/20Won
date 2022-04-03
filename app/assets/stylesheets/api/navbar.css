@@ -72,7 +72,7 @@
 }
 
 
-@media screen and (max-width: 960px) {
+/* @media screen and (max-width: 960px) {
   .NavBarItems {
     position: relative;
   }
@@ -141,4 +141,4 @@
     color: #1888ff;
     transition: 250ms;
   }
-}
+} */
