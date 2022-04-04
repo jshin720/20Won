@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Dropdown from './dropdown';
 import * as BiIcons from 'react-icons/bi';
@@ -13,7 +13,9 @@ function Navbar() {
   const [furniture, setFurniture] = useState(false);
   const [search, setSearch] = useState(false);
   const [cart, setCart] = useState(false);
+  const [profile, setProfile] = useState(false);
   const [wishlist, setWishlist] = useState(false);
+  const [signedIn, setSignedIn] = useState(false)
 
   const handleFurnitureDropdown = () => {
     if (search === true) {
@@ -67,6 +69,19 @@ function Navbar() {
     setWishlist(!wishlist);
   }
     
+  const handleProfile = () => {
+    if (search === true) {
+      setSearch(false)
+    };
+    if (cart === true) {
+      setCart(false)
+    };
+    if (furniture === true) {
+      setWishlist(false)
+    };
+    setProfile(!profile)
+  }
+
   const closeMobileMenu = () => setClick(false);
 
   
@@ -77,7 +92,7 @@ function Navbar() {
   //     setDropdown(false)
   //   };
   // };
-  // console.log("click",)
+  
   return (
     // have to change the search, wishlist and cart to icons later
     <>
@@ -141,7 +156,7 @@ function Navbar() {
               />}
 
             <span className='nav-items'>
-              <Link to='/login' className='accounts-button' style={{ color: 'black' }}> 
+              <Link to='/login' className='accounts-button' onClick={handleProfile} style={{ color: 'black' }}> 
                 <BiIcons.BiUser className='close-icon'/>
               </Link>
             </span>
