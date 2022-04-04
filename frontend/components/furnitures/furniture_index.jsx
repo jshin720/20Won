@@ -45,7 +45,8 @@ class FurnitureIndex extends React.Component {
       return (
         <div className="search-result">
           <h1 className="result-number"> {names.length} Search Results </h1>
-          <ul className="results-container">
+          <div className="furniture-index-container" > 
+            <ul className="furniture-ul-container-ul">
             {names.map(name => (
               <FurnitureIndexItem
                 furniture={name}
@@ -54,13 +55,15 @@ class FurnitureIndex extends React.Component {
             )
             )}
           </ul>
+          </div>
         </div>
       )
     } else if (colors.length > 0 && !keywordArr.includes(keyword)) {
       return (
         <div className="search-result">
           <h1 className="result-number"> {colors.length} Search Results </h1>
-          <ul className="results-container">
+          <div className="furniture-index-container" >
+            <ul className="furniture-ul-container-ul">
             {colors.map(color => (
               <FurnitureIndexItem
                 furniture={color}
@@ -70,13 +73,15 @@ class FurnitureIndex extends React.Component {
             )
             )}
           </ul>
+          </div>
         </div>
       )
     } else if (keywordArr.includes(keyword)) {
       return (
-        <div className="search-result">
+        <div className="search-result-container">
           <h1 className="result-number"> {keywordFilter.length} Search Results </h1>
-          <ul className="results-container">
+          <div className="furniture-index-container" >
+            <ul className="furniture-ul-container-ul">
             {keywordFilter.map(newKeyword => (
               <FurnitureIndexItem
                 furniture={newKeyword}
@@ -85,11 +90,12 @@ class FurnitureIndex extends React.Component {
             )
             )}
           </ul>
+          </div>
         </div>
       )
     } else {
       return (
-        <h1>
+        <h1 className="result-number">
           No Search Results
         </h1>
       )

@@ -24,20 +24,50 @@ class accountPage extends React.Component {
   }
   
   toggleProfile(e) {
+    if (this.state.history === true) {
+      this.setState({
+        history: false
+      })
+    }
+    if (this.state.address === true) {
+      this.setState({
+        address: false
+      })
+    }
     this.setState({
-      profile: this.state.profile ? false : true
+      profile: true
     });
   }
 
   toggleHistory(e) {
+    if (this.state.profile === true) {
+      this.setState({
+        profile: false
+      })
+    }
+    if (this.state.address === true) {
+      this.setState({
+        address: false
+      })
+    }
     this.setState({
-      history: this.state.history ? false : true
+      history: true
     });
   }
 
   toggleAddress(e) {
+    if (this.state.history === true) {
+      this.setState({
+        history: false
+      })
+    }
+    if (this.state.profile === true) {
+      this.setState({
+        profile: false
+      })
+    }
     this.setState({
-      address: this.state.address ? false : true
+      address: true
     });
   }
 
@@ -51,44 +81,62 @@ class accountPage extends React.Component {
    }
     return (
       <div className='main-user-page'>
-        <h1 className="account-username">Hi {this.props.currentUser.first_name}</h1>
+     
 
-        <div className="links-container">
-          <button onClick={() => this.toggleProfile()}>MY PROFILE</button>
+        <div className="accounts-container">
+          <button className='profile-button' onClick={this.toggleProfile}>MY PROFILE</button>
           <div style={this.state.profile ? {display:"block"} : {display:"none"}}>
-            <h1 id="profile">My Profile</h1>
-            <ul>
-              <li>
+            <div className="accounts-header">
+              <h1 className="account-username">Hi {this.props.currentUser.first_name}</h1>
+              <h1 id="profile">My Profile</h1>
+            </div>
+            <div className="names-profile-container">
                 <h3>NAME</h3>
+                <p>
                 {this.props.currentUser.first_name} {this.props.currentUser.last_name}
-              </li>
-              <li>
+                </p> 
+            </div>
+            <div className="email-profile-container">
                 <h3>EMAIL ADDRESS</h3>
+                <p>
                 {this.props.currentUser.email}
-              </li>
-            </ul>
-            <div className="user-edit">
+                </p>
+            </div>
+            <div className="user-edit-buttons">
               { editButton }  
-              <button onClick={() => this.props.deleteUser(this.props.currentUser)}>Delete</button>
+              <button
+              className='user-delete-button' 
+              onClick={() => this.props.deleteUser(this.props.currentUser)}
+              >Delete</button>
             </div>
           </div>
 
-          <button onClick={() => this.toggleHistory()}>ORDER HISTORY</button>
+          <button className='profile-button' onClick={this.toggleHistory}>ORDER HISTORY</button>
           <div style={this.state.history ? { display: "block" } : { display: "none" }}>
-            <h1 id="history">Order History</h1>
-              <li>
+            <div className="accounts-header">
+              <h1 className="account-username">Hi {this.props.currentUser.first_name}</h1>
+              <h1 id="history">Order History</h1>
+            </div>
+              <div className="products-profile-container">
                 <h3>PRODUCTS</h3>
-                <ul>Currently, you have no orders made.</ul>
-              </li>
+                <p>Currently, you have no orders made.</p>
+
+              </div>
           </div>
 
-          <button onClick={() => this.toggleAddress()}>ADDRESS BOOK</button>
+          <button className='profile-button' onClick={this.toggleAddress}>ADDRESS BOOK</button>
           <div style={this.state.address ? { display: "block" } : { display: "none" }}>
-            <h1 id="Address">Address Book</h1>
+            <div className="accounts-header">
+              <h1 className="account-username">Hi {this.props.currentUser.first_name}</h1>
+              <h1 id="Address">Address Book</h1> 
+            </div>
             <h3>ADD A NEW ADDRESS</h3>
           </div>
         </div>
+        <div className="logout-button">
         <Link to="/"><button onClick={() => this.props.logout(this.props.currentUser)}>Logout</button></Link>
+
+        </div>
       </div>
     )
   }

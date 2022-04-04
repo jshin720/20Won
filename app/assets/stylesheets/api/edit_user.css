@@ -1,65 +1,81 @@
 .edit-modal-container {
-  background-color: ivory;
+  background-color: #f9f9f2;
 	border-radius: 24px;
 	box-sizing: border-box;
 	border: #565656;
 	box-shadow: 1px 5px 5px rgb(104, 102, 102);
 	padding: 20px;
 	padding-bottom: 40px;
-  width: 300px;
-  height: 410px;
+  width: 350px;
+  height: 450px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-.edit-modal-container h1 {
+.edit-modal-container #edit-header {
+	display: block;
+	margin: auto;
   top: 5px;
-	font-size: 15px;
+	font-size: 25px;
 	font-weight: bold;
 }
 
+.edit-modal-container form {
+	width: 100%;
+	height: 350px;
+	margin-top: 10px;
+}
+
 .user-edit-buttons {
-	/* width: 100%px; */
 	margin-bottom: 1%;
 	position: relative;
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: space-around;
 	flex-direction: column;
 	box-sizing: inherit;
 	width: inherit;
+	height: 120px;
 }
 
 #submit-button {
-	background-color: #565656;
-	color: white;
+	background-color: #FAEBD7;
 	text-align: center;
 	text-decoration: none;
 	display: inline-block;
-	width: 100%;
-	height: 38px;
-	border-radius: 24px;
+	width: 200px;
+	height: 40px;
+	border-radius: 5px;
+	border: none;
 	font-size: 13px;
+	font-family: 'Montserrat', sans-serif;
 	box-shadow: 3px 3px 3px rgb(99, 96, 91);
+
 }
 
 .cancel-button {
-	background-color: #565656;
-	border: none;
-	color: white;
+	background-color: #FAEBD7;
 	text-align: center;
-	border-radius: 24px;
 	text-decoration: none;
-	width: 100%;
-	height: 38px;
-	margin: 7px;
 	display: inline-block;
+	width: 200px;
+	height: 40px;
+	border-radius: 5px;
+	border: none;
 	font-size: 13px;
+	font-family: 'Montserrat', sans-serif;
 	box-shadow: 3px 3px 3px rgb(99, 96, 91);
+
  }
 
 .login-form {
   display: flex;
 	flex-direction: column;
-	justify-content: space-evenly; 
+	/* justify-content: space-evenly;  */
+	width: 100%;
+	margin-top: 10px;
+	align-items: center;
 }
 
 .login-form input[type="text"] {
@@ -68,7 +84,7 @@
 	 padding-right: 12px;
 	 padding-left: 12px;
 	 border-width: 1px;
-	 width: 90%;
+	 width: 200px;
 	 height: inherit;
 	 font-size: 14px;
 	 outline: none;
@@ -83,7 +99,7 @@
 	 padding-right: 12px;
 	 padding-left: 12px;
 	 border-width: 1px;
-	 width: 90%;
+	 width: 200px;
 	 height: inherit;
 	 font-size: 14px;
 	 outline: none;

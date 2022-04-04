@@ -1,10 +1,40 @@
 .main-user-page {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  
+  width: max-content;
+  height: fit-content;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 2px solid black;
+}
+
+.accounts-container {
+  width: 1330px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  border: 2px solid black;
+}
+
+.profile-button {
+  position: relative;
+  align-items: flex-start;
+  left: 0;
+  border: 0;
+  font-size: 15px;
+  height: 50px;
+  width: 150px;
+  border: 2px solid black;
+  bottom: 0;
+}
+
+.accounts-header {
+  border: 2px solid black;
+  position: relative;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .account-username {
@@ -17,6 +47,9 @@
   font-weight: bold;
 }
 
-.links-container {
 
+
+.logout-button {
+border: 2px solid black;
+bottom: 0;
 }
