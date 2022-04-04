@@ -19,12 +19,14 @@ class OrderShow extends React.Component {
   }
 
   handleContinueShopping() {
-
     this.props.handleCartDropdown();
     this.props.history.push('/') //comes from the withrouter - it needs 2 parameters (path, state) - leads to another path with the even state
   };
 
-
+  handleCheckOut() {
+    this.props.handleCartDropdown();
+    this.props.history.push('/cart') //comes from the withrouter - it needs 2 parameters (path, state) - leads to another path with the even state
+  };
 
   orderItems() {
     // let furniture = this.props.furnitures.furniture_id
@@ -92,6 +94,7 @@ class OrderShow extends React.Component {
         }
         <div className="order-furniture-buttons" >
           <button className="continue-shopping-button" onClick={() => this.handleContinueShopping()}>Continue Shopping</button>
+          <button className="checkout-button" onClick={() => this.handleCheckOut()}>Proceed to Checkout</button>
         </div>
       </div>
     )

@@ -1,0 +1,105 @@
+.edit-modal-container {
+  background-color: ivory;
+	border-radius: 24px;
+	box-sizing: border-box;
+	border: #565656;
+	box-shadow: 1px 5px 5px rgb(104, 102, 102);
+	padding: 20px;
+	padding-bottom: 40px;
+  width: 300px;
+  height: 410px;
+}
+
+.edit-modal-container h1 {
+  top: 5px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.user-edit-buttons {
+	/* width: 100%px; */
+	margin-bottom: 1%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+	box-sizing: inherit;
+	width: inherit;
+}
+
+#submit-button {
+	background-color: #565656;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	width: 100%;
+	height: 38px;
+	border-radius: 24px;
+	font-size: 13px;
+	box-shadow: 3px 3px 3px rgb(99, 96, 91);
+}
+
+.cancel-button {
+	background-color: #565656;
+	border: none;
+	color: white;
+	text-align: center;
+	border-radius: 24px;
+	text-decoration: none;
+	width: 100%;
+	height: 38px;
+	margin: 7px;
+	display: inline-block;
+	font-size: 13px;
+	box-shadow: 3px 3px 3px rgb(99, 96, 91);
+ }
+
+.login-form {
+  display: flex;
+	flex-direction: column;
+	justify-content: space-evenly; 
+}
+
+.login-form input[type="text"] {
+   padding-top: 9px;
+	 padding-bottom: 9px;
+	 padding-right: 12px;
+	 padding-left: 12px;
+	 border-width: 1px;
+	 width: 90%;
+	 height: inherit;
+	 font-size: 14px;
+	 outline: none;
+	 display: inline-table;
+	 border-radius: 6px;
+	 border-color: #565656;
+}
+
+.login-form input[type="password"] {
+   padding-top: 9px;
+	 padding-bottom: 9px;
+	 padding-right: 12px;
+	 padding-left: 12px;
+	 border-width: 1px;
+	 width: 90%;
+	 height: inherit;
+	 font-size: 14px;
+	 outline: none;
+	 display: inline-table;
+	 border-radius: 6px;
+	 border-color: #565656;
+}
+
+.errors-container {
+  display: flex;
+	width: 100%;
+  color: red;
+}
+  
+.error {
+	font-size: 11px;
+	margin: 4px;
+	width: inherit;
+}

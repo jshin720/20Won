@@ -42,7 +42,7 @@ class EditUserForm extends React.Component {
     //   password: this.state.password
     // }
     this.props.updateUser(this.state)
-    .then(res => {
+      .then(res => {
         if (res.type !== RECEIVE_USER_ERRORS) {
           this.props.closeModal();
         }
@@ -52,7 +52,7 @@ class EditUserForm extends React.Component {
         // console.log('return errors', this.props.errors)
       })
 
-      
+
   }
 
   renderErrors() {
@@ -74,16 +74,16 @@ class EditUserForm extends React.Component {
             }
           </ul>
         ) : ("")
-      }
+        }
       </div>
     )
   }
-  
-  
+
+
   render() {
     return (
-      <div className="edit-modal">
-        <h2 id="edit-header">Update Profile</h2>
+      <div className="edit-modal-container">
+        <h1 id="edit-header">Update Profile</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="login-form">
             <input type="text"
@@ -113,10 +113,12 @@ class EditUserForm extends React.Component {
               null}
             <br />
             <div>
-            {this.renderErrors()}
+              {this.renderErrors()}
             </div>
-            <input type="submit" value="Submit" id="submit-button" />
-            <button onClick={this.props.closeModal}>Cancel</button>
+            <div className="user-edit-buttons">
+              <input type="submit" value="Submit" id="submit-button" onClick={this.handleSubmit} />
+              <button className="cancel-button" onClick={this.props.closeModal}>Cancel</button>
+            </div>
           </div>
         </form>
       </div>

@@ -56,7 +56,7 @@ class accountPage extends React.Component {
         <div className="links-container">
           <button onClick={() => this.toggleProfile()}>MY PROFILE</button>
           <div style={this.state.profile ? {display:"block"} : {display:"none"}}>
-            <h2 id="profile">My Profile</h2>
+            <h1 id="profile">My Profile</h1>
             <ul>
               <li>
                 <h3>NAME</h3>
@@ -69,12 +69,13 @@ class accountPage extends React.Component {
             </ul>
             <div className="user-edit">
               { editButton }  
+              <button onClick={() => this.props.deleteUser(this.props.currentUser)}>Delete</button>
             </div>
           </div>
 
           <button onClick={() => this.toggleHistory()}>ORDER HISTORY</button>
           <div style={this.state.history ? { display: "block" } : { display: "none" }}>
-            <h2 id="history">Order History</h2>
+            <h1 id="history">Order History</h1>
               <li>
                 <h3>PRODUCTS</h3>
                 <ul>Currently, you have no orders made.</ul>
@@ -83,7 +84,7 @@ class accountPage extends React.Component {
 
           <button onClick={() => this.toggleAddress()}>ADDRESS BOOK</button>
           <div style={this.state.address ? { display: "block" } : { display: "none" }}>
-            <h2 id="Address">Address Book</h2>
+            <h1 id="Address">Address Book</h1>
             <h3>ADD A NEW ADDRESS</h3>
           </div>
         </div>

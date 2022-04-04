@@ -41,6 +41,9 @@
 
 .order-furniture-buttons {
   margin: 20px 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .continue-shopping-button {
@@ -53,8 +56,24 @@
   background-color: #FAEBD7;
 }
 
+.checkout-button {
+  height: 50px;
+  width: 200px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  background-color: #FAEBD7;
+}
+
 .empty-order {
   padding: 15px 5px;
+}
+
+@media screen and (min-width: 610){
+  .checkout-button {
+    opacity: 0;
+  }
 }
 /*************OrderItems**********/
 

@@ -8,16 +8,16 @@ import * as BsIcons from 'react-icons/bs';
 
 
 
-function Navbar() {
+function Navbar(props) {
   const [click, setClick] = useState(false);
   const [furniture, setFurniture] = useState(false);
   const [search, setSearch] = useState(false);
   const [cart, setCart] = useState(false);
-  const [profile, setProfile] = useState(false);
   const [wishlist, setWishlist] = useState(false);
   const [signedIn, setSignedIn] = useState(false)
 
   const handleFurnitureDropdown = () => {
+    console.log("hooks", props)
     if (search === true) {
       setSearch(false)
     };
@@ -69,7 +69,7 @@ function Navbar() {
     setWishlist(!wishlist);
   }
     
-  const handleProfile = () => {
+  const closeDropDowns = () => {
     if (search === true) {
       setSearch(false)
     };
@@ -77,10 +77,10 @@ function Navbar() {
       setCart(false)
     };
     if (furniture === true) {
-      setWishlist(false)
+      setFurniture(false)
     };
-    setProfile(!profile)
   }
+
 
   const closeMobileMenu = () => setClick(false);
 
@@ -128,7 +128,7 @@ function Navbar() {
 
           <div className='nav-menu-middle'>
             <li className='nav-items'>
-              <Link to='/' className='title' style={{textDecoration: 'none', color: 'black'}}>
+              <Link to='/' className='title' onClick={closeDropDowns} style={{textDecoration: 'none', color: 'black'}}>
                 TWENTYWON
               </Link>
             </li>
@@ -156,7 +156,7 @@ function Navbar() {
               />}
 
             <span className='nav-items'>
-              <Link to='/login' className='accounts-button' onClick={handleProfile} style={{ color: 'black' }}> 
+              <Link to='/login' className='accounts-button' onClick={closeDropDowns} style={{ color: 'black' }}> 
                 <BiIcons.BiUser className='close-icon'/>
               </Link>
             </span>
