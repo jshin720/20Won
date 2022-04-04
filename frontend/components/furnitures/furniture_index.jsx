@@ -113,7 +113,7 @@ class FurnitureIndex extends React.Component {
             <div className="intro-container">
               <h2 className="intro">FEELS LIKE HOME</h2>
               <br />
-              <body className="type-description">Luxurious, feather-filled sofas in all-natural, life-friendly fabrics</body>
+              <p className="type-description">Luxurious, feather-filled sofas in all-natural, life-friendly fabrics</p>
             </div>
           </div>
           <div className="empty-space">
@@ -141,7 +141,7 @@ class FurnitureIndex extends React.Component {
             <div className="intro-container">
               <h2 className="intro">ALWAYS ROOM FOR ONE MORE</h2>
               <br />
-              <body className="type-description">Shape-shifting sectionals for all of life's changing needs.</body>
+              <p className="type-description">Shape-shifting sectionals for all of life's changing needs.</p>
             </div>
           </div>
           <div className="empty-space">
@@ -168,7 +168,7 @@ class FurnitureIndex extends React.Component {
             <h1>Chairs</h1>
             <div className="intro-container">
               <h2 className="intro">CURL UP IN COMFORT</h2>
-              <body className="type-description">Turn any corner into an effortless, lounge-ready oasis.</body>
+              <p className="type-description">Turn any corner into an effortless, lounge-ready oasis.</p>
             </div>
           </div>
           <div className="empty-space">
@@ -195,7 +195,7 @@ class FurnitureIndex extends React.Component {
             <h1>Tables</h1>
             <div className="intro-container">
               <h2 className="intro">HOLD IT ALL TOGETHER</h2>
-              <body className="type-description">Handmade modern classics, crafted from storied solid woods.</body>
+              <p className="type-description">Handmade modern classics, crafted from storied solid woods.</p>
             </div>
           </div>
           <div className="empty-space"> </div>
@@ -221,7 +221,7 @@ class FurnitureIndex extends React.Component {
             <h1>All Furnitures</h1>
             <div className="intro-container">
               <h2 className="intro">RELAX. REFOCUS.</h2>
-              <body className="type-description">The many shapes of extraordinary comfort, slipcovered in all-natural materials, and crafted to last a lifetime.</body>
+              <p className="type-description">The many shapes of extraordinary comfort, slipcovered in all-natural materials, and crafted to last a lifetime.</p>
             </div>
           </div>
           <div className="empty-space">

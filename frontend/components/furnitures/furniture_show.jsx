@@ -23,7 +23,8 @@ class FurnitureShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchFurniture(this.props.match.params.furnitureId);
+    // this.props.fetchFurniture(this.props.match.params.furnitureId);
+    this.props.fetchFurnitures();
     this.props.fetchReviews();
     this.props.fetchUsers();
 

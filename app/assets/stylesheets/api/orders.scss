@@ -3,35 +3,66 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .orders-container{
-  height: fit-content;
-  width: fit-content;
-  display: inline;
-  justify-content: space-between
+  min-height: max-content;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 5px;
+  overflow-y: auto;
 }
 
 
 .order-title {
   height: 50px;
-  width: fit-content;
-  font-size: 25px;
+  max-width: 100%;
+  font-size: 40px;
+  position: relative;
+  // display: flex;
+  // justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  margin: 20px 0px;
+  text-indent: 25px;
   font-weight: 700;
-  border: 2px solid black;
 }
 
-// .orders-container .order-item {
-  
-// }
+.total-amount-container {
+  margin: 15px 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: 15px;
+}
+.shipping-notice {
+  margin: 5px ;
+  font-size: 15px;
+  font-style: italic;
+}
 
+.order-furniture-buttons {
+  margin: 20px 5px;
+}
+
+.continue-shopping-button {
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  background-color: #FAEBD7;
+}
+
+.empty-order {
+  padding: 15px 5px;
+}
 /*************OrderItems**********/
 
 
 .order-item {
   height: 200px;
-  width: 95%;
+  max-width: 100%;
   display: flex;
   position: relative;
   margin: 3px;
-  border: 2px solid black;
+  border-bottom: 1px solid lightgray;
 }
 
 .order-item img {
@@ -41,6 +72,7 @@
   top: 10px;
   left: 10px; 
   border-radius: 5px;
+  padding: 2px;
 }
 
 .info-order-container {
@@ -49,6 +81,57 @@
   position: absolute;
   right: 0px;
   top: 10px;
-  // justify-content: start;
-  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px;
+  // border: 2px solid black;
 }
+
+.furniture-name {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 3px;
+}
+
+.furniture-color {
+  font-size: 15px;
+  padding: 3px;
+}
+.furniture-category {
+  font-size: 15px;
+  padding: 3px;
+}
+
+.quantity-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 15px;
+  padding: 3px;
+}
+
+.quantity-button-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px 0px;
+}
+
+.quantity-button {
+  border: none;
+  background-color: #f9f9f2; 
+}
+
+.remove-item {
+  border: none;
+  background-color: #f9f9f2;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: underline;
+}
+

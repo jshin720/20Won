@@ -25,20 +25,20 @@ class OrderItem extends React.Component {
 
   addQuantity() {
     const plusOne = this.state.quantity + 1;
-    
+
     this.setState({
       quantity: plusOne,
     }, () => this.props.updateOrder(this.state))
-    
+
   }
 
-  subtractQuantity(){
+  subtractQuantity() {
     const minusOne = this.state.quantity - 1;
-   
-    this.setState ({
+
+    this.setState({
       quantity: minusOne
     }, () => this.props.updateOrder(this.state))
-    
+
   }
 
   render() {
@@ -46,13 +46,21 @@ class OrderItem extends React.Component {
     return (
       <div className="quantity-container">
         <p className="furniture-price"> Price: $ {this.state.price * this.state.quantity}.00 </p>
-        <button className="add-quantity" onClick={this.addQuantity}>
-          <HiIcon.HiOutlinePlus />
-          </button>  
-        <p className="furniture-quantity"> Qty: {this.state.quantity}</p>
-        <button className="subtract-quantity" onClick={this.subtractQuantity}>
-        <HiIcon.HiOutlineMinus />
-        </button>
+        <div className="buttons-container">
+          <div className="quantity-button-container">
+            <button className="quantity-button" onClick={this.subtractQuantity}>
+              <HiIcon.HiOutlineMinus />
+            </button>
+            <p className="furniture-quantity"> Qty: {this.state.quantity}</p>
+            <button className="quantity-button" onClick={this.addQuantity}>
+              <HiIcon.HiOutlinePlus />
+            </button>
+          </div>
+          <button className="remove-item" onClick={() => this.props.deleteOrder(this.state.id)}>Remove</button>
+        </div>
+        <p className="shipping-info"> Shipping:
+          This product is made to order. Estimated delivery: 14-16 weeks.
+        </p>
       </div>
     )
   }

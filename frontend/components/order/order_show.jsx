@@ -18,6 +18,12 @@ class OrderShow extends React.Component {
     this.props.fetchOrders();
   }
 
+  handleContinueShopping() {
+
+    this.props.handleCartDropdown();
+    this.props.history.push('/') //comes from the withrouter - it needs 2 parameters (path, state) - leads to another path with the even state
+  };
+
 
 
   orderItems() {
@@ -40,8 +46,9 @@ class OrderShow extends React.Component {
             <OrderItem
               order={singleFurniture}
               updateOrder={this.props.updateOrder}
+              deleteOrder={this.props.deleteOrder}
             />
-            <button onClick={() => this.props.deleteOrder(singleFurniture.id)}>Remove</button>
+            
           </div>
 
         </div>
@@ -70,22 +77,21 @@ class OrderShow extends React.Component {
 
         {Object.values(this.props.orders).length < 1 ?
           <h1 className="empty-order">
-            "Looks like your shopping cart is empty at the moment."
+            Looks like your shopping cart is empty at the moment.
           </h1>
           :
           <div>
             {this.orderItems()}
-            <p className="shipping-info"> Shipping:
-              This product is made to order. Estimated delivery: 14-16 weeks.
-            </p>
-            <div className="total-amount">
-              <p>Subtotal: $ {total}.00 </p>
-              <p>Shipping, taxes and discounts calculated at checkout. </p>
+            
+            <div className="total-amount-container">
+              <p className="subtotal">Subtotal: </p>
+              <p className="subtotal-price">$ {total}.00 </p>
             </div>
+              <p className="shipping-notice">Shipping, taxes and discounts calculated at checkout. </p>
           </div>
         }
         <div className="order-furniture-buttons" >
-          <button className="continue-shopping-container" onClick={() => this.props.history.push('/')}>Continue Shopping</button>
+          <button className="continue-shopping-button" onClick={() => this.handleContinueShopping()}>Continue Shopping</button>
         </div>
       </div>
     )

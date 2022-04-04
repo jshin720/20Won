@@ -46,7 +46,9 @@ function Dropdown(props) {
       case 'cart':
         return <div className={'dropdown-right'}> 
           <Mdicon.MdClose className='close-icon' onClick={props.handleCartDropdown} />
-            <OrderShowContainer/>
+            <OrderShowContainer
+              handleCartDropdown={props.handleCartDropdown}
+            />
             </div>
       // case "wishlist":
       //   return <wishlistContainer />
