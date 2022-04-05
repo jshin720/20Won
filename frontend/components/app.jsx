@@ -85,25 +85,26 @@ class App extends React.Component {
               </div>
               <div className="right-info">
 
-                <div class='social-links'>
-                  <div class='social-btn flex-center' id="angel-list">
+                <div className='social-links'>
+                  <div className='social-btn flex-center' id="angel-list">
                     <a href="https://angel.co/u/jeffrey-shin-720">
                       <SiIcon.SiAngellist className='angel-img' />
                       {/* <span>/jeffrey-shin-720</span> */}
                     </a>
                   </div>
 
-                  <div class='social-btn flex-center' id="linkedin">
+                  <div className='social-btn flex-center' id="linkedin">
                     <a href="https://www.linkedin.com/in/jeffrey-shin-901752228/">
                       <BsIcon.BsLinkedin className='linkedin-img' />
                       {/* <span>in/jeffrey-shin/</span> */}
                     </a>
                   </div>
 
-                  <div class='social-btn flex-center' id="github">
-                    <a href="github.com/jshin720"></a>
+                  <div className='social-btn flex-center' id="github">
+                    <a href="https://github.com/jshin720">
                     <VscIcon.VscGithub className='gitbhub-img' />
                     {/* <span>@/jshin720</span> */}
+                    </a>
                   </div>
                 </div>
 
