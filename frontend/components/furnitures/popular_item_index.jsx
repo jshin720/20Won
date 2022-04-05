@@ -16,7 +16,7 @@ class PopularItemsIndex extends React.Component {
     this.props.fetchFurnitures()
       .then((res) => 
         {
-          console.log("promise", res)
+          console.log("promise")
           let furnituresArr = Object.values(res.furnitures)
           let temp = [];
 

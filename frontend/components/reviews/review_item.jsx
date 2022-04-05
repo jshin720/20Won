@@ -12,7 +12,7 @@ class ReviewItem extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.fetchUser(this.props.review.reviewer_id);
+    this.props.fetchUser(this.props.review.reviewer_id);
   }
 
 
@@ -42,7 +42,7 @@ class ReviewItem extends React.Component {
 
 
   render() {
-
+  
     // if (this.props.users !== this.props.currentUser.id) return null;
 
     
@@ -60,7 +60,7 @@ class ReviewItem extends React.Component {
         {this.state.editing ? <EditReviewForm toggleEdit={this.toggleEdit} review={this.props.review} updateReview={this.props.updateReview} errors={this.props.errors} removeReviewErrors={this.props.removeReviewErrors} /> :
           <div className="review">
             <div className="review-details">
-              <h2>{reviewer} {this.props.review.reviewer_id === this.props.currentUser.id ? buttons : null}</h2>
+              <h2>{reviewer} {(!this.props.currentUser) || (this.props.review.reviewer_id !== this.props.currentUser.id) ? null : buttons}</h2>
               <div className="user-rating">
                 {this.populateStars()}
               </div>

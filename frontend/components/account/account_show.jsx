@@ -20,6 +20,7 @@ class accountPage extends React.Component {
     this.renderProfile = this.renderProfile.bind(this);
     this.renderHistory = this.renderHistory.bind(this);
     this.renderAddress = this.renderAddress.bind(this);
+    this.deleteUser = this.deleteUser.bind(this);
   }
 
   componentDidMount() {
@@ -92,10 +93,18 @@ class accountPage extends React.Component {
     })
   }
 
+  deleteUser() {
+    this.props.deleteUser(this.props.currentUser.id)
+  }
+
   render() {
     const editButton = <div id="edit-profile-button" >
       <button onClick={this.props.openModal}>Edit Info</button>
     </div >
+    const deleteButton = <div id="delete-profile-button" >
+      <button onClick={this.deleteUser}>Delete User</button>
+    </div >
+
     if (!this.props.currentUser) {
       return 'loading...'
     }
@@ -121,7 +130,7 @@ class accountPage extends React.Component {
         <div className="accounts-container">
           <AccountRender
             editButton={editButton}
-            deleteUser={this.props.deleteUser}
+            deleteUser={deleteButton}
             currentUser={this.props.currentUser}
             renderType={this.state.renderType}
           />

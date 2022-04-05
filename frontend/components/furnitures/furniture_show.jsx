@@ -129,8 +129,8 @@ class FurnitureShow extends React.Component {
         </div>
 
         <div className="additional-info-container">
-          <div className="temp-div"></div>
-          {/* <img src={furniture.photoUrls.last} alt=""/> */}
+          {/* <div className="temp-div"></div> */}
+          <img src={furniture.photoUrls[furniture.photoUrls.length-1]} alt=""/>
           <div className='extra-details'>
             <h2>Dimensions: </h2>
             <p className='dimensions'>{furniture.dimension}</p>
@@ -145,7 +145,7 @@ class FurnitureShow extends React.Component {
 
           {!this.state.createReview ?
             <div className="review-container">
-              <h1>Reviews</h1>
+              <h1>Reviews:</h1>
               <ul>
                 {
                   Object.values(this.props.reviews).map((review, i) => {
