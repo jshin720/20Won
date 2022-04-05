@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { deleteOrder } from "../../util/order_api_util";
 import * as HiIcon from 'react-icons/hi';
 
