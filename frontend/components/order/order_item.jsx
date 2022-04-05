@@ -44,21 +44,21 @@ class OrderItem extends React.Component {
   render() {
     console.log("order-item-render", this.state)
     return (
-      <div className="quantity-container">
-        <p className="furniture-price"> Price: $ {this.state.price * this.state.quantity}.00 </p>
-        <div className="buttons-container">
-          <div className="quantity-button-container">
-            <button className="quantity-button" onClick={this.subtractQuantity}>
+      <div id="quantity-container">
+        <p id="furniture-price"> Price: $ {this.state.price * this.state.quantity}.00 </p>
+        <div id="buttons-container">
+          <div id="quantity-button-container">
+            <button id="quantity-button" onClick={this.subtractQuantity}>
               <HiIcon.HiOutlineMinus />
             </button>
-            <p className="furniture-quantity"> Qty: {this.state.quantity}</p>
-            <button className="quantity-button" onClick={this.addQuantity}>
+            <p id="quantity-number"> Qty: {this.state.quantity}</p>
+            <button id="quantity-button" onClick={this.addQuantity}>
               <HiIcon.HiOutlinePlus />
             </button>
           </div>
-          <button className="remove-item" onClick={() => this.props.deleteOrder(this.state.id)}>Remove</button>
+          <button id="remove-item" onClick={() => this.props.deleteOrder(this.state.id)}>Remove</button>
         </div>
-        <p className="shipping-info"> Shipping:
+        <p id="shipping-info"> Shipping:
           This product is made to order. Estimated delivery: 14-16 weeks.
         </p>
       </div>

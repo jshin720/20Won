@@ -36,21 +36,19 @@ class OrderShow extends React.Component {
 
     console.log("orders", pennies)
     return (pennies.map((singleFurniture, i) => (
-      <div key={i} className="order-item" >
-        <div className="order-furnitures-details" >
+      <div key={i} id="order-item" >
+        <div id="order-furnitures-details" >
 
           <img src={this.props.furnitures[singleFurniture.furniture_id].photoUrls[1]} />
-          <div className="info-order-container">
-            <p className="furniture-name"> {singleFurniture.name} </p>
-            <p className="furniture-color"> Color: {singleFurniture.color} </p>
-            <p className="furniture-category"> Category: {singleFurniture.category} </p>
-
+          <div id="info-order-container">
+            <p id="furniture-name"> {singleFurniture.name} </p>
+            <p id="furniture-color"> Color: {singleFurniture.color} </p>
+            <p id="furniture-category"> Category: {singleFurniture.category} </p>
             <OrderItem
               order={singleFurniture}
               updateOrder={this.props.updateOrder}
               deleteOrder={this.props.deleteOrder}
             />
-            
           </div>
 
         </div>
@@ -74,32 +72,31 @@ class OrderShow extends React.Component {
     ))
     //  console.log('order total', total)
     return (
-      <div className="orders-container">
-        <h1 className="order-title">Cart</h1>
+      <div id="orders-container">
+        <h1 id="order-title">Cart</h1>
 
         {Object.values(this.props.orders).length < 1 ?
-          <h1 className="empty-order">
+          <h1 id="empty-order">
             Looks like your shopping cart is empty at the moment.
           </h1>
           :
           <div>
             {this.orderItems()}
             
-            <div className="total-amount-container">
-              <p className="subtotal">Subtotal: </p>
-              <p className="subtotal-price">$ {total}.00 </p>
+            <div id="total-amount-container">
+              <p id="subtotal">Subtotal: </p>
+              <p id="subtotal-price">$ {total}.00 </p>
             </div>
-              <p className="shipping-notice">Shipping, taxes and discounts calculated at checkout. </p>
+              <p id="shipping-notice">Shipping, taxes and discounts calculated at checkout. </p>
           </div>
         }
-        <div className="order-furniture-buttons" >
-          <button className="continue-shopping-button" onClick={() => this.handleContinueShopping()}>Continue Shopping</button>
-          <button className="checkout-button" onClick={() => this.handleCheckOut()}>Proceed to Checkout</button>
+        <div id="order-furniture-buttons" >
+          <button id="continue-shopping-button" onClick={() => this.handleContinueShopping()}>Continue Shopping</button>
+          <button id="checkout-button" onClick={() => this.handleCheckOut()}>Proceed to Checkout</button>
         </div>
       </div>
     )
   }
 }
-
 
 export default withRouter(OrderShow);

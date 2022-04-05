@@ -45,8 +45,8 @@ class FurnitureIndex extends React.Component {
       return (
         <div className="search-result">
           <h1 className="result-number"> {names.length} Search Results </h1>
-          <div className="furniture-index-container" > 
-            <ul className="furniture-ul-container-ul">
+          <div className="search-result-index-container" > 
+            <ul className="search-result-ul-container ">
             {names.map(name => (
               <FurnitureIndexItem
                 furniture={name}
@@ -62,8 +62,8 @@ class FurnitureIndex extends React.Component {
       return (
         <div className="search-result">
           <h1 className="result-number"> {colors.length} Search Results </h1>
-          <div className="furniture-index-container" >
-            <ul className="furniture-ul-container-ul">
+          <div className="search-result-index-container" >
+            <ul className="search-result-ul-container ">
             {colors.map(color => (
               <FurnitureIndexItem
                 furniture={color}
@@ -80,8 +80,8 @@ class FurnitureIndex extends React.Component {
       return (
         <div className="search-result-container">
           <h1 className="result-number"> {keywordFilter.length} Search Results </h1>
-          <div className="furniture-index-container" >
-            <ul className="furniture-ul-container-ul">
+          <div className="search-result-index-container" >
+            <ul className="search-result-ul-container ">
             {keywordFilter.map(newKeyword => (
               <FurnitureIndexItem
                 furniture={newKeyword}
@@ -233,7 +233,7 @@ class FurnitureIndex extends React.Component {
           <div className="empty-space">
           </div>
           <div className="furniture-index-container" >
-            <ul className="furniture-ul-container-ul">
+            <ul className="furniture-shopall-ul-container">
               {
                 this.props.furnitures.map(furniture => (
                   <FurnitureIndexItem
