@@ -29,7 +29,7 @@ function AccountRender(props) {
             {props.editButton}
             <button
               className='user-delete-button'
-              onClick={() => props.deleteUser(props.currentUser)}
+              onClick={() => props.deleteUser(props.currentUser.id)}
             >Delete</button>
           </div>
       </div >
