@@ -96,7 +96,7 @@ class FurnitureIndex extends React.Component {
     } else {
       return (
         <h1 className="result-number">
-          No Search Results
+          No Search Results for "{keyword}"
         </h1>
       )
     }
